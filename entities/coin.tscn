@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcdp7635yyomn"]
+
+[ext_resource type="Script" uid="uid://bqpnort7k6hd7" path="res://scripts/coin.gd" id="1_a182a"]
+[ext_resource type="Texture2D" uid="uid://dejgptlc0tcqh" path="res://icon.svg" id="1_cg25x"]
+
+[sub_resource type="Shader" id="Shader_e0yd8"]
+code = "shader_type spatial;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the material.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a182a"]
+render_priority = 0
+shader = SubResource("Shader_e0yd8")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cw8rb"]
+size = Vector2(63, 64)
+
+[node name="coin" type="Node2D"]
+script = ExtResource("1_a182a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_a182a")
+scale = Vector2(0.489688, 0.5)
+texture = ExtResource("1_cg25x")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_cw8rb")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

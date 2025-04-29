@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsqkdqqv7tfur"]
+
+[ext_resource type="Script" uid="uid://e3oqhxu44v54" path="res://scripts/area_voidout.gd" id="1_mgsts"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_nkend"]
+b = Vector2(100, 0)
+
+[node name="area_voidout" type="Node2D"]
+script = ExtResource("1_mgsts")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("SegmentShape2D_nkend")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
