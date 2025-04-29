@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dr6wjnkmdu0nk"]
 
 [ext_resource type="Script" uid="uid://b28ll6y3ja2d1" path="res://scripts/coin_ui.gd" id="1_rjbf3"]
-[ext_resource type="Texture2D" uid="uid://dejgptlc0tcqh" path="res://icon.svg" id="2_nhnys"]
+[ext_resource type="Texture2D" uid="uid://dejgptlc0tcqh" path="res://sprites/icon.svg" id="2_nhnys"]
 
 [node name="coin_ui" type="Control"]
 layout_mode = 3

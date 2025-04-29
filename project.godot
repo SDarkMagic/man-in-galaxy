@@ -13,7 +13,7 @@ config_version=5
 config/name="man in galaxy"
 run/main_scene="uid://oapbs8hbk3yx"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://sprites/icon.svg"
 
 [autoload]
 
@@ -51,3 +51,12 @@ jump={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":11,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemy"
+2d_physics/layer_3="Projectile"
+2d_physics/layer_4="Hazard"
+2d_physics/layer_5="Pickup"
+2d_physics/layer_6="World"
