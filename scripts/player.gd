@@ -35,5 +35,5 @@ func on_event_player_damaged(damage: int):
 	player_current_health -= damage
 	EventController.emit_signal("player_health_updated", player_current_health)
 	if (player_current_health <= 0):
-		get_tree().reload_current_scene()
+		#get_tree().reload_current_scene()
 		pass # Kill player, trigger game over
