@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bcdp7635yyomn"]
 
 [ext_resource type="Script" uid="uid://bqpnort7k6hd7" path="res://scripts/coin.gd" id="1_a182a"]
-[ext_resource type="Texture2D" uid="uid://dejgptlc0tcqh" path="res://sprites/icon.svg" id="1_cg25x"]
+[ext_resource type="Texture2D" uid="uid://b7m1noxvqjdv0" path="res://sprites/raw/Sprites/Euro.png" id="2_a182a"]
 
 [sub_resource type="Shader" id="Shader_e0yd8"]
 code = "shader_type spatial;
@@ -32,8 +32,8 @@ script = ExtResource("1_a182a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_a182a")
-scale = Vector2(0.489688, 0.5)
-texture = ExtResource("1_cg25x")
+scale = Vector2(0.0629845, 0.0637581)
+texture = ExtResource("2_a182a")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 16

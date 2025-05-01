@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ds000xgkjyli1"]
 
 [ext_resource type="Script" uid="uid://hibfp7ufrfac" path="res://scripts/player.gd" id="1_b0kkn"]
-[ext_resource type="Texture2D" uid="uid://dejgptlc0tcqh" path="res://sprites/icon.svg" id="1_merdl"]
+[ext_resource type="Texture2D" uid="uid://bardoetm4gj0w" path="res://sprites/raw/Sprites/Lard/Idle.png" id="2_b0kkn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0kkn"]
 size = Vector2(82, 145)
@@ -13,9 +13,9 @@ JUMP_FORCE = 50.0
 mass = 5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -72.5)
-scale = Vector2(0.640625, 1.13281)
-texture = ExtResource("1_merdl")
+position = Vector2(4.13, -77.74)
+scale = Vector2(0.156913, 0.163)
+texture = ExtResource("2_b0kkn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -72.5)

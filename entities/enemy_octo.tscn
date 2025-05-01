@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://crtofrupj3d8x"]
 
 [ext_resource type="Script" uid="uid://brogmjvclu3g" path="res://scripts/enemy_octo.gd" id="1_0eqwd"]
-[ext_resource type="Texture2D" uid="uid://yly7isk8niea" path="res://sprites/octo.png" id="1_dxyly"]
+[ext_resource type="Texture2D" uid="uid://cq8cldnwd70y6" path="res://sprites/raw/Sprites/Enemies/Budge.png" id="2_0eqwd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0eqwd"]
 radius = 18.3848
@@ -17,7 +17,7 @@ script = ExtResource("1_0eqwd")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -33)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_dxyly")
+texture = ExtResource("2_0eqwd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -41)
