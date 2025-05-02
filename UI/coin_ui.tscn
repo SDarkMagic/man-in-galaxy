@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dr6wjnkmdu0nk"]
 
 [ext_resource type="Script" uid="uid://b28ll6y3ja2d1" path="res://scripts/coin_ui.gd" id="1_rjbf3"]
-[ext_resource type="Texture2D" uid="uid://dejgptlc0tcqh" path="res://sprites/icon.svg" id="2_nhnys"]
+[ext_resource type="Texture2D" uid="uid://colsg588dy4s6" path="res://UI/icons/euro.png" id="2_rjbf3"]
 
 [node name="coin_ui" type="Control"]
 layout_mode = 3
@@ -14,17 +14,16 @@ script = ExtResource("1_rjbf3")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-texture = ExtResource("2_nhnys")
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_rjbf3")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 20.0
-offset_top = -8.0
-offset_right = 33.0
-offset_bottom = 23.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 22
+offset_left = 45.0
+offset_right = 58.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
 text = "0"

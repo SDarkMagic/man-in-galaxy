@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://q1mocr11vwj4"]
+
+[ext_resource type="Script" uid="uid://be51bhmtnue8k" path="res://scripts/debug_ui.gd" id="1_fre34"]
+
+[node name="debug_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_fre34")
+
+[node name="pos_x" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0.0"
+
+[node name="pos_y" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0.0"

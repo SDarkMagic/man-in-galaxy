@@ -5,3 +5,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		GameManager.coin_collected(value)
 		self.queue_free()
+
+func _ready() -> void:
+	$Sprite2D/AnimationPlayer.play("spin")

@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://de8o7ngajvk0j"]
+
+[ext_resource type="Texture2D" uid="uid://beneg5m2tmlox" path="res://sprites/raw/Sprites/Lard/Crouch.png" id="1_n1dw1"]
+[ext_resource type="Texture2D" uid="uid://hwtfjyohg6de" path="res://sprites/raw/Sprites/Lard/Death 1.png" id="2_b3w4v"]
+[ext_resource type="Texture2D" uid="uid://cnbyp6oqk0th4" path="res://sprites/raw/Sprites/Lard/Death 2.png" id="3_mgxdq"]
+[ext_resource type="Texture2D" uid="uid://drgg7mhamfarp" path="res://sprites/raw/Sprites/Lard/Death 3.png" id="4_17sud"]
+[ext_resource type="Texture2D" uid="uid://u6kh4l0keni8" path="res://sprites/raw/Sprites/Lard/headbutt.png" id="5_vovah"]
+[ext_resource type="Texture2D" uid="uid://bardoetm4gj0w" path="res://sprites/raw/Sprites/Lard/Idle.png" id="6_4rcuq"]
+[ext_resource type="Texture2D" uid="uid://cud77thjo6dci" path="res://sprites/raw/Sprites/Lard/jump.png" id="7_c058y"]
+[ext_resource type="Texture2D" uid="uid://baqti4x23irmh" path="res://sprites/raw/Sprites/Lard/walk 1.png" id="8_0sqig"]
+[ext_resource type="Texture2D" uid="uid://bv4ofyq6psh3" path="res://sprites/raw/Sprites/Lard/walk 2.png" id="9_xieh7"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n1dw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_b3w4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mgxdq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_17sud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vovah")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4rcuq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c058y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0sqig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xieh7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
