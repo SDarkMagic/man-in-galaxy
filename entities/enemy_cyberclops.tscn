@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdk5aky287svx"]
+
+[ext_resource type="Texture2D" uid="uid://tqomv6iwcfg5" path="res://sprites/Cyberclops.png" id="1_2ng52"]
+[ext_resource type="Script" uid="uid://cwmhthx1i754m" path="res://scripts/enemy_cyberclops.gd" id="1_puv64"]
+
+[sub_resource type="Animation" id="Animation_trdak"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kuqay"]
+resource_name = "dead"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7r742"]
+resource_name = "default"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fsx8l"]
+_data = {
+&"RESET": SubResource("Animation_trdak"),
+&"dead": SubResource("Animation_kuqay"),
+&"default": SubResource("Animation_7r742")
+}
+
+[node name="EnemyCyberclops" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 41
+script = ExtResource("1_puv64")
+mass = 3020.0
+width = 150.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, -60)
+scale = Vector2(0.1685, 0.1685)
+texture = ExtResource("1_2ng52")
+hframes = 2
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_fsx8l")
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-77, -79, -16, -119, 31, -119, 52, -113, 76, -101, 76, -90, 75, -76, 78, -60, 77, -53, 72, -46, 60, -41, 45, -38, 36, -35, 26, -34, 21, -14, 17, -7, 6, -3, -2, -5, -15, -15, -19, -19, -46, -23, -52, -18, -65, -20, -72, -28, -76, -30, -77, -52)

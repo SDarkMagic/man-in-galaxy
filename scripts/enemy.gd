@@ -1,16 +1,17 @@
-class_name Octo extends CharacterBody2D
+class_name Enemy extends CharacterBody2D
 
 @export var mass : float = 50.0
-@export var lateral_move_speed = 300.0
+@export var width : float = 20.0
 
-func move(vel: Vector2, delta: float) -> Vector2:
-	var player_position : Vector2 = $"../Player".global_position
-	self.global_position.x - player_position.x
-	vel.x = lateral_move_speed
-	if self.global_position.x - player_position.x > 0:
-		vel.x *= -1
-	return vel
-
+func apply_gravity(vel: Vector2, delta: float) -> Vector2:
+	# Add the gravity, capping at a terminal velocity
+	if not is_on_floor():
+		vel.y += (mass * get_gravity().y) * delta
+		var terminal_velocity : float = sqrt((2 * mass * get_gravity().y) / (1 * 0.0001 * width))
+		if vel.y > terminal_velocity:
+			vel.y = terminal_velocity
+	return vel	
+			
 func _physics_process(delta: float) -> void:
 	# Add the gravity, capping at a terminal velocity
 	if not is_on_floor():
@@ -20,7 +21,6 @@ func _physics_process(delta: float) -> void:
 		if velocity.y > terminal_velocity:
 			velocity.y = terminal_velocity
 	# Do necessary AI calcs here for enemy
-	velocity = move(velocity, delta)
 	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)

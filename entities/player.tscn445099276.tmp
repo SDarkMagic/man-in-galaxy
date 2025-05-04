@@ -1,0 +1,154 @@
+[gd_scene load_steps=12 format=3 uid="uid://ds000xgkjyli1"]
+
+[ext_resource type="Script" uid="uid://hibfp7ufrfac" path="res://scripts/player.gd" id="1_b0kkn"]
+[ext_resource type="Texture2D" uid="uid://tbt2xnfnn4nn" path="res://sprites/Lard.png" id="2_e4p34"]
+[ext_resource type="Texture2D" uid="uid://7uxepoypkw62" path="res://sprites/raw/Backgrounds/World 2 Background.png" id="3_e4p34"]
+
+[sub_resource type="Animation" id="Animation_rfe5m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_b0kkn"]
+resource_name = "idle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qsoyl"]
+resource_name = "jump_left"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+
+[sub_resource type="Animation" id="Animation_6nm46"]
+resource_name = "jump_right"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_qly61"]
+resource_name = "walk_left"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [11, 12]
+}
+
+[sub_resource type="Animation" id="Animation_e4p34"]
+resource_name = "walk_right"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qly61"]
+_data = {
+&"RESET": SubResource("Animation_rfe5m"),
+&"idle": SubResource("Animation_b0kkn"),
+&"jump_left": SubResource("Animation_qsoyl"),
+&"jump_right": SubResource("Animation_6nm46"),
+&"walk_left": SubResource("Animation_qly61"),
+&"walk_right": SubResource("Animation_e4p34")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0kkn"]
+size = Vector2(82, 134)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 62
+script = ExtResource("1_b0kkn")
+JUMP_HEIGHT_MULTIPLIER = 0.15
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -75.07)
+scale = Vector2(0.15, 0.156)
+texture = ExtResource("2_e4p34")
+hframes = 9
+vframes = 2
+
+[node name="PlayerAnimation" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_qly61")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -67)
+shape = SubResource("RectangleShape2D_b0kkn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = -1
+position = Vector2(0, -400)
+zoom = Vector2(0.5, 0.5)
+drag_vertical_enabled = true
+drag_left_margin = 1.0
+drag_top_margin = 1.0
+drag_right_margin = 1.0
+drag_bottom_margin = 0.24
+editor_draw_drag_margin = true
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D"]
+offset_left = -1214.0
+offset_top = -775.0
+offset_right = 1259.0
+offset_bottom = 616.0
+texture = ExtResource("3_e4p34")

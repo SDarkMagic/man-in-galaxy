@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://oapbs8hbk3yx"]
+[gd_scene load_steps=11 format=3 uid="uid://oapbs8hbk3yx"]
 
 [ext_resource type="PackedScene" uid="uid://ds000xgkjyli1" path="res://entities/player.tscn" id="1_ln2x5"]
 [ext_resource type="PackedScene" uid="uid://bcdp7635yyomn" path="res://entities/coin.tscn" id="2_6or15"]
+[ext_resource type="PackedScene" uid="uid://bdk5aky287svx" path="res://entities/enemy_cyberclops.tscn" id="2_d1lkt"]
 [ext_resource type="PackedScene" uid="uid://dr6wjnkmdu0nk" path="res://UI/coin_ui.tscn" id="3_8d50e"]
 [ext_resource type="PackedScene" uid="uid://c1vwgu8ac0vyo" path="res://UI/health_ui.tscn" id="4_iwus7"]
 [ext_resource type="PackedScene" uid="uid://dsqkdqqv7tfur" path="res://entities/area_voidout.tscn" id="5_ciaof"]
 [ext_resource type="PackedScene" uid="uid://q1mocr11vwj4" path="res://UI/debug_ui.tscn" id="5_swri5"]
-[ext_resource type="PackedScene" uid="uid://crtofrupj3d8x" path="res://entities/enemy_octo.tscn" id="6_ahmjg"]
+[ext_resource type="PackedScene" uid="uid://crtofrupj3d8x" path="res://entities/enemy_budge.tscn" id="6_ahmjg"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ln2x5"]
 size = Vector2(1500, 20)
@@ -20,7 +21,8 @@ size = Vector2(1500, 20)
 position = Vector2(535, 266)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(535, 367)
+position = Vector2(560.735, 367)
+scale = Vector2(4.11, 1)
 collision_layer = 32
 collision_mask = 31
 
@@ -29,6 +31,7 @@ modulate = Color(0.310617, 0.310617, 0.310617, 1)
 mesh = SubResource("QuadMesh_ln2x5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(163.325, 8)
 shape = SubResource("RectangleShape2D_6or15")
 
 [node name="coin" parent="." instance=ExtResource("2_6or15")]
@@ -50,4 +53,7 @@ position = Vector2(-731, 381)
 scale = Vector2(50, 1)
 
 [node name="enemy_octo" parent="." instance=ExtResource("6_ahmjg")]
-position = Vector2(159, 336)
+position = Vector2(175, 226)
+
+[node name="EnemyCyberclops" parent="." instance=ExtResource("2_d1lkt")]
+position = Vector2(3992, 356)
