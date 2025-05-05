@@ -3,29 +3,41 @@ class_name Player extends CharacterBody2D
 @export var SPEED = 300.0
 @export var JUMP_HEIGHT_MULTIPLIER : float = 1.0 
 @export var mass  = 90.7
+@export var max_helmet_health : int = 7
+@export var context_action_active : bool = false
 const PLAYER_TOTAL_HEALTH : int = 3
 var player_current_health : int = PLAYER_TOTAL_HEALTH
+@onready var attacks_used : int = 0
 @onready var look_direction = Vector2.RIGHT
-@export var context_action_active : bool = false
 
 func animate_player():
 	if context_action_active == true:
 		return
-	var animator = $Sprite2D/PlayerAnimation
+	var animator = $Lard/PlayerAnimation
 	var player_direction_x : String = "_left" if look_direction == Vector2.LEFT else "_right"
 	var movement_type : String = "walk" if is_on_floor() else "jump"
 	if is_on_floor() && velocity.x == 0:
-		movement_type = ""
-		player_direction_x = "idle"
+		movement_type = "idle"
+	var crouching = Input.is_action_pressed("crouch")
+	if crouching:
+		movement_type = "crouch"
 	animator.play(movement_type + player_direction_x)
+
+func use_attack():
+	context_action_active = true
+	if look_direction == Vector2.LEFT:
+		$Lard/PlayerAnimation.play("attack_left")
+	else:
+		$Lard/PlayerAnimation.play("attack_right")
+	attacks_used += 1
+	$Helmet/HelmetAnimation.play("damage_" + str(attacks_used))
+	if attacks_used >= max_helmet_health:
+		EventController.emit_signal("damage_player", 3)
+		
 
 func handle_input(delta: float):
 	if Input.is_action_just_pressed("attack"):
-		context_action_active = true
-		if look_direction == Vector2.LEFT:
-			$Sprite2D/PlayerAnimation.play("attack_left")
-		else:
-			$Sprite2D/PlayerAnimation.play("attack_right")
+		use_attack()
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		var weight : float = mass * get_gravity().y
@@ -45,10 +57,12 @@ func handle_input(delta: float):
 		velocity.x = direction_x * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
 
 func _ready() -> void:
 	EventController.connect("damage_player", on_event_player_damaged)
-	$Sprite2D/PlayerAnimation.play("idle")
+	$Lard/PlayerAnimation.play("RESET")
+	$Helmet/HelmetAnimation.play("RESET")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity, capping at a terminal velocity

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdk5aky287svx"]
+[gd_scene load_steps=8 format=3 uid="uid://bdk5aky287svx"]
 
 [ext_resource type="Texture2D" uid="uid://tqomv6iwcfg5" path="res://sprites/Cyberclops.png" id="1_2ng52"]
 [ext_resource type="Script" uid="uid://cwmhthx1i754m" path="res://scripts/enemy_cyberclops.gd" id="1_puv64"]
@@ -29,10 +29,22 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Explosion:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_kuqay"]
 resource_name = "dead"
-length = 0.1
+length = 0.75
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -56,6 +68,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Explosion:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.25, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_7r742"]
@@ -81,9 +105,12 @@ _data = {
 &"default": SubResource("Animation_7r742")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_puv64"]
+radius = 100.02
+
 [node name="EnemyCyberclops" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 41
+collision_mask = 43
 script = ExtResource("1_puv64")
 mass = 3020.0
 width = 150.0
@@ -101,3 +128,11 @@ libraries = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-77, -79, -16, -119, 31, -119, 52, -113, 76, -101, 76, -90, 75, -76, 78, -60, 77, -53, 72, -46, 60, -41, 45, -38, 36, -35, 26, -34, 21, -14, 17, -7, 6, -3, -2, -5, -15, -15, -19, -19, -46, -23, -52, -18, -65, -20, -72, -28, -76, -30, -77, -52)
+
+[node name="Explosion" type="Area2D" parent="."]
+
+[node name="ExplosionCollider" type="CollisionShape2D" parent="Explosion"]
+position = Vector2(1, -26)
+shape = SubResource("CircleShape2D_puv64")
+
+[connection signal="body_entered" from="Explosion" to="." method="_on_explosion_body_entered"]

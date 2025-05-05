@@ -5,7 +5,8 @@
 [node name="debug_ui" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
+offset_left = 50.0
+offset_right = 90.0
 offset_bottom = 40.0
 script = ExtResource("1_fre34")
 
@@ -17,6 +18,7 @@ text = "0.0"
 
 [node name="pos_y" type="Label" parent="."]
 layout_mode = 0
+offset_top = 16.685
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 39.685
 text = "0.0"

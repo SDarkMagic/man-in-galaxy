@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" uid="uid://e3oqhxu44v54" path="res://scripts/area_voidout.gd" id="1_mgsts"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_nkend"]
-b = Vector2(100, 0)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mgsts"]
 
 [node name="area_voidout" type="Node2D"]
 script = ExtResource("1_mgsts")
@@ -13,6 +12,6 @@ collision_layer = 8
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("SegmentShape2D_nkend")
+shape = SubResource("WorldBoundaryShape2D_mgsts")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

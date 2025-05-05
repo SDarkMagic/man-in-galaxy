@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://ca45cpse0xc3y"]
+
+[ext_resource type="Script" uid="uid://dbbghj67dwnp6" path="res://enemy_gumber.gd" id="1_qk3g1"]
+[ext_resource type="Texture2D" uid="uid://blghonaavp80d" path="res://sprites/Gumber.png" id="2_4apq3"]
+[ext_resource type="Shape2D" uid="uid://b5he56fyekiov" path="res://collision/enemy_gumber_dead.tres" id="3_nw1p0"]
+[ext_resource type="Shape2D" uid="uid://y3ek0rcjsptu" path="res://collision/enemy_gumber_default.tres" id="4_l2462"]
+
+[sub_resource type="Animation" id="Animation_ctjr5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CollisionShape2D:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_l2462")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4, -48)]
+}
+
+[sub_resource type="Animation" id="Animation_loequ"]
+resource_name = "dead"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CollisionShape2D:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_nw1p0")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4.96, -23.135)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7net8"]
+_data = {
+&"RESET": SubResource("Animation_ctjr5"),
+&"dead": SubResource("Animation_loequ")
+}
+
+[node name="EnemyGumber" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 43
+script = ExtResource("1_qk3g1")
+width = 110.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-9.53674e-07, -47)
+scale = Vector2(0.107, 0.0966047)
+texture = ExtResource("2_4apq3")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_7net8")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -48)
+shape = ExtResource("4_l2462")

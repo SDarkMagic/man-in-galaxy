@@ -8,4 +8,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$pos_x.text = str(position.x)
+	$pos_x.text = str($"../../Player".global_position.x)
+	$pos_y.text = str($"../../Player".global_position.y)

@@ -1,6 +1,6 @@
 class_name Budge extends Enemy
 
-@export var lateral_move_speed = 300.0
+@export var lateral_move_speed = 150.0
 
 func move(vel: Vector2, delta: float) -> Vector2:
 	var player_position : Vector2 = $"../Player".global_position
@@ -25,7 +25,8 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func kill():
-	self.queue_free()
+	$Sprite2D/AnimationPlayer.play("dead")
+	#self.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
