@@ -42,9 +42,6 @@ func handle_input(delta: float):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		var weight : float = mass * get_gravity().y
 		var desired_height : float = ($CollisionShape2D.shape.size.y * JUMP_HEIGHT_MULTIPLIER) # Calculate desired jump height based off of the player collider's height
-		print(desired_height) 
-		print(delta)
-		print(weight)
 		velocity.y += -1 * (desired_height * weight) * delta
 
 	# Get the input direction and handle the movement/deceleration.

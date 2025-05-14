@@ -6,6 +6,7 @@ class_name Gumber extends Enemy
 func move(vel: Vector2, delta: float) -> Vector2:
 	vel.x = 0
 	if is_dead == true:
+		vel.y = -1 # Barely move up to cause collision with anything on the top to register on this entity
 		return vel
 	var player_position : Vector2 = $"../Player".global_position
 	self.global_position.x - player_position.x

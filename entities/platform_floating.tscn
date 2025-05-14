@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://n3180dfgrorw"]
+
+[ext_resource type="Texture2D" uid="uid://lo38iulkksuq" path="res://sprites/FloatingPlatform.png" id="1_8w2cm"]
+[ext_resource type="Script" uid="uid://cpx4gytpi1eqg" path="res://scripts/platform_floating.gd" id="1_tmgkw"]
+[ext_resource type="Texture2D" uid="uid://b630rc5jaqlqy" path="res://sprites/FloatingPlatform_ptcl.png" id="2_fdxw6"]
+
+[sub_resource type="Curve" id="Curve_mtrjo"]
+_data = [Vector2(0, 0), 0.0, 26.9587, 0, 0, Vector2(0.0870968, 1), 1.34758, 0.0689549, 0, 0, Vector2(1, 0), -0.205225, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_hsx3a"]
+curve = SubResource("Curve_mtrjo")
+
+[sub_resource type="Curve" id="Curve_tmgkw"]
+_limits = [0.704161, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, -0.0221476, 0, 0, Vector2(1, 0.704161), -0.239583, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mtrjo"]
+curve = SubResource("Curve_tmgkw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tmgkw"]
+particle_flag_disable_z = true
+inherit_velocity_ratio = 0.5
+gravity = Vector3(0, 50, 0)
+scale_curve = SubResource("CurveTexture_mtrjo")
+alpha_curve = SubResource("CurveTexture_hsx3a")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdxw6"]
+size = Vector2(266, 139)
+
+[node name="platform_floating" type="AnimatableBody2D"]
+collision_layer = 32
+collision_mask = 23
+script = ExtResource("1_tmgkw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.215686)
+position = Vector2(133, 70)
+scale = Vector2(0.270455, 0.270455)
+texture = ExtResource("1_8w2cm")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Sprite2D"]
+position = Vector2(0, 298.62)
+amount = 3
+texture = ExtResource("2_fdxw6")
+lifetime = 1.75
+process_material = SubResource("ParticleProcessMaterial_tmgkw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(133, 69.5)
+shape = SubResource("RectangleShape2D_fdxw6")

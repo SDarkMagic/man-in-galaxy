@@ -658,6 +658,7 @@ radius = 39.0
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 62
 script = ExtResource("1_b0kkn")
+SPEED = 450.0
 JUMP_HEIGHT_MULTIPLIER = 0.15
 
 [node name="Lard" type="Sprite2D" parent="."]
