@@ -3,3 +3,4 @@ extends Node
 signal coin_collected(value: int)
 signal damage_player(damage: int)
 signal player_health_updated(health: int)
+signal reload_scene()

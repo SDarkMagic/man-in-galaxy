@@ -4,7 +4,6 @@ class_name Budge extends Enemy
 
 func move(vel: Vector2, delta: float) -> Vector2:
 	var player_position : Vector2 = $"../Player".global_position
-	self.global_position.x - player_position.x
 	vel.x = lateral_move_speed
 	if self.global_position.x - player_position.x > 0:
 		vel.x *= -1

@@ -9,6 +9,7 @@ const PLAYER_TOTAL_HEALTH : int = 3
 var player_current_health : int = PLAYER_TOTAL_HEALTH
 @onready var attacks_used : int = 0
 @onready var look_direction = Vector2.RIGHT
+@onready var need_uncrouch = false
 
 func animate_player():
 	if context_action_active == true:
@@ -21,6 +22,11 @@ func animate_player():
 	var crouching = Input.is_action_pressed("crouch")
 	if crouching:
 		movement_type = "crouch"
+		need_uncrouch = true
+	elif need_uncrouch == true:
+		$Helmet.position.x = -4.0
+		$Helmet.position.y = -109.0
+		$Helmet.rotation = 0.0
 	animator.play(movement_type + player_direction_x)
 
 func use_attack():
@@ -48,8 +54,10 @@ func handle_input(delta: float):
 	var direction_x = Input.get_axis("move_left", "move_right")
 	if direction_x < 0:
 		look_direction = Vector2.LEFT
-	else:
+	elif direction_x > 0:
 		look_direction = Vector2.RIGHT
+	else:
+		pass # Do nothing if direction_x isn't changing
 	if direction_x:
 		velocity.x = direction_x * SPEED
 	else:
@@ -82,7 +90,7 @@ func on_event_player_damaged(damage: int):
 	player_current_health -= damage
 	EventController.emit_signal("player_health_updated", player_current_health)
 	if (player_current_health <= 0):
-		get_tree().reload_current_scene()
+		EventController.emit_signal("reload_scene")
 		pass # Kill player, trigger game over
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
