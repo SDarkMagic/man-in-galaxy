@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ca45cpse0xc3y"]
 
-[ext_resource type="Script" uid="uid://dbbghj67dwnp6" path="res://enemy_gumber.gd" id="1_qk3g1"]
+[ext_resource type="Script" uid="uid://dbbghj67dwnp6" path="res://scripts/enemy_gumber.gd" id="1_qk3g1"]
 [ext_resource type="Texture2D" uid="uid://blghonaavp80d" path="res://sprites/Gumber.png" id="2_4apq3"]
 [ext_resource type="Shape2D" uid="uid://b5he56fyekiov" path="res://collision/enemy_gumber_dead.tres" id="3_nw1p0"]
 [ext_resource type="Shape2D" uid="uid://y3ek0rcjsptu" path="res://collision/enemy_gumber_default.tres" id="4_l2462"]

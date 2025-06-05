@@ -658,10 +658,13 @@ radius = 39.0
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 62
 script = ExtResource("1_b0kkn")
-SPEED = 450.0
-JUMP_HEIGHT_MULTIPLIER = 0.15
+SPEED = 650.0
+jump_time_to_peak = 0.4
+jump_time_to_descent = 0.25
+jump_height = 500.0
 
 [node name="Lard" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(0, -75.07)
 scale = Vector2(0.15, 0.156)
 texture = ExtResource("2_e4p34")

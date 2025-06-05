@@ -12,6 +12,9 @@ func move(vel: Vector2, delta: float) -> Vector2:
 func _physics_process(delta: float) -> void:
 	# Do necessary AI calcs here for enemy
 	velocity = self.apply_gravity(velocity, delta)
+	if is_dead:
+		move_and_slide()
+		return
 	velocity = move(velocity, delta)
 	move_and_slide()
 	for i in get_slide_collision_count():
@@ -24,6 +27,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func kill():
+	is_dead = true
 	$Sprite2D/AnimationPlayer.play("dead")
 	#self.queue_free()
 

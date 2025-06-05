@@ -3,15 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://dcovjya7kiwv6" path="res://sprites/raw/Backgrounds/World 1 background.png" id="1_4tkup"]
 [ext_resource type="PackedScene" uid="uid://ds000xgkjyli1" path="res://entities/player.tscn" id="1_ln2x5"]
 [ext_resource type="PackedScene" uid="uid://bcdp7635yyomn" path="res://entities/coin.tscn" id="2_6or15"]
-[ext_resource type="PackedScene" uid="uid://bdk5aky287svx" path="res://entities/enemy_cyberclops.tscn" id="2_d1lkt"]
 [ext_resource type="PackedScene" uid="uid://dr6wjnkmdu0nk" path="res://UI/coin_ui.tscn" id="3_8d50e"]
 [ext_resource type="PackedScene" uid="uid://c1vwgu8ac0vyo" path="res://UI/health_ui.tscn" id="4_iwus7"]
 [ext_resource type="PackedScene" uid="uid://dsqkdqqv7tfur" path="res://entities/area_voidout.tscn" id="5_ciaof"]
 [ext_resource type="PackedScene" uid="uid://q1mocr11vwj4" path="res://UI/debug_ui.tscn" id="5_swri5"]
-[ext_resource type="PackedScene" uid="uid://crtofrupj3d8x" path="res://entities/enemy_budge.tscn" id="6_ahmjg"]
-[ext_resource type="PackedScene" uid="uid://ca45cpse0xc3y" path="res://entities/enemy_gumber.tscn" id="10_xsg4u"]
 [ext_resource type="TileSet" uid="uid://dgiblynq45t43" path="res://tiles/world.tres" id="11_jomtx"]
+[ext_resource type="PackedScene" uid="uid://byawg2rmhsql2" path="res://entities/enemy_phish.tscn" id="11_wnm7q"]
+[ext_resource type="PackedScene" uid="uid://bdk5aky287svx" path="res://entities/enemy_cyberclops.tscn" id="12_8puai"]
 [ext_resource type="PackedScene" uid="uid://n3180dfgrorw" path="res://entities/platform_floating.tscn" id="12_wnm7q"]
+[ext_resource type="PackedScene" uid="uid://dr5dbgcwuq7mm" path="res://entities/enemy_katrina.tscn" id="13_8puai"]
 
 [node name="DebugLevel" type="Node2D"]
 
@@ -38,12 +38,6 @@ offset_bottom = 70.0
 [node name="area_voidout" parent="." instance=ExtResource("5_ciaof")]
 position = Vector2(-60, 1088)
 
-[node name="enemy_octo" parent="." instance=ExtResource("6_ahmjg")]
-position = Vector2(175, 226)
-
-[node name="EnemyCyberclops" parent="." instance=ExtResource("2_d1lkt")]
-position = Vector2(3992, 356)
-
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -2
 offset = Vector2(131.86, 23.595)
@@ -57,12 +51,19 @@ offset_right = 1700.0
 offset_bottom = 1041.0
 texture = ExtResource("1_4tkup")
 
-[node name="EnemyGumber" parent="." instance=ExtResource("10_xsg4u")]
-position = Vector2(864, 246)
-
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAEAAAABAAAAAAABAAEAAAACAAAAAAACAAEAAAACAAAAAAADAAEAAAACAAAAAAAEAAEAAAACAAAAAAAFAAEAAAACAAAAAAD+/wEAAAAEAAAAAAD+/wIAAAAAAAAAAAD+/wMAAAAAAAAAAAD+/wQAAAAAAAAAAAD+/wUAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAABAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAAGAAAAAAABAAEAAAAGAAEAAAABAAIAAAAHAAAAAAACAAAAAAAIAAAAAAACAAAAAAAJAAAAAAACAAEAAAAKAAEAAAACAAEAAAAKAAIAAAACAAIAAAAJAAEAAAACAAIAAAALAAIAAAACAAAAAAAMAAIAAAACAAAAAAANAAIAAAACAAAAAAAOAAIAAAACAAAAAAAPAAIAAAACAAAAAAAQAAIAAAADAAAAAAAQAAMAAAAAAAAAAAAPAAMAAAAAAAAAAAAOAAMAAAAAAAAAAAANAAMAAAAAAAAAAAAMAAMAAAAAAAAAAAALAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAAJAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAJAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAQAAAAAAAAAAAALAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAAPAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAQAAUAAAAAAAAAAAAPAAUAAAAAAAAAAAAOAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAJAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAADAAQAAAAAAAAAAAACAAQAAAAAAAAAAAABAAQAAAAAAAAAAAAMAAAAAAAFAAAAAAANAAAAAAAGAAAAAAAOAAAAAAAGAAAAAAAPAAAAAAAHAAAAAAA=")
 tile_set = ExtResource("11_jomtx")
 
 [node name="platform_floating" parent="." instance=ExtResource("12_wnm7q")]
 position = Vector2(-251, 262)
+
+[node name="enemy_katrina" parent="." instance=ExtResource("13_8puai")]
+position = Vector2(2041, -5)
+
+[node name="Enemy_Phish" parent="." instance=ExtResource("11_wnm7q")]
+position = Vector2(1434, 184)
+right_travel_max = 300.0
+
+[node name="EnemyCyberclops" parent="." instance=ExtResource("12_8puai")]
+position = Vector2(3651, 486)

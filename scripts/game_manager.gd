@@ -2,6 +2,7 @@ extends Node
 
 var coins_collected : int = 0
 const PLAYER_TOTAL_HEALTH : int = 3
+const DEFAULT_GRAVITY: float  = 980.0
 var player_current_health : int = PLAYER_TOTAL_HEALTH
 
 func coin_collected(value: int):

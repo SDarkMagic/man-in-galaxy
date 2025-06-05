@@ -2,6 +2,8 @@ class_name Enemy extends CharacterBody2D
 
 @export var mass : float = 50.0
 @export var width : float = 20.0
+var is_dead : bool = false
+
 
 func apply_gravity(vel: Vector2, delta: float) -> Vector2:
 	# Add the gravity, capping at a terminal velocity
@@ -32,6 +34,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func kill():
+	is_dead = true
 	self.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

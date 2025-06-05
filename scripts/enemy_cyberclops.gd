@@ -9,6 +9,8 @@ func move(vel: Vector2, delta: float) -> Vector2:
 func _physics_process(delta: float) -> void:
 	velocity = self.apply_gravity(velocity, delta)
 	# Do necessary AI calcs here for enemy
+	if is_dead:
+		return
 	velocity = move(velocity, delta)
 	move_and_slide()
 	for i in get_slide_collision_count():
@@ -19,14 +21,15 @@ func _physics_process(delta: float) -> void:
 		var collider = collision.get_collider().name
 		if collider == "Player":
 			EventController.emit_signal("damage_player", 1)
+			
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
 func kill():
 	# Explode
+	is_dead = true
 	$Sprite2D/AnimationPlayer2.play("dead")
-	#self.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

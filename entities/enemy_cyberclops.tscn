@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdk5aky287svx"]
+[gd_scene load_steps=9 format=3 uid="uid://bdk5aky287svx"]
 
 [ext_resource type="Texture2D" uid="uid://tqomv6iwcfg5" path="res://sprites/Cyberclops.png" id="1_2ng52"]
 [ext_resource type="Script" uid="uid://cwmhthx1i754m" path="res://scripts/enemy_cyberclops.gd" id="1_puv64"]
+[ext_resource type="PackedScene" uid="uid://caa0y02m270qw" path="res://ptcl/sparks.tscn" id="3_oqk3x"]
 
 [sub_resource type="Animation" id="Animation_trdak"]
 length = 0.001
@@ -40,6 +41,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sparks:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_kuqay"]
@@ -80,6 +93,32 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.75),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sparks:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_7r742"]
@@ -125,6 +164,10 @@ hframes = 2
 libraries = {
 &"": SubResource("AnimationLibrary_fsx8l")
 }
+
+[node name="Sparks" parent="Sprite2D" instance=ExtResource("3_oqk3x")]
+position = Vector2(0, 110.33)
+scale = Vector2(2.75, 2.75)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-77, -79, -16, -119, 31, -119, 52, -113, 76, -101, 76, -90, 75, -76, 78, -60, 77, -53, 72, -46, 60, -41, 45, -38, 36, -35, 26, -34, 21, -14, 17, -7, 6, -3, -2, -5, -15, -15, -19, -19, -46, -23, -52, -18, -65, -20, -72, -28, -76, -30, -77, -52)

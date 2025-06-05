@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://pffo3nwq11ly"]
+
+[ext_resource type="PackedScene" uid="uid://caa0y02m270qw" path="res://ptcl/sparks.tscn" id="1_5rjd3"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_flkag"]
+noise_type = 5
+seed = 2
+frequency = 0.0043
+offset = Vector3(0, -69.57, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qr5a4"]
+width = 25
+height = 25
+invert = true
+noise = SubResource("FastNoiseLite_flkag")
+
+[sub_resource type="Curve" id="Curve_vqedg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.458064, 0.890117), -0.792181, -1.55579, 0, 0, Vector2(0.996774, 0), -0.365992, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ryg8y"]
+curve = SubResource("Curve_vqedg")
+
+[sub_resource type="Gradient" id="Gradient_oy4fb"]
+offsets = PackedFloat32Array(0, 0.767606)
+colors = PackedColorArray(0.603922, 0.603922, 0.603922, 0.337255, 1, 1, 1, 0.580392)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2maqy"]
+gradient = SubResource("Gradient_oy4fb")
+
+[sub_resource type="Curve" id="Curve_qalie"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.309677, 0.644993), 1.7151, 1.51394, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_oe5xv"]
+curve = SubResource("Curve_qalie")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iow00"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+gravity = Vector3(0, -77.88, 0)
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_oe5xv")
+color_ramp = SubResource("GradientTexture1D_2maqy")
+alpha_curve = SubResource("CurveTexture_ryg8y")
+hue_variation_min = -0.01
+hue_variation_max = 0.32
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+self_modulate = Color(0.791913, 0.319406, 0.178236, 1)
+amount = 10
+texture = SubResource("NoiseTexture2D_qr5a4")
+lifetime = 2.3
+speed_scale = 0.65
+explosiveness = 0.1
+process_material = SubResource("ParticleProcessMaterial_iow00")
+
+[node name="Sparks" parent="." instance=ExtResource("1_5rjd3")]
+emitting = false
+one_shot = true
