@@ -17,11 +17,16 @@ var player_current_health : int = PLAYER_TOTAL_HEALTH
 var jump_velocity : float = 0.1
 var jump_gravity : float = 0.1
 var fall_gravity : float = GameManager.DEFAULT_GRAVITY
+@onready var animator = $Lard/PlayerAnimation
+
+func _ready() -> void:
+	EventController.connect("damage_player", on_event_player_damaged)
+	$Lard/PlayerAnimation.play("RESET")
+	$Helmet/HelmetAnimation.play("RESET")
 
 func animate_player():
 	if context_action_active == true:
 		return
-	var animator = $Lard/PlayerAnimation
 	var player_direction_x : String = "_left" if look_direction == Vector2.LEFT else "_right"
 	var movement_type : String = "walk" if is_on_floor() else "jump"
 	if is_on_floor() && velocity.x == 0:
@@ -37,15 +42,21 @@ func animate_player():
 	animator.play(movement_type + player_direction_x)
 
 func use_attack():
+	if context_action_active:
+		return
 	context_action_active = true
+	var helmet_anim_name : String
 	if look_direction == Vector2.LEFT:
 		$Lard/PlayerAnimation.play("attack_left")
 	else:
 		$Lard/PlayerAnimation.play("attack_right")
 	attacks_used += 1
-	$Helmet/HelmetAnimation.play("damage_" + str(attacks_used))
+	helmet_anim_name = "damage_" + str(attacks_used)
 	if attacks_used >= max_helmet_health:
+		helmet_anim_name = "broken"
 		EventController.emit_signal("damage_player", 3)
+	$Helmet/HelmetAnimation.play(helmet_anim_name)
+	
 		
 func jump():
 	jump_velocity = ((2.0 * jump_height) / (_jump_time_to_peak / get_gravity().y)) * -1.0
@@ -76,10 +87,6 @@ func handle_input(delta: float):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-func _ready() -> void:
-	EventController.connect("damage_player", on_event_player_damaged)
-	$Lard/PlayerAnimation.play("RESET")
-	$Helmet/HelmetAnimation.play("RESET")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity, capping at a terminal velocity
@@ -98,12 +105,18 @@ func _process(delta: float) -> void:
 	animate_player()
 	
 func on_event_player_damaged(damage: int):
-	if context_action_active:
-		return
+	var death_source : String
+	#if context_action_active && attacks_used < max_helmet_health:
+		#return
 	player_current_health -= damage
 	EventController.emit_signal("player_health_updated", player_current_health)
 	if (player_current_health <= 0):
-		EventController.emit_signal("reload_scene")
+		death_source = "enemy"
+		if attacks_used >= max_helmet_health:
+			death_source = "helmet"
+		EventController.emit_signal("game_over", death_source)
+		var animation: String = "dead_helmet" if death_source == "helmet" else "dead"
+		animator.play(animation)
 		pass # Kill player, trigger game over
 
 func _on_hitbox_body_entered(body: Node2D) -> void:

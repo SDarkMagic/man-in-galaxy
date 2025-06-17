@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://oapbs8hbk3yx"]
+[gd_scene load_steps=14 format=4 uid="uid://oapbs8hbk3yx"]
 
 [ext_resource type="Texture2D" uid="uid://dcovjya7kiwv6" path="res://sprites/raw/Backgrounds/World 1 background.png" id="1_4tkup"]
 [ext_resource type="PackedScene" uid="uid://ds000xgkjyli1" path="res://entities/player.tscn" id="1_ln2x5"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bdk5aky287svx" path="res://entities/enemy_cyberclops.tscn" id="12_8puai"]
 [ext_resource type="PackedScene" uid="uid://n3180dfgrorw" path="res://entities/platform_floating.tscn" id="12_wnm7q"]
 [ext_resource type="PackedScene" uid="uid://dr5dbgcwuq7mm" path="res://entities/enemy_katrina.tscn" id="13_8puai"]
+[ext_resource type="PackedScene" uid="uid://5soblhv8dkti" path="res://entities/env_fire.tscn" id="13_gv2x6"]
 
 [node name="DebugLevel" type="Node2D"]
 
@@ -67,3 +68,6 @@ right_travel_max = 300.0
 
 [node name="EnemyCyberclops" parent="." instance=ExtResource("12_8puai")]
 position = Vector2(3651, 486)
+
+[node name="Fire" parent="." instance=ExtResource("13_gv2x6")]
+position = Vector2(1237, 250)

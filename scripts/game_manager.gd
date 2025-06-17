@@ -4,6 +4,7 @@ var coins_collected : int = 0
 const PLAYER_TOTAL_HEALTH : int = 3
 const DEFAULT_GRAVITY: float  = 980.0
 var player_current_health : int = PLAYER_TOTAL_HEALTH
+@onready var game_overed = false
 
 func coin_collected(value: int):
 	coins_collected += value
@@ -17,12 +18,25 @@ func reload_scene():
 	var tree = get_tree()
 	if tree != null:
 		tree.reload_current_scene()
+		game_overed = false
 	else:
 		print("Tree was null")
+	
+
+func game_over(source: String) -> void:
+	if game_overed:
+		return
+	game_overed = true
+	await wait(2)
+	reload_scene()
+
+func wait(seconds: float) -> void:
+	await get_tree().create_timer(seconds).timeout
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	EventController.connect("reload_scene", reload_scene)
+	EventController.connect("game_over", game_over)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

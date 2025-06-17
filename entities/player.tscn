@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ds000xgkjyli1"]
+[gd_scene load_steps=31 format=3 uid="uid://ds000xgkjyli1"]
 
 [ext_resource type="Script" uid="uid://hibfp7ufrfac" path="res://scripts/player.gd" id="1_b0kkn"]
 [ext_resource type="Texture2D" uid="uid://tbt2xnfnn4nn" path="res://sprites/Lard.png" id="2_e4p34"]
@@ -383,6 +383,36 @@ tracks/4/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_cicqb"]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_hj0ki"]
+resource_name = "dead_helmet"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
 [sub_resource type="Animation" id="Animation_b0kkn"]
 resource_name = "idle_left"
 length = 0.001
@@ -488,6 +518,8 @@ _data = {
 &"attack_right": SubResource("Animation_ef06p"),
 &"crouch_left": SubResource("Animation_1n8aq"),
 &"crouch_right": SubResource("Animation_28s6d"),
+&"dead": SubResource("Animation_cicqb"),
+&"dead_helmet": SubResource("Animation_hj0ki"),
 &"idle_left": SubResource("Animation_b0kkn"),
 &"idle_right": SubResource("Animation_cgp7q"),
 &"jump_left": SubResource("Animation_qsoyl"),
