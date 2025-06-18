@@ -23,10 +23,10 @@ func _physics_process(delta: float) -> void:
 		var collider = collision.get_collider().name
 		if collider == "Player":
 			EventController.emit_signal("damage_player", 1)
+			
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Sprite2D/AnimationPlayer.play("RESET")
-	pass # Replace with function body.
 
 func kill():
 	is_dead = true

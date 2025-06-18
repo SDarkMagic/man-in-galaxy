@@ -4,7 +4,6 @@ class_name Enemy extends CharacterBody2D
 @export var width : float = 20.0
 var is_dead : bool = false
 
-
 func apply_gravity(vel: Vector2, delta: float) -> Vector2:
 	# Add the gravity, capping at a terminal velocity
 	if not is_on_floor():
@@ -29,13 +28,18 @@ func _physics_process(delta: float) -> void:
 		var collider = collision.get_collider().name
 		if collider == "Player":
 			EventController.emit_signal("damage_player", 1)
+			
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	_disable_process()
 
 func kill():
 	is_dead = true
 	self.queue_free()
+
+func _disable_process() -> void:
+	pass
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

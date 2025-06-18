@@ -206,4 +206,7 @@ polygon = PackedVector2Array(-77, -79, -16, -119, 31, -119, 52, -113, 76, -101, 
 position = Vector2(1, -26)
 shape = SubResource("CircleShape2D_puv64")
 
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+rect = Rect2(-225, -225, 450, 450)
+
 [connection signal="body_entered" from="Explosion" to="." method="_on_explosion_body_entered"]

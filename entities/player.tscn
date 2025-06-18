@@ -693,7 +693,7 @@ script = ExtResource("1_b0kkn")
 SPEED = 650.0
 jump_time_to_peak = 0.4
 jump_time_to_descent = 0.25
-jump_height = 500.0
+_jump_height = 500.0
 
 [node name="Lard" type="Sprite2D" parent="."]
 z_index = 1

@@ -115,3 +115,6 @@ libraries = {
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(1, -27)
 polygon = PackedVector2Array(-41, 23.5, 11, -42, 34, 27.5, 28, 41, -43, 38)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+rect = Rect2(-150, -150, 300, 300)

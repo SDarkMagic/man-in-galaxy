@@ -6,7 +6,7 @@ class_name Player extends CharacterBody2D
 @export var context_action_active : bool = false
 @export var jump_time_to_peak : float = 0.1
 @export var jump_time_to_descent : float = 0.1
-@export var jump_height : float = 125.0
+@export var _jump_height : float = 125.0
 const PLAYER_TOTAL_HEALTH : int = 3
 var player_current_health : int = PLAYER_TOTAL_HEALTH
 @onready var attacks_used : int = 0
@@ -59,6 +59,7 @@ func use_attack():
 	
 		
 func jump():
+	var jump_height = (_jump_height * GameManager.DEFAULT_GRAVITY) / get_gravity().y
 	jump_velocity = ((2.0 * jump_height) / (_jump_time_to_peak / get_gravity().y)) * -1.0
 	jump_gravity = ((-2.0 * jump_height) / (((_jump_time_to_peak / get_gravity().y) * (_jump_time_to_peak / get_gravity().y)))) * -1.0
 	fall_gravity = ((-2.0 * jump_height) / (((_jump_time_to_descent / get_gravity().y) * (_jump_time_to_descent / get_gravity().y)))) * -1.0
