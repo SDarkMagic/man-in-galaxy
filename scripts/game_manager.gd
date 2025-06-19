@@ -23,11 +23,12 @@ func reload_scene():
 		print("Tree was null")
 	
 
-func game_over(source: String) -> void:
+func game_over(source: String="") -> void:
 	if game_overed:
 		return
 	game_overed = true
-	await wait(2)
+	if source != "voidout":
+		await wait(2)
 	reload_scene()
 
 func wait(seconds: float) -> void:
