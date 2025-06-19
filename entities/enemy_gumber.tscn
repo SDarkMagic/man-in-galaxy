@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca45cpse0xc3y"]
+[gd_scene load_steps=10 format=3 uid="uid://ca45cpse0xc3y"]
 
 [ext_resource type="Script" uid="uid://dbbghj67dwnp6" path="res://scripts/enemy_gumber.gd" id="1_qk3g1"]
 [ext_resource type="Texture2D" uid="uid://blghonaavp80d" path="res://sprites/Gumber.png" id="2_4apq3"]
@@ -57,7 +57,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [2]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -84,10 +84,46 @@ tracks/2/keys = {
 "values": [Vector2(4.96, -23.135)]
 }
 
+[sub_resource type="Animation" id="Animation_nw1p0"]
+resource_name = "move_left"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_l2462"]
+resource_name = "move_right"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 4]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7net8"]
 _data = {
 &"RESET": SubResource("Animation_ctjr5"),
-&"dead": SubResource("Animation_loequ")
+&"dead": SubResource("Animation_loequ"),
+&"move_left": SubResource("Animation_nw1p0"),
+&"move_right": SubResource("Animation_l2462")
 }
 
 [node name="EnemyGumber" type="CharacterBody2D"]
@@ -100,7 +136,8 @@ width = 110.0
 position = Vector2(-9.53674e-07, -47)
 scale = Vector2(0.107, 0.0966047)
 texture = ExtResource("2_4apq3")
-hframes = 2
+hframes = 3
+vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
@@ -113,3 +150,13 @@ shape = ExtResource("4_l2462")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 rect = Rect2(-150, -150, 300, 300)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(35, 0)
+target_position = Vector2(0, 300)
+collision_mask = 40
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(-35, 0)
+target_position = Vector2(0, 300)
+collision_mask = 40

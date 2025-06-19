@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://vrxhbqy7hs62"]
+
+[ext_resource type="Script" uid="uid://xmfmwijotimq" path="res://scripts/enemy_petunia.gd" id="1_axsfg"]
+[ext_resource type="Texture2D" uid="uid://cg1m5e0o1mpr1" path="res://sprites/ProfPetunia.png" id="2_4ykju"]
+[ext_resource type="PackedScene" uid="uid://cht4wrkfun4fw" path="res://ptcl/blood.tscn" id="3_4ykju"]
+
+[sub_resource type="Animation" id="Animation_ba1vn"]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Blood:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333334),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_qcttp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Blood:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hav2l"]
+_data = {
+&"RESET": SubResource("Animation_qcttp"),
+&"dead": SubResource("Animation_ba1vn")
+}
+
+[node name="EnemyPetunia" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 33
+script = ExtResource("1_axsfg")
+mass = 3.0
+width = 150.0
+metadata/_custom_type_script = "uid://cfo03mojq1dw6"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -100)
+scale = Vector2(0.199784, 0.199784)
+texture = ExtResource("2_4ykju")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_hav2l")
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-12, -87)
+scale = Vector2(5.36503, 6.69344)
+polygon = PackedVector2Array(-10.8107, -12.8484, -6.71012, -15.0894, 0.931961, -15.5376, 8.20126, -15.0894, 14.3522, -10.9062, 15.8433, -2.988, 15.8433, -0.2988, 9.69239, 6.42421, 12.3019, 8.81461, 13.2338, 9.26281, 12.4883, 10.6074, 8.76043, 12.2508, 5.40537, 12.699, 3.16867, 12.8484, -2.4231, 12.8484, -4.6598, 12.8484, -6.52373, 10.3086, -13.793, 8.51581, -15.2842, 3.735, -15.4706, 1.6434, -13.4202, -0.2988, -12.1155, -1.3446, -13.6066, -2.3904, -13.6066, -4.7808)
+
+[node name="Blood" parent="." instance=ExtResource("3_4ykju")]
+position = Vector2(-7, -53)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://caa0y02m270qw"]
+[gd_scene load_steps=6 format=3 uid="uid://cht4wrkfun4fw"]
 
 [sub_resource type="Curve" id="Curve_hnkih"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.780645, 0.315345), -2.3156, -2.82184, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -25,13 +25,14 @@ scale_max = 14.0
 scale_curve = SubResource("CurveTexture_6ccui")
 alpha_curve = SubResource("CurveTexture_c2pqa")
 
-[node name="Sparks" type="GPUParticles2D"]
-self_modulate = Color(0.762931, 0.409244, 0.185144, 1)
+[node name="Blood" type="GPUParticles2D"]
+self_modulate = Color(0.67, 0.1005, 0.109992, 1)
 emitting = false
-amount = 50
+amount = 35
+lifetime = 0.7
 one_shot = true
 explosiveness = 1.0
 trail_enabled = true
-trail_lifetime = 0.13
+trail_lifetime = 0.05
 trail_section_subdivisions = 3
 process_material = SubResource("ParticleProcessMaterial_2xp3r")

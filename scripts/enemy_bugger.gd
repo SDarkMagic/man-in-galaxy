@@ -1,4 +1,4 @@
-class_name Gumber extends Enemy
+class_name Bugger extends Enemy
 
 @export var lateral_move_speed = 150.0
 var move_direction = Vector2.LEFT
@@ -14,11 +14,7 @@ func move(vel: Vector2, delta: float) -> Vector2:
 		move_direction = Vector2.LEFT
 	else:
 		move_direction = Vector2.RIGHT
-	if not $RayCast2D.is_colliding() and $RayCast2D2.is_colliding():
-		move_direction = Vector2.LEFT
-	elif not $RayCast2D2.is_colliding() and $RayCast2D.is_colliding():
-		move_direction - Vector2.RIGHT
-		
+				
 	vel.x *= move_direction.x
 	return vel
 
@@ -28,11 +24,14 @@ func animate() -> void:
 		dir = "right"
 	else:
 		dir = "left"
-	$Sprite2D/AnimationPlayer.play("move_" + dir)
+	$Sprite2D/AnimationPlayer.play(dir)
 
 func _physics_process(delta: float) -> void:
 	# Do necessary AI calcs here for enemy
-	velocity = self.apply_gravity(velocity, delta)
+	if $RayCast2D.is_colliding():
+		velocity = self.apply_gravity(velocity, delta)
+	else:
+		velocity.y = 0
 	velocity = move(velocity, delta)
 	move_and_slide()
 	for i in get_slide_collision_count():
