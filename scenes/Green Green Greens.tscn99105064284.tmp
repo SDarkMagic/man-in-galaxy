@@ -62,7 +62,7 @@ position = Vector2(3102, 426)
 position = Vector2(3304, 431)
 
 [node name="area_voidout" parent="." instance=ExtResource("7_kjkni")]
-position = Vector2(-155, 1242)
+position = Vector2(-137, 917)
 
 [node name="enemy_budge" parent="." instance=ExtResource("8_didl4")]
 position = Vector2(640, 488)

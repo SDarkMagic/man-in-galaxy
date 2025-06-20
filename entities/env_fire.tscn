@@ -113,6 +113,7 @@ hue_variation_max = 0.18
 hue_variation_curve = SubResource("CurveTexture_12sgq")
 
 [node name="Fire" type="Node2D"]
+z_index = -2
 script = ExtResource("1_qipmm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
