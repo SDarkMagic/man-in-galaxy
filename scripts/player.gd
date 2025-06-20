@@ -69,6 +69,10 @@ func get_grav_y() -> float:
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
 
 func handle_input(delta: float):
+	if GameManager.allow_input == false:
+		velocity.x = 0
+		return
+		
 	if Input.is_action_just_pressed("attack"):
 		use_attack()
 	# Handle jump.
