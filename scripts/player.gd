@@ -39,6 +39,8 @@ func animate_player():
 		$Helmet.position.x = -4.0
 		$Helmet.position.y = -109.0
 		$Helmet.rotation = 0.0
+		$CollisionShape2D.disabled = false
+		$CollisionShape2D_crouch.disabled = true
 	animator.play(movement_type + player_direction_x)
 
 func use_attack():
@@ -111,8 +113,6 @@ func _process(delta: float) -> void:
 	
 func on_event_player_damaged(damage: int):
 	var death_source : String
-	#if context_action_active && attacks_used < max_helmet_health:
-		#return
 	player_current_health -= damage
 	EventController.emit_signal("player_health_updated", player_current_health)
 	if (player_current_health <= 0):
@@ -127,4 +127,12 @@ func on_event_player_damaged(damage: int):
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body is Enemy:
 		body.kill()
+	
 	pass # Replace with function body.
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	var entity = area.get_parent()
+	if entity is Projectile:
+		entity.team = "player"
+		entity.velocity *= -1
+	return

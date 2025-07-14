@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://f5woel4l7omi"]
+[gd_scene load_steps=19 format=4 uid="uid://f5woel4l7omi"]
 
 [ext_resource type="Texture2D" uid="uid://dcovjya7kiwv6" path="res://sprites/raw/Backgrounds/World 1 background.png" id="1_0uleb"]
 [ext_resource type="PackedScene" uid="uid://ds000xgkjyli1" path="res://entities/player.tscn" id="2_0whtb"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dr5dbgcwuq7mm" path="res://entities/enemy_katrina.tscn" id="14_lmk7x"]
 [ext_resource type="PackedScene" uid="uid://vrxhbqy7hs62" path="res://entities/enemy_petunia.tscn" id="16_lmk7x"]
 [ext_resource type="Texture2D" uid="uid://dlwwpijfovdxe" path="res://sprites/raw/Sprites/Rocket Ship/Base Ship.png" id="16_qyhtk"]
+[ext_resource type="PackedScene" uid="uid://c1acfrb8caivw" path="res://entities/env_goal.tscn" id="17_55pfv"]
 [ext_resource type="PackedScene" uid="uid://dhcc7ut7bysg5" path="res://entities/enemy_bugger.tscn" id="17_qyhtk"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_55pfv"]
@@ -219,3 +220,6 @@ position = Vector2(8073, -247)
 
 [node name="EnemyPetunia3" parent="." instance=ExtResource("16_lmk7x")]
 position = Vector2(16544, 1)
+
+[node name="Goal" parent="." instance=ExtResource("17_55pfv")]
+position = Vector2(19363, 821)

@@ -20,6 +20,7 @@ func reload_scene():
 	if tree != null:
 		tree.reload_current_scene()
 		game_overed = false
+		EventController.emit_signal("clear_projectiles")
 	else:
 		print("Tree was null")
 	

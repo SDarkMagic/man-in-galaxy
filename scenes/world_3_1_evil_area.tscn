@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://h8tifay0ufbr"]
+[gd_scene load_steps=14 format=4 uid="uid://h8tifay0ufbr"]
 
 [ext_resource type="Texture2D" uid="uid://b8ln2gwjntva5" path="res://sprites/raw/Backgrounds/World 3 Background.png" id="1_wsdof"]
 [ext_resource type="PackedScene" uid="uid://ds000xgkjyli1" path="res://entities/player.tscn" id="2_eleb8"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://5soblhv8dkti" path="res://entities/env_fire.tscn" id="9_iyddh"]
 [ext_resource type="PackedScene" uid="uid://n3180dfgrorw" path="res://entities/platform_floating.tscn" id="10_o2o14"]
 [ext_resource type="PackedScene" uid="uid://crtofrupj3d8x" path="res://entities/enemy_budge.tscn" id="11_knjuq"]
+[ext_resource type="PackedScene" uid="uid://dsqkdqqv7tfur" path="res://entities/area_voidout.tscn" id="12_eleb8"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lonwg"]
 
@@ -104,3 +105,6 @@ position = Vector2(6529, 239)
 move_speed = 200.0
 left_travel_max = 200.0
 right_travel_max = 200.0
+
+[node name="area_voidout" parent="." instance=ExtResource("12_eleb8")]
+position = Vector2(6652, 1441)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://oapbs8hbk3yx"]
+[gd_scene load_steps=20 format=4 uid="uid://oapbs8hbk3yx"]
 
 [ext_resource type="Texture2D" uid="uid://dcovjya7kiwv6" path="res://sprites/raw/Backgrounds/World 1 background.png" id="1_4tkup"]
 [ext_resource type="PackedScene" uid="uid://ds000xgkjyli1" path="res://entities/player.tscn" id="1_ln2x5"]
@@ -7,18 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://c1vwgu8ac0vyo" path="res://UI/health_ui.tscn" id="4_iwus7"]
 [ext_resource type="PackedScene" uid="uid://dsqkdqqv7tfur" path="res://entities/area_voidout.tscn" id="5_ciaof"]
 [ext_resource type="PackedScene" uid="uid://q1mocr11vwj4" path="res://UI/debug_ui.tscn" id="5_swri5"]
+[ext_resource type="PackedScene" uid="uid://bxs8f84elb8bt" path="res://entities/enemy_chez.tscn" id="8_puves"]
 [ext_resource type="TileSet" uid="uid://dgiblynq45t43" path="res://tiles/world.tres" id="11_jomtx"]
 [ext_resource type="PackedScene" uid="uid://byawg2rmhsql2" path="res://entities/enemy_phish.tscn" id="11_wnm7q"]
 [ext_resource type="PackedScene" uid="uid://bdk5aky287svx" path="res://entities/enemy_cyberclops.tscn" id="12_8puai"]
 [ext_resource type="PackedScene" uid="uid://n3180dfgrorw" path="res://entities/platform_floating.tscn" id="12_wnm7q"]
 [ext_resource type="PackedScene" uid="uid://dr5dbgcwuq7mm" path="res://entities/enemy_katrina.tscn" id="13_8puai"]
 [ext_resource type="PackedScene" uid="uid://5soblhv8dkti" path="res://entities/env_fire.tscn" id="13_gv2x6"]
-[ext_resource type="PackedScene" uid="uid://vrxhbqy7hs62" path="res://entities/enemy_petunia.tscn" id="15_8qey6"]
-[ext_resource type="PackedScene" uid="uid://ca45cpse0xc3y" path="res://entities/enemy_gumber.tscn" id="15_iyhq1"]
 [ext_resource type="PackedScene" uid="uid://dhcc7ut7bysg5" path="res://entities/enemy_bugger.tscn" id="16_iyhq1"]
-[ext_resource type="PackedScene" uid="uid://cp6mxduwmv41q" path="res://entities/enemy_jersey.tscn" id="17_s4n3l"]
 [ext_resource type="PackedScene" uid="uid://c1acfrb8caivw" path="res://entities/env_goal.tscn" id="18_ud8sp"]
 [ext_resource type="PackedScene" uid="uid://f5woel4l7omi" path="res://scenes/Green Green Greens.tscn" id="19_ow684"]
+[ext_resource type="PackedScene" uid="uid://h2j1kfsapun8" path="res://entities/enemy_bottle.tscn" id="22_qn78l"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8puai"]
 
@@ -92,18 +91,15 @@ rotation = 3.14159
 scale = Vector2(1, 1.2)
 shape = SubResource("WorldBoundaryShape2D_8puai")
 
-[node name="EnemyGumber" parent="." instance=ExtResource("15_iyhq1")]
-position = Vector2(239, 240)
-
-[node name="EnemyPetunia" parent="." instance=ExtResource("15_8qey6")]
-position = Vector2(96, 248)
-
 [node name="Bugger" parent="." instance=ExtResource("16_iyhq1")]
 position = Vector2(3792, -6)
-
-[node name="Jersey" parent="." instance=ExtResource("17_s4n3l")]
-position = Vector2(2050, -85)
 
 [node name="Goal" parent="." instance=ExtResource("18_ud8sp")]
 position = Vector2(6950, 306)
 target_scene = ExtResource("19_ow684")
+
+[node name="Bottle" parent="." instance=ExtResource("22_qn78l")]
+position = Vector2(910, 242)
+
+[node name="Chez" parent="." instance=ExtResource("8_puves")]
+position = Vector2(2036, -12)

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2ww36wl88sug"]
+
+[ext_resource type="Script" uid="uid://s156g2bv3pxu" path="res://scripts/projectile_pizza.gd" id="1_2xlrw"]
+[ext_resource type="Texture2D" uid="uid://boht3qlf82yhd" path="res://sprites/projectile_pizza.png" id="2_0pay2"]
+
+[node name="Projectile" type="Node2D"]
+script = ExtResource("1_2xlrw")
+metadata/_custom_type_script = "uid://df43kinei3dso"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, -1.90735e-06)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_0pay2")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-23, -19, 25, -6, -17, 20, -25, 1)
+
+[node name="Lifetime" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

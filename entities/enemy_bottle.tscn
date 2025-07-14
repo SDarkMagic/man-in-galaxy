@@ -1,0 +1,218 @@
+[gd_scene load_steps=10 format=3 uid="uid://h2j1kfsapun8"]
+
+[ext_resource type="Script" uid="uid://bgwxboje48e38" path="res://scripts/enemy_bottle.gd" id="1_c1f68"]
+[ext_resource type="Texture2D" uid="uid://cab56a1jqk4jr" path="res://sprites/Pissanator.png" id="2_lqq8d"]
+[ext_resource type="PackedScene" uid="uid://bswropl4kokx" path="res://entities/projectile_piss.tscn" id="2_sqge6"]
+
+[sub_resource type="Animation" id="Animation_4aqly"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CollisionShape2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.457276]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-10, -107.79)]
+}
+
+[sub_resource type="Animation" id="Animation_8lkf8"]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"clear_beams"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_sqge6"]
+resource_name = "left"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CollisionShape2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.457276]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-10, -106.485)]
+}
+
+[sub_resource type="Animation" id="Animation_a6fmg"]
+resource_name = "right"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, -105.735)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CollisionShape2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.493928]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0g2mh"]
+_data = {
+&"RESET": SubResource("Animation_4aqly"),
+&"dead": SubResource("Animation_8lkf8"),
+&"left": SubResource("Animation_sqge6"),
+&"right": SubResource("Animation_a6fmg")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_87rfi"]
+radius = 65.2903
+height = 240.571
+
+[node name="Bottle" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 35
+script = ExtResource("1_c1f68")
+beam_scene = ExtResource("2_sqge6")
+metadata/_custom_type_script = "uid://cfo03mojq1dw6"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -127)
+scale = Vector2(0.25, 0.250507)
+texture = ExtResource("2_lqq8d")
+hframes = 2
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_0g2mh")
+}
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-3.49997, 2.99998)
+scale = Vector2(100.15, 99.9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, -107.79)
+rotation = 0.457276
+scale = Vector2(0.999941, 1.00006)
+skew = -0.0032953
+shape = SubResource("CapsuleShape2D_87rfi")
+
+[node name="FireCooldown" type="Timer" parent="."]
+wait_time = 2.75
+one_shot = true
+
+[node name="FluidOutlet" type="Node2D" parent="."]
+position = Vector2(0, -88)
+
+[connection signal="timeout" from="FireCooldown" to="." method="_on_fire_cooldown_timeout"]
