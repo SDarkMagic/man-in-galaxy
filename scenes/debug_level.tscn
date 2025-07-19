@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://5soblhv8dkti" path="res://entities/env_fire.tscn" id="13_gv2x6"]
 [ext_resource type="PackedScene" uid="uid://dhcc7ut7bysg5" path="res://entities/enemy_bugger.tscn" id="16_iyhq1"]
 [ext_resource type="PackedScene" uid="uid://c1acfrb8caivw" path="res://entities/env_goal.tscn" id="18_ud8sp"]
-[ext_resource type="PackedScene" uid="uid://f5woel4l7omi" path="res://scenes/Green Green Greens.tscn" id="19_ow684"]
+[ext_resource type="PackedScene" uid="uid://f5woel4l7omi" path="res://scenes/lvl_1-1.tscn" id="19_ow684"]
 [ext_resource type="PackedScene" uid="uid://h2j1kfsapun8" path="res://entities/enemy_bottle.tscn" id="22_qn78l"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8puai"]

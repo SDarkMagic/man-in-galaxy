@@ -1,24 +1,24 @@
 [gd_scene load_steps=21 format=4 uid="uid://cnamfp2vdyon6"]
 
-[ext_resource type="Texture2D" uid="uid://7uxepoypkw62" path="res://sprites/raw/Backgrounds/World 2 Background.png" id="1_5e88j"]
-[ext_resource type="PackedScene" uid="uid://ds000xgkjyli1" path="res://entities/player.tscn" id="2_5irox"]
-[ext_resource type="TileSet" uid="uid://dgiblynq45t43" path="res://tiles/world.tres" id="3_6hanj"]
-[ext_resource type="PackedScene" uid="uid://dr6wjnkmdu0nk" path="res://UI/coin_ui.tscn" id="4_r6s71"]
-[ext_resource type="PackedScene" uid="uid://c1vwgu8ac0vyo" path="res://UI/health_ui.tscn" id="5_jxwmv"]
-[ext_resource type="PackedScene" uid="uid://bdk5aky287svx" path="res://entities/enemy_cyberclops.tscn" id="6_gi82o"]
-[ext_resource type="PackedScene" uid="uid://cp6mxduwmv41q" path="res://entities/enemy_jersey.tscn" id="8_i15sl"]
-[ext_resource type="PackedScene" uid="uid://dr5dbgcwuq7mm" path="res://entities/enemy_katrina.tscn" id="9_4f4qa"]
-[ext_resource type="PackedScene" uid="uid://vrxhbqy7hs62" path="res://entities/enemy_petunia.tscn" id="10_emhdc"]
-[ext_resource type="PackedScene" uid="uid://5soblhv8dkti" path="res://entities/env_fire.tscn" id="11_e4ivf"]
-[ext_resource type="PackedScene" uid="uid://dhcc7ut7bysg5" path="res://entities/enemy_bugger.tscn" id="12_qn36r"]
-[ext_resource type="PackedScene" uid="uid://n3180dfgrorw" path="res://entities/platform_floating.tscn" id="13_kylbt"]
-[ext_resource type="PackedScene" uid="uid://byawg2rmhsql2" path="res://entities/enemy_phish.tscn" id="14_wfjck"]
-[ext_resource type="PackedScene" uid="uid://bcdp7635yyomn" path="res://entities/coin.tscn" id="15_tgo46"]
-[ext_resource type="PackedScene" uid="uid://h8tifay0ufbr" path="res://scenes/world_3_1_evil_area.tscn" id="16_jxwmv"]
-[ext_resource type="PackedScene" uid="uid://bdce382kyu02d" path="res://entities/enemy_budge_fire.tscn" id="16_k20rj"]
-[ext_resource type="PackedScene" uid="uid://hqwdkejrthll" path="res://entities/enemy_maam.tscn" id="17_r6s71"]
-[ext_resource type="PackedScene" uid="uid://c1acfrb8caivw" path="res://entities/env_goal.tscn" id="18_2hrtv"]
-[ext_resource type="PackedScene" uid="uid://dsqkdqqv7tfur" path="res://entities/area_voidout.tscn" id="18_r6s71"]
+[ext_resource type="Texture2D" uid="uid://7uxepoypkw62" path="res://sprites/raw/Backgrounds/World 2 Background.png" id="1_fygwi"]
+[ext_resource type="PackedScene" uid="uid://ds000xgkjyli1" path="res://entities/player.tscn" id="2_oay8c"]
+[ext_resource type="TileSet" uid="uid://dgiblynq45t43" path="res://tiles/world.tres" id="3_qnj6u"]
+[ext_resource type="PackedScene" uid="uid://dr6wjnkmdu0nk" path="res://UI/coin_ui.tscn" id="4_yjo57"]
+[ext_resource type="PackedScene" uid="uid://c1vwgu8ac0vyo" path="res://UI/health_ui.tscn" id="5_70r7o"]
+[ext_resource type="PackedScene" uid="uid://bdk5aky287svx" path="res://entities/enemy_cyberclops.tscn" id="6_va8og"]
+[ext_resource type="PackedScene" uid="uid://cp6mxduwmv41q" path="res://entities/enemy_jersey.tscn" id="7_71tm8"]
+[ext_resource type="PackedScene" uid="uid://dr5dbgcwuq7mm" path="res://entities/enemy_katrina.tscn" id="8_ilden"]
+[ext_resource type="PackedScene" uid="uid://vrxhbqy7hs62" path="res://entities/enemy_petunia.tscn" id="9_g1h45"]
+[ext_resource type="PackedScene" uid="uid://5soblhv8dkti" path="res://entities/env_fire.tscn" id="10_i5v72"]
+[ext_resource type="PackedScene" uid="uid://dhcc7ut7bysg5" path="res://entities/enemy_bugger.tscn" id="11_6uugb"]
+[ext_resource type="PackedScene" uid="uid://n3180dfgrorw" path="res://entities/platform_floating.tscn" id="12_q2cgu"]
+[ext_resource type="PackedScene" uid="uid://byawg2rmhsql2" path="res://entities/enemy_phish.tscn" id="13_2xt2g"]
+[ext_resource type="PackedScene" uid="uid://bcdp7635yyomn" path="res://entities/coin.tscn" id="14_6wbj5"]
+[ext_resource type="PackedScene" uid="uid://c1acfrb8caivw" path="res://entities/env_goal.tscn" id="15_f0hxc"]
+[ext_resource type="PackedScene" uid="uid://h8tifay0ufbr" path="res://scenes/lvl_3-1.tscn" id="16_o6udc"]
+[ext_resource type="PackedScene" uid="uid://bdce382kyu02d" path="res://entities/enemy_budge_fire.tscn" id="17_3tuho"]
+[ext_resource type="PackedScene" uid="uid://hqwdkejrthll" path="res://entities/enemy_maam.tscn" id="18_nsvkk"]
+[ext_resource type="PackedScene" uid="uid://dsqkdqqv7tfur" path="res://entities/area_voidout.tscn" id="19_5gakj"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_swd7w"]
 
@@ -38,206 +38,206 @@ transform = Transform2D(0.61, 0, 0, 0.61, 0, 0)
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_5e88j")
+texture = ExtResource("1_fygwi")
 metadata/_edit_use_anchors_ = true
 
-[node name="Player" parent="." instance=ExtResource("2_5irox")]
+[node name="Player" parent="." instance=ExtResource("2_oay8c")]
 position = Vector2(20300, -1118)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAIAAAABAAMAAAABAAIAAAACAAMAAAACAAIAAAACAAMAAAADAAIAAAACAAMAAAAEAAIAAAACAAMAAAAFAAIAAAACAAMAAAAGAAIAAAACAAMAAAAHAAIAAAACAAMAAAAIAAIAAAACAAMAAAAJAAIAAAACAAMAAAAKAAIAAAACAAMAAAALAAIAAAAAAAMAAAALAAEAAAAAAAMAAAALAAAAAAAAAAMAAAALAP//AAAAAAMAAAALAP7/AAAAAAMAAAALAP3/AAAAAAMAAAALAPz/AAAAAAMAAAALAPv/AAAAAAMAAAAMAPv/AAAAAAMAAAANAPv/AAAAAAMAAAAMAPz/AAAAAAMAAAAMAP3/AAAAAAMAAAAMAP7/AAAAAAMAAAAMAP//AAAAAAMAAAAMAAAAAAAAAAMAAAAMAAEAAAAAAAMAAAAMAAIAAAAAAAMAAAANAAIAAAAAAAMAAAANAAEAAAAAAAMAAAANAAAAAAAAAAMAAAANAP//AAAAAAMAAAANAP7/AAAAAAMAAAANAP3/AAAAAAMAAAANAPz/AAAAAAMAAAAOAPv/AAACAAUAAAAOAPz/AAAAAAMAAAAOAP3/AAAAAAMAAAAOAP7/AAAAAAMAAAAOAP//AAAAAAMAAAAOAAAAAAAAAAMAAAAOAAEAAAAAAAMAAAAOAAIAAAAAAAMAAAANAPr/AAACAAMAAAAMAPr/AAACAAMAAAAGAP//AAAAAAMAAAAGAP7/AAAAAAMAAAAGAP3/AAAAAAMAAAAGAPz/AAAAAAMAAAAGAPv/AAAAAAMAAAAGAPr/AAAAAAMAAAAFAPr/AAAAAAMAAAAFAPv/AAAAAAMAAAAFAPz/AAAAAAMAAAAFAP3/AAAAAAMAAAAFAP7/AAAAAAMAAAAFAP//AAAAAAMAAAAEAP//AAAAAAMAAAAEAP7/AAAAAAMAAAAEAP3/AAAAAAMAAAAEAPz/AAAAAAMAAAAEAPv/AAAAAAMAAAAEAPr/AAAAAAMAAAAEAPn/AAAAAAMAAAAEAPj/AAAAAAMAAAAEAPf/AAAAAAMAAAAEAPb/AAAAAAMAAAAFAPb/AAAAAAMAAAAFAPf/AAAAAAMAAAAFAPj/AAAAAAMAAAAFAPn/AAAAAAMAAAAGAPn/AAAAAAMAAAAGAPj/AAAAAAMAAAAGAPf/AAAAAAMAAAAGAPb/AAAAAAMAAAAEAAAAAAAAAAMAAAAFAAAAAAAAAAMAAAAGAAAAAAAAAAMAAAAKAAAAAAAGAAMAAAAHAP//AAAGAAMAAAAKAP7/AAAGAAMAAAAHAP3/AAAGAAMAAAAIAPz/AAAFAAMAAAAJAPr/AAAFAAMAAAAJAPz/AAAHAAMAAAAIAP3/AAAHAAMAAAAIAP//AAAHAAMAAAAKAPr/AAAGAAMAAAAJAP7/AAAFAAMAAAAJAAAAAAAFAAMAAAAIAAEAAAAIAAMAAAALAPr/AAACAAMAAAAOAPr/AAACAAQAAAAPAPv/AAACAAQAAAAQAPz/AAACAAQAAAARAP3/AAACAAQAAAASAP7/AAACAAQAAAATAP//AAACAAMAAAAUAP//AAACAAMAAAAVAP//AAAAAAMAAAAWAP//AAAAAAMAAAAXAP//AAAAAAMAAAAYAP//AAAAAAMAAAAZAP//AAAAAAMAAAAaAP//AAAAAAMAAAAbAP//AAACAAMAAAAcAP7/AAABAAQAAAAdAP3/AAABAAQAAAAeAP3/AAACAAMAAAAfAP3/AAACAAMAAAAgAP3/AAACAAMAAAAhAP3/AAAEAAMAAAAkAP7/AAACAAMAAAAlAP7/AAADAAMAAAAoAP3/AAABAAMAAAApAP3/AAACAAMAAAAqAP3/AAACAAMAAAArAP3/AAACAAMAAAAsAP3/AAADAAMAAAAvAP3/AAABAAMAAAAwAP3/AAACAAMAAAAxAP3/AAACAAMAAAAyAP3/AAADAAMAAAApAPv/AAAGAAMAAAAqAPv/AAAGAAMAAAArAPv/AAAGAAMAAAAsAPv/AAAHAAMAAAAoAPv/AAAFAAMAAAASAP//AAACAAUAAAARAP7/AAACAAUAAAAQAP3/AAACAAUAAAAPAPz/AAACAAUAAAAcAP//AAABAAUAAAAdAP7/AAABAAUAAAAhAP7/AAAAAAMAAAAhAP//AAAAAAMAAAAhAAAAAAAAAAMAAAAhAAEAAAAAAAMAAAAhAAIAAAAAAAMAAAAgAP7/AAAAAAMAAAAfAP7/AAAAAAMAAAAeAP7/AAAAAAMAAAAeAP//AAAAAAMAAAAdAP//AAAAAAMAAAAfAP//AAAAAAMAAAAgAP//AAAAAAMAAAAgAAAAAAAAAAMAAAAgAAEAAAAAAAMAAAAgAAIAAAAAAAMAAAAgAAMAAAAAAAMAAAAhAAMAAAAAAAMAAAAfAAMAAAAAAAMAAAAeAAMAAAAAAAMAAAAdAAMAAAAAAAMAAAAcAAMAAAAAAAMAAAAbAAMAAAAAAAMAAAAaAAMAAAAAAAMAAAAZAAMAAAAAAAMAAAAYAAMAAAAAAAMAAAAXAAMAAAAAAAMAAAAWAAMAAAAAAAMAAAAWAAQAAAAAAAMAAAAVAAQAAAAAAAMAAAAUAAQAAAAAAAMAAAATAAQAAAAAAAMAAAASAAQAAAAAAAMAAAARAAQAAAAAAAMAAAAQAAQAAAAAAAMAAAAPAAIAAAAAAAMAAAAPAAEAAAAAAAMAAAAPAAAAAAAAAAMAAAAPAP//AAAAAAMAAAAPAP7/AAAAAAMAAAAPAP3/AAAAAAMAAAAQAP7/AAAAAAMAAAAQAP//AAAAAAMAAAARAP//AAAAAAMAAAAQAAAAAAAAAAMAAAAQAAEAAAAAAAMAAAAQAAIAAAAAAAMAAAARAAEAAAAAAAMAAAARAAAAAAAAAAMAAAASAAAAAAAAAAMAAAATAAAAAAAAAAMAAAAUAAAAAAAAAAMAAAAVAAAAAAAAAAMAAAAWAAAAAAAAAAMAAAAXAAAAAAAAAAMAAAAYAAAAAAAAAAMAAAAZAAAAAAAAAAMAAAAaAAAAAAAAAAMAAAAbAAAAAAAAAAMAAAAcAAAAAAAAAAMAAAAdAAAAAAAAAAMAAAAeAAAAAAAAAAMAAAAfAAAAAAAAAAMAAAAfAAEAAAAAAAMAAAAeAAEAAAAAAAMAAAAdAAEAAAAAAAMAAAAcAAEAAAAAAAMAAAAbAAEAAAAAAAMAAAAaAAEAAAAAAAMAAAAZAAEAAAAAAAMAAAAYAAEAAAAAAAMAAAAXAAEAAAAAAAMAAAAWAAEAAAAAAAMAAAAVAAEAAAAAAAMAAAAUAAEAAAAAAAMAAAATAAEAAAAAAAMAAAASAAEAAAAAAAMAAAASAAIAAAAAAAMAAAATAAIAAAAAAAMAAAAUAAIAAAAAAAMAAAAVAAIAAAAAAAMAAAAWAAIAAAAAAAMAAAAXAAIAAAAAAAMAAAAYAAIAAAAAAAMAAAAZAAIAAAAAAAMAAAAaAAIAAAAAAAMAAAAbAAIAAAAAAAMAAAAcAAIAAAAAAAMAAAAdAAIAAAAAAAMAAAAeAAIAAAAAAAMAAAAfAAIAAAAAAAMAAAARAAIAAAAAAAMAAAAQAAMAAAAAAAMAAAARAAMAAAAAAAMAAAASAAMAAAAAAAMAAAATAAMAAAAAAAMAAAAUAAMAAAAAAAMAAAAVAAMAAAAAAAMAAAAgAAQAAAAAAAMAAAAhAAQAAAAAAAMAAAAfAAQAAAAAAAMAAAAeAAQAAAAAAAMAAAAdAAQAAAAAAAMAAAAcAAQAAAAAAAMAAAAbAAQAAAAAAAMAAAAaAAQAAAAAAAMAAAAZAAQAAAAAAAMAAAAYAAQAAAAAAAMAAAAXAAQAAAAAAAMAAAAPAAQAAAAAAAMAAAAOAAQAAAAAAAMAAAANAAQAAAAAAAMAAAAMAAQAAAAAAAMAAAALAAQAAAAAAAMAAAANAAMAAAAAAAMAAAAOAAMAAAAAAAMAAAAPAAMAAAAAAAMAAAAMAAMAAAAAAAMAAAALAAMAAAAAAAMAAAAKAAMAAAAAAAMAAAAJAAMAAAAAAAMAAAAIAAMAAAAAAAMAAAAAAAMAAAAAAAMAAAAAAAQAAAAAAAMAAAABAAQAAAAAAAMAAAACAAQAAAAAAAMAAAADAAQAAAAAAAMAAAAEAAQAAAAAAAMAAAAFAAQAAAAAAAMAAAAGAAQAAAAAAAMAAAAHAAQAAAAAAAMAAAAIAAQAAAAAAAMAAAAJAAQAAAAAAAMAAAAKAAQAAAAAAAMAAAAHAAMAAAAAAAMAAAAGAAMAAAAAAAMAAAAFAAMAAAAAAAMAAAAEAAMAAAAAAAMAAAADAAMAAAAAAAMAAAACAAMAAAAAAAMAAAABAAMAAAAAAAMAAAAEAPX/AAAAAAMAAAAFAPX/AAAAAAMAAAAGAPX/AAAAAAMAAAAGAPT/AAAAAAMAAAAFAPT/AAAAAAMAAAAEAPT/AAAAAAMAAAAEAPP/AAAAAAMAAAAFAPP/AAAAAAMAAAAGAPP/AAAAAAMAAAAkAP//AAAAAAMAAAAkAAAAAAAAAAMAAAAkAAEAAAAAAAMAAAAkAAIAAAAAAAMAAAAkAAMAAAAAAAMAAAAkAAQAAAAAAAMAAAAlAAQAAAAAAAMAAAAlAAMAAAAAAAMAAAAlAAIAAAAAAAMAAAAlAAEAAAAAAAMAAAAlAAAAAAAAAAMAAAAlAP//AAAAAAMAAAAoAP7/AAAAAAMAAAAoAP//AAAAAAMAAAAoAAAAAAAAAAMAAAAoAAEAAAAAAAMAAAAoAAIAAAAAAAMAAAAoAAMAAAAAAAMAAAAoAAQAAAAAAAMAAAAsAP7/AAAAAAMAAAAsAP//AAAAAAMAAAAsAAAAAAAAAAMAAAAsAAEAAAAAAAMAAAAsAAIAAAAAAAMAAAAsAAMAAAAAAAMAAAAsAAQAAAAAAAMAAAArAAQAAAAAAAMAAAAqAAQAAAAAAAMAAAApAAQAAAAAAAMAAAApAAMAAAAAAAMAAAApAAIAAAAAAAMAAAApAAEAAAAAAAMAAAApAAAAAAAAAAMAAAApAP//AAAAAAMAAAApAP7/AAAAAAMAAAAqAP7/AAAAAAMAAAArAP7/AAAAAAMAAAArAP//AAAAAAMAAAArAAAAAAAAAAMAAAArAAEAAAAAAAMAAAArAAIAAAAAAAMAAAArAAMAAAAAAAMAAAAqAAMAAAAAAAMAAAAqAAIAAAAAAAMAAAAqAAEAAAAAAAMAAAAqAAAAAAAAAAMAAAAqAP//AAAAAAMAAAAvAP7/AAAAAAMAAAAvAP//AAAAAAMAAAAvAAAAAAAAAAMAAAAvAAEAAAAAAAMAAAAvAAIAAAAAAAMAAAAvAAMAAAAAAAMAAAAvAAQAAAAAAAMAAAAyAP7/AAAAAAMAAAAyAP//AAAAAAMAAAAyAAAAAAAAAAMAAAAyAAEAAAAAAAMAAAAyAAIAAAAAAAMAAAAyAAMAAAAAAAMAAAAyAAQAAAAAAAMAAAAxAAQAAAAAAAMAAAAwAAQAAAAAAAMAAAAwAAMAAAAAAAMAAAAwAAIAAAAAAAMAAAAwAAEAAAAAAAMAAAAwAAAAAAAAAAMAAAAwAP//AAAAAAMAAAAwAP7/AAAAAAMAAAAxAP7/AAAAAAMAAAAxAP//AAAAAAMAAAAxAAAAAAAAAAMAAAAxAAEAAAAAAAMAAAAxAAIAAAAAAAMAAAAxAAMAAAAAAAMAAAA1AP7/AAABAAQAAAA2AP3/AAABAAQAAAA3APz/AAABAAQAAAA4APv/AAABAAQAAAA5APr/AAABAAQAAAA6APn/AAABAAQAAAA7APn/AAACAAMAAAA8APn/AAACAAMAAAA9APn/AAACAAMAAAA+APn/AAACAAMAAAA/APn/AAACAAMAAABAAPn/AAACAAQAAABBAPr/AAACAAQAAABCAPv/AAACAAQAAABDAPz/AAACAAMAAABEAPz/AAACAAMAAABFAPz/AAACAAMAAABGAPz/AAACAAMAAABHAPz/AAADAAMAAAA6APr/AAABAAUAAAA5APv/AAABAAUAAAA4APz/AAABAAUAAAA3AP3/AAABAAUAAAA2AP7/AAABAAUAAABAAPr/AAACAAUAAABBAPv/AAACAAUAAABCAPz/AAACAAUAAAA3AP7/AAAAAAMAAAA3AP//AAAAAAMAAAA3AAAAAAAAAAMAAAA1AP//AAAAAAMAAAA1AAAAAAAAAAMAAAA1AAEAAAAAAAMAAAA2AP//AAAAAAMAAAA2AAAAAAAAAAMAAAA2AAEAAAAAAAMAAAA3AAEAAAAAAAMAAAA4AAEAAAAAAAMAAAA5AAEAAAAAAAMAAAA6AAEAAAAAAAMAAAA7AAEAAAAAAAMAAAA8AAEAAAAAAAMAAAA9AAEAAAAAAAMAAAA+AAEAAAAAAAMAAAA/AAEAAAAAAAMAAABAAAEAAAAAAAMAAABBAAEAAAAAAAMAAABBAAAAAAAAAAMAAABBAP//AAAAAAMAAABBAP7/AAAAAAMAAABBAP3/AAAAAAMAAABBAPz/AAAAAAMAAABAAPz/AAAAAAMAAABAAPv/AAAAAAMAAAA/APv/AAAAAAMAAAA/APr/AAAAAAMAAAA+APr/AAAAAAMAAAA9APr/AAAAAAMAAAA8APr/AAAAAAMAAAA7APr/AAAAAAMAAAA7APv/AAAAAAMAAAA6APv/AAAAAAMAAAA6APz/AAAAAAMAAAA5APz/AAAAAAMAAAA5AP3/AAAAAAMAAAA4AP3/AAAAAAMAAAA4AP7/AAAAAAMAAAA4AP//AAAAAAMAAAA4AAAAAAAAAAMAAAA5AAAAAAAAAAMAAAA6AAAAAAAAAAMAAAA7AAAAAAAAAAMAAAA8AAAAAAAAAAMAAAA9AAAAAAAAAAMAAAA+AAAAAAAAAAMAAAA/AAAAAAAAAAMAAABAAAAAAAAAAAMAAABAAP//AAAAAAMAAABAAP7/AAAAAAMAAABAAP3/AAAAAAMAAAA/AP3/AAAAAAMAAAA/APz/AAAAAAMAAAA+APz/AAAAAAMAAAA+APv/AAAAAAMAAAA9APv/AAAAAAMAAAA8APv/AAAAAAMAAAA8APz/AAAAAAMAAAA9APz/AAAAAAMAAAA7APz/AAAAAAMAAAA6AP3/AAAAAAMAAAA7AP3/AAAAAAMAAAA8AP3/AAAAAAMAAAA9AP3/AAAAAAMAAAA+AP3/AAAAAAMAAAA/AP7/AAAAAAMAAAA+AP7/AAAAAAMAAAA9AP7/AAAAAAMAAAA8AP7/AAAAAAMAAAA7AP7/AAAAAAMAAAA6AP7/AAAAAAMAAAA5AP7/AAAAAAMAAAA5AP//AAAAAAMAAAA6AP//AAAAAAMAAAA7AP//AAAAAAMAAAA8AP//AAAAAAMAAAA9AP//AAAAAAMAAAA+AP//AAAAAAMAAAA/AP//AAAAAAMAAABCAP3/AAAAAAMAAABDAP3/AAAAAAMAAABEAP3/AAAAAAMAAABFAP3/AAAAAAMAAABGAP3/AAAAAAMAAABHAP3/AAAAAAMAAABHAP7/AAAAAAMAAABHAP//AAAAAAMAAABHAAAAAAAAAAMAAABHAAEAAAAAAAMAAABGAAEAAAAAAAMAAABFAAEAAAAAAAMAAABEAAEAAAAAAAMAAABDAAEAAAAAAAMAAABCAAEAAAAAAAMAAABCAAAAAAAAAAMAAABCAP//AAAAAAMAAABCAP7/AAAAAAMAAABDAP7/AAAAAAMAAABEAP7/AAAAAAMAAABFAP7/AAAAAAMAAABGAP7/AAAAAAMAAABGAP//AAAAAAMAAABGAAAAAAAAAAMAAABFAAAAAAAAAAMAAABEAAAAAAAAAAMAAABDAAAAAAAAAAMAAABDAP//AAAAAAMAAABEAP//AAAAAAMAAABFAP//AAAAAAMAAAA1AAIAAAAAAAMAAAA2AAIAAAAAAAMAAAA3AAIAAAAAAAMAAAA4AAIAAAAAAAMAAAA5AAIAAAAAAAMAAAA6AAIAAAAAAAMAAAA7AAIAAAAAAAMAAAA8AAIAAAAAAAMAAAA9AAIAAAAAAAMAAAA+AAIAAAAAAAMAAAA/AAIAAAAAAAMAAABAAAIAAAAAAAMAAABBAAIAAAAAAAMAAABCAAIAAAAAAAMAAABDAAIAAAAAAAMAAABEAAIAAAAAAAMAAABFAAIAAAAAAAMAAABGAAIAAAAAAAMAAABHAAIAAAAAAAMAAABHAAMAAAAAAAMAAABGAAMAAAAAAAMAAABFAAMAAAAAAAMAAABEAAMAAAAAAAMAAABDAAMAAAAAAAMAAABCAAMAAAAAAAMAAABBAAMAAAAAAAMAAABAAAMAAAAAAAMAAAA/AAMAAAAAAAMAAAA+AAMAAAAAAAMAAAA9AAMAAAAAAAMAAAA8AAMAAAAAAAMAAAA7AAMAAAAAAAMAAAA6AAMAAAAAAAMAAAA5AAMAAAAAAAMAAAA4AAMAAAAAAAMAAAA3AAMAAAAAAAMAAAA2AAMAAAAAAAMAAAA1AAMAAAAAAAMAAAA1AAQAAAAAAAMAAAA2AAQAAAAAAAMAAAA3AAQAAAAAAAMAAAA4AAQAAAAAAAMAAAA5AAQAAAAAAAMAAAA6AAQAAAAAAAMAAAA7AAQAAAAAAAMAAAA8AAQAAAAAAAMAAAA9AAQAAAAAAAMAAAA+AAQAAAAAAAMAAAA/AAQAAAAAAAMAAABAAAQAAAAAAAMAAABBAAQAAAAAAAMAAABCAAQAAAAAAAMAAABDAAQAAAAAAAMAAABEAAQAAAAAAAMAAABFAAQAAAAAAAMAAABGAAQAAAAAAAMAAABHAAQAAAAAAAMAAABQAPz/AAABAAMAAABRAPz/AAACAAMAAABSAPz/AAACAAMAAABTAPz/AAACAAMAAABUAPz/AAACAAMAAABVAPz/AAACAAMAAABWAPv/AAADAAIAAABWAPz/AAADAAMAAABQAP3/AAAAAAMAAABQAP7/AAAAAAMAAABQAP//AAAAAAMAAABQAAAAAAAAAAMAAABQAAEAAAAAAAMAAABQAAIAAAAAAAMAAABQAAMAAAAAAAMAAABRAP3/AAAAAAMAAABRAP7/AAAAAAMAAABRAP//AAAAAAMAAABRAAAAAAAAAAMAAABRAAEAAAAAAAMAAABRAAIAAAAAAAMAAABRAAMAAAAAAAMAAABSAP3/AAAAAAMAAABSAP7/AAAAAAMAAABSAP//AAAAAAMAAABSAAAAAAAAAAMAAABSAAEAAAAAAAMAAABSAAIAAAAAAAMAAABSAAMAAAAAAAMAAABTAP3/AAAAAAMAAABTAP7/AAAAAAMAAABTAP//AAAAAAMAAABTAAAAAAAAAAMAAABTAAEAAAAAAAMAAABTAAIAAAAAAAMAAABTAAMAAAAAAAMAAABUAP3/AAAAAAMAAABUAP7/AAAAAAMAAABUAP//AAAAAAMAAABUAAAAAAAAAAMAAABUAAEAAAAAAAMAAABUAAIAAAAAAAMAAABUAAMAAAAAAAMAAABVAP3/AAAAAAMAAABVAP7/AAAAAAMAAABVAP//AAAAAAMAAABVAAAAAAAAAAMAAABVAAEAAAAAAAMAAABVAAIAAAAAAAMAAABVAAMAAAAAAAMAAABWAP3/AAAAAAMAAABWAP7/AAAAAAMAAABWAP//AAAAAAMAAABWAAAAAAAAAAMAAABWAAEAAAAAAAMAAABWAAIAAAAAAAMAAABWAAMAAAAAAAMAAABWAAQAAAAAAAMAAABVAAQAAAAAAAMAAABUAAQAAAAAAAMAAABTAAQAAAAAAAMAAABSAAQAAAAAAAMAAABRAAQAAAAAAAMAAABQAAQAAAAAAAMAAABDAPr/AAAFAAMAAABEAPr/AAAGAAMAAABFAPr/AAAGAAMAAABGAPr/AAAGAAMAAABHAPr/AAAHAAMAAAAvAPn/AAAIAAMAAAAyAPv/AAAIAAMAAAA0APn/AAAIAAMAAAAVAP7/AAABAAMAAAAWAP7/AAACAAMAAAAXAP7/AAACAAMAAAAYAP7/AAACAAMAAAAZAP7/AAACAAMAAAAaAP7/AAADAAMAAAAjAP7/AAABAAMAAAAjAP//AAAAAAMAAAAjAAAAAAAAAAMAAAAjAAEAAAAAAAMAAAAjAAIAAAAAAAMAAAAjAAMAAAAAAAMAAAAjAAQAAAAAAAMAAAA=")
-tile_set = ExtResource("3_6hanj")
+tile_set = ExtResource("3_qnj6u")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="coin_ui" parent="CanvasLayer2" instance=ExtResource("4_r6s71")]
+[node name="coin_ui" parent="CanvasLayer2" instance=ExtResource("4_yjo57")]
 metadata/_edit_use_anchors_ = true
 
-[node name="health_ui" parent="CanvasLayer2" instance=ExtResource("5_jxwmv")]
+[node name="health_ui" parent="CanvasLayer2" instance=ExtResource("5_70r7o")]
 metadata/_edit_use_anchors_ = true
 
-[node name="EnemyCyberclops" parent="." instance=ExtResource("6_gi82o")]
+[node name="EnemyCyberclops" parent="." instance=ExtResource("6_va8og")]
 position = Vector2(926, 482)
 
-[node name="EnemyCyberclops2" parent="." instance=ExtResource("6_gi82o")]
+[node name="EnemyCyberclops2" parent="." instance=ExtResource("6_va8og")]
 position = Vector2(1438, 467)
 
-[node name="Jersey" parent="." instance=ExtResource("8_i15sl")]
+[node name="Jersey" parent="." instance=ExtResource("7_71tm8")]
 position = Vector2(8114, -861)
 
-[node name="enemy_katrina" parent="." instance=ExtResource("9_4f4qa")]
+[node name="enemy_katrina" parent="." instance=ExtResource("8_ilden")]
 position = Vector2(3910, -1211)
 
-[node name="EnemyPetunia" parent="." instance=ExtResource("10_emhdc")]
+[node name="EnemyPetunia" parent="." instance=ExtResource("9_g1h45")]
 position = Vector2(1840, -256)
 
-[node name="EnemyPetunia2" parent="." instance=ExtResource("10_emhdc")]
+[node name="EnemyPetunia2" parent="." instance=ExtResource("9_g1h45")]
 position = Vector2(2541, -498)
 
-[node name="EnemyPetunia3" parent="." instance=ExtResource("10_emhdc")]
+[node name="EnemyPetunia3" parent="." instance=ExtResource("9_g1h45")]
 position = Vector2(2249, -995)
 
-[node name="Fire" parent="." instance=ExtResource("11_e4ivf")]
+[node name="Fire" parent="." instance=ExtResource("10_i5v72")]
 position = Vector2(2675, 517)
 
-[node name="Bugger" parent="." instance=ExtResource("12_qn36r")]
+[node name="Bugger" parent="." instance=ExtResource("11_6uugb")]
 position = Vector2(10210, -1248)
 
-[node name="Bugger2" parent="." instance=ExtResource("12_qn36r")]
+[node name="Bugger2" parent="." instance=ExtResource("11_6uugb")]
 position = Vector2(10951, -1269)
 
-[node name="Bugger3" parent="." instance=ExtResource("12_qn36r")]
+[node name="Bugger3" parent="." instance=ExtResource("11_6uugb")]
 position = Vector2(10879, -745)
 
-[node name="EnemyPetunia4" parent="." instance=ExtResource("10_emhdc")]
+[node name="EnemyPetunia4" parent="." instance=ExtResource("9_g1h45")]
 position = Vector2(10317, -742)
 
-[node name="EnemyPetunia5" parent="." instance=ExtResource("10_emhdc")]
+[node name="EnemyPetunia5" parent="." instance=ExtResource("9_g1h45")]
 position = Vector2(12639, -1232)
 
-[node name="EnemyPetunia6" parent="." instance=ExtResource("10_emhdc")]
+[node name="EnemyPetunia6" parent="." instance=ExtResource("9_g1h45")]
 position = Vector2(13886, -898)
 
-[node name="platform_floating" parent="." instance=ExtResource("13_kylbt")]
+[node name="platform_floating" parent="." instance=ExtResource("12_q2cgu")]
 position = Vector2(18183, -957)
 
-[node name="platform_floating2" parent="." instance=ExtResource("13_kylbt")]
+[node name="platform_floating2" parent="." instance=ExtResource("12_q2cgu")]
 position = Vector2(18818, -1076)
 
-[node name="platform_floating3" parent="." instance=ExtResource("13_kylbt")]
+[node name="platform_floating3" parent="." instance=ExtResource("12_q2cgu")]
 position = Vector2(19460, -744)
 
-[node name="Enemy_Phish" parent="." instance=ExtResource("14_wfjck")]
+[node name="Enemy_Phish" parent="." instance=ExtResource("13_2xt2g")]
 position = Vector2(18951, -1587)
 
-[node name="coin" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(2125, 202)
 
-[node name="coin2" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin2" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(2364, -43)
 
-[node name="coin3" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin3" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(1986, -326)
 
-[node name="coin4" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin4" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(2131, -315)
 
-[node name="coin5" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin5" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(2864, -1566)
 
-[node name="coin6" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin6" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(3037, -1560)
 
-[node name="coin7" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin7" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(3226, -1549)
 
-[node name="coin8" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin8" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(9367, -561)
 
-[node name="coin9" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin9" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(9232, -562)
 
-[node name="coin10" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin10" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(9097, -566)
 
-[node name="coin11" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin11" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(10303, -1451)
 
-[node name="coin12" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin12" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(10480, -1312)
 
-[node name="coin13" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin13" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(11113, -1457)
 
-[node name="coin14" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin14" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(10736, -1343)
 
-[node name="coin15" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin15" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(10853, -1503)
 
-[node name="coin16" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin16" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(13626, -742)
 
-[node name="coin17" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin17" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(14131, -1274)
 
-[node name="coin18" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin18" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(14324, -1475)
 
-[node name="coin19" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin19" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(14480, -1665)
 
-[node name="EnemyCyberclops3" parent="." instance=ExtResource("6_gi82o")]
+[node name="EnemyCyberclops3" parent="." instance=ExtResource("6_va8og")]
 position = Vector2(15033, -1743)
 
-[node name="Enemy_Phish2" parent="." instance=ExtResource("14_wfjck")]
+[node name="Enemy_Phish2" parent="." instance=ExtResource("13_2xt2g")]
 position = Vector2(15826, -2107)
 
-[node name="Enemy_Phish3" parent="." instance=ExtResource("14_wfjck")]
+[node name="Enemy_Phish3" parent="." instance=ExtResource("13_2xt2g")]
 position = Vector2(14800, -2243)
 
-[node name="Fire2" parent="." instance=ExtResource("11_e4ivf")]
+[node name="Fire2" parent="." instance=ExtResource("10_i5v72")]
 position = Vector2(13132, -1743)
 
-[node name="Fire3" parent="." instance=ExtResource("11_e4ivf")]
+[node name="Fire3" parent="." instance=ExtResource("10_i5v72")]
 position = Vector2(15316, -1733)
 
-[node name="Fire4" parent="." instance=ExtResource("11_e4ivf")]
+[node name="Fire4" parent="." instance=ExtResource("10_i5v72")]
 position = Vector2(17191, -990)
 
-[node name="Fire5" parent="." instance=ExtResource("11_e4ivf")]
+[node name="Fire5" parent="." instance=ExtResource("10_i5v72")]
 position = Vector2(20446, -986)
 
-[node name="Goal" parent="." instance=ExtResource("18_2hrtv")]
+[node name="Goal" parent="." instance=ExtResource("15_f0hxc")]
 position = Vector2(21453, -1140)
-target_scene = ExtResource("16_jxwmv")
+target_scene = ExtResource("16_o6udc")
 
-[node name="coin20" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin20" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(18472, -1154)
 
-[node name="coin21" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin21" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(18635, -1246)
 
-[node name="coin22" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin22" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(18757, -1154)
 
-[node name="coin23" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin23" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(19159, -974)
 
-[node name="coin24" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin24" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(19268, -955)
 
-[node name="coin25" parent="." instance=ExtResource("15_tgo46")]
+[node name="coin25" parent="." instance=ExtResource("14_6wbj5")]
 position = Vector2(19405, -963)
 
-[node name="platform_floating4" parent="." instance=ExtResource("13_kylbt")]
+[node name="platform_floating4" parent="." instance=ExtResource("12_q2cgu")]
 position = Vector2(9638, -458)
 
-[node name="platform_floating5" parent="." instance=ExtResource("13_kylbt")]
+[node name="platform_floating5" parent="." instance=ExtResource("12_q2cgu")]
 position = Vector2(11331, -686)
 
-[node name="platform_floating6" parent="." instance=ExtResource("13_kylbt")]
+[node name="platform_floating6" parent="." instance=ExtResource("12_q2cgu")]
 position = Vector2(12883, -675)
 
-[node name="enemy_budge_fire" parent="." instance=ExtResource("16_k20rj")]
+[node name="enemy_budge_fire" parent="." instance=ExtResource("17_3tuho")]
 position = Vector2(2427, 485)
 
-[node name="enemy_budge_fire2" parent="." instance=ExtResource("16_k20rj")]
+[node name="enemy_budge_fire2" parent="." instance=ExtResource("17_3tuho")]
 position = Vector2(1861, 485)
 
-[node name="enemy_budge_fire3" parent="." instance=ExtResource("16_k20rj")]
+[node name="enemy_budge_fire3" parent="." instance=ExtResource("17_3tuho")]
 position = Vector2(4934, -269)
 
-[node name="enemy_budge_fire4" parent="." instance=ExtResource("16_k20rj")]
+[node name="enemy_budge_fire4" parent="." instance=ExtResource("17_3tuho")]
 position = Vector2(12485, -770)
 
-[node name="enemy_budge_fire5" parent="." instance=ExtResource("16_k20rj")]
+[node name="enemy_budge_fire5" parent="." instance=ExtResource("17_3tuho")]
 position = Vector2(17707, -1516)
 
-[node name="Maam" parent="." instance=ExtResource("17_r6s71")]
+[node name="Maam" parent="." instance=ExtResource("18_nsvkk")]
 position = Vector2(5261, -1249)
 bounding_width = 1500.0
 bounding_height = 1250.0
 
-[node name="area_voidout" parent="." instance=ExtResource("18_r6s71")]
+[node name="area_voidout" parent="." instance=ExtResource("19_5gakj")]
 position = Vector2(-96, 723)

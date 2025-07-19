@@ -732,6 +732,7 @@ disabled = true
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = -1
 position = Vector2(0, -400)
+offset = Vector2(0, 150)
 zoom = Vector2(0.66, 0.66)
 drag_vertical_enabled = true
 drag_left_margin = 1.0
