@@ -107,5 +107,4 @@ position = Vector2(2036, -12)
 
 [node name="Start" parent="." instance=ExtResource("19_ud8sp")]
 position = Vector2(363, 242)
-open_cutscene = "res://video/Intro_Cutscene.ogv"
 current_level_name = "debug"
