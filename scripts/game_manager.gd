@@ -4,6 +4,12 @@ var coins_collected : int = 0
 const PLAYER_TOTAL_HEALTH : int = 3
 const DEFAULT_GRAVITY: float  = 980.0
 var player_current_health : int = PLAYER_TOTAL_HEALTH
+var runtime_gamedata_flags : Dictionary
+var persistent_gamedata_flags : Dictionary:
+	get:
+		return SaveManager.save_data
+	set(val):
+		SaveManager.save_data = val
 @onready var allow_input : bool = true
 @onready var game_overed = false
 
@@ -48,6 +54,7 @@ func wait(seconds: float) -> void:
 func _ready() -> void:
 	EventController.connect("reload_scene", reload_scene)
 	EventController.connect("game_over", game_over)
+	SaveManager.load_save()
 
 func disable_input() -> void:
 	allow_input = false

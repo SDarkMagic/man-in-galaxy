@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=4 uid="uid://h8tifay0ufbr"]
+[gd_scene load_steps=18 format=4 uid="uid://h8tifay0ufbr"]
 
+[ext_resource type="Script" uid="uid://bm6l4jd0cmdmm" path="res://scripts/lvl_3.gd" id="1_1xhlg"]
 [ext_resource type="Texture2D" uid="uid://b8ln2gwjntva5" path="res://sprites/raw/Backgrounds/World 3 Background.png" id="1_wsdof"]
 [ext_resource type="PackedScene" uid="uid://ds000xgkjyli1" path="res://entities/player.tscn" id="2_eleb8"]
 [ext_resource type="TileSet" uid="uid://dgiblynq45t43" path="res://tiles/world.tres" id="3_0bhfr"]
@@ -12,10 +13,16 @@
 [ext_resource type="PackedScene" uid="uid://n3180dfgrorw" path="res://entities/platform_floating.tscn" id="10_o2o14"]
 [ext_resource type="PackedScene" uid="uid://crtofrupj3d8x" path="res://entities/enemy_budge.tscn" id="11_knjuq"]
 [ext_resource type="PackedScene" uid="uid://dsqkdqqv7tfur" path="res://entities/area_voidout.tscn" id="12_eleb8"]
+[ext_resource type="PackedScene" uid="uid://r04508sht065" path="res://entities/env_start.tscn" id="13_a685k"]
+[ext_resource type="PackedScene" uid="uid://cwcbpg2dfyn4p" path="res://scenes/lvl_3-2.tscn" id="14_c8m5y"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lonwg"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4ebv"]
+size = Vector2(315.5, 857)
+
 [node name="World 3-1 Evil Area" type="Node2D"]
+script = ExtResource("1_1xhlg")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -108,3 +115,18 @@ right_travel_max = 200.0
 
 [node name="area_voidout" parent="." instance=ExtResource("12_eleb8")]
 position = Vector2(6652, 1441)
+
+[node name="Start" parent="." instance=ExtResource("13_a685k")]
+position = Vector2(252, 497)
+current_level_name = "lvl_3_1"
+
+[node name="World 3-2 Evil Area Inside" parent="." instance=ExtResource("14_c8m5y")]
+position = Vector2(24667, -980)
+
+[node name="to_lvl_3-2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to_lvl_3-2"]
+position = Vector2(8378.25, 1317.5)
+shape = SubResource("RectangleShape2D_u4ebv")
+
+[connection signal="body_entered" from="to_lvl_3-2" to="." method="_on_to_lvl_3_2_body_entered"]

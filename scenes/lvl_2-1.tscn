@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cnamfp2vdyon6"]
+[gd_scene load_steps=22 format=4 uid="uid://cnamfp2vdyon6"]
 
 [ext_resource type="Texture2D" uid="uid://7uxepoypkw62" path="res://sprites/raw/Backgrounds/World 2 Background.png" id="1_fygwi"]
 [ext_resource type="PackedScene" uid="uid://ds000xgkjyli1" path="res://entities/player.tscn" id="2_oay8c"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bdce382kyu02d" path="res://entities/enemy_budge_fire.tscn" id="17_3tuho"]
 [ext_resource type="PackedScene" uid="uid://hqwdkejrthll" path="res://entities/enemy_maam.tscn" id="18_nsvkk"]
 [ext_resource type="PackedScene" uid="uid://dsqkdqqv7tfur" path="res://entities/area_voidout.tscn" id="19_5gakj"]
+[ext_resource type="PackedScene" uid="uid://r04508sht065" path="res://entities/env_start.tscn" id="20_oay8c"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_swd7w"]
 
@@ -241,3 +242,8 @@ bounding_height = 1250.0
 
 [node name="area_voidout" parent="." instance=ExtResource("19_5gakj")]
 position = Vector2(-96, 723)
+
+[node name="Start" parent="." instance=ExtResource("20_oay8c")]
+position = Vector2(424, 498)
+open_cutscene = "res://video/World_1_to_World_2_Cutscene.ogv"
+current_level_name = "lvl_2_1"

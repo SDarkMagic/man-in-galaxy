@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://f5woel4l7omi"]
+[gd_scene load_steps=20 format=4 uid="uid://f5woel4l7omi"]
 
 [ext_resource type="Texture2D" uid="uid://dcovjya7kiwv6" path="res://sprites/raw/Backgrounds/World 1 background.png" id="1_0uleb"]
 [ext_resource type="PackedScene" uid="uid://ds000xgkjyli1" path="res://entities/player.tscn" id="2_0whtb"]
@@ -14,9 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://n3180dfgrorw" path="res://entities/platform_floating.tscn" id="13_jcgqo"]
 [ext_resource type="PackedScene" uid="uid://dr5dbgcwuq7mm" path="res://entities/enemy_katrina.tscn" id="14_lmk7x"]
 [ext_resource type="PackedScene" uid="uid://vrxhbqy7hs62" path="res://entities/enemy_petunia.tscn" id="16_lmk7x"]
-[ext_resource type="Texture2D" uid="uid://dlwwpijfovdxe" path="res://sprites/raw/Sprites/Rocket Ship/Base Ship.png" id="16_qyhtk"]
 [ext_resource type="PackedScene" uid="uid://c1acfrb8caivw" path="res://entities/env_goal.tscn" id="17_55pfv"]
 [ext_resource type="PackedScene" uid="uid://dhcc7ut7bysg5" path="res://entities/enemy_bugger.tscn" id="17_qyhtk"]
+[ext_resource type="PackedScene" uid="uid://cnamfp2vdyon6" path="res://scenes/lvl_2-1.tscn" id="18_fhitu"]
+[ext_resource type="PackedScene" uid="uid://r04508sht065" path="res://entities/env_start.tscn" id="18_wigks"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_55pfv"]
 distance = 972.0
@@ -195,11 +196,6 @@ position = Vector2(10971, 974)
 [node name="enemy_budge11" parent="." instance=ExtResource("8_didl4")]
 position = Vector2(11746, 978)
 
-[node name="BaseShip" type="Sprite2D" parent="."]
-position = Vector2(19364, 865)
-scale = Vector2(0.499, 0.458)
-texture = ExtResource("16_qyhtk")
-
 [node name="Fire2" parent="." instance=ExtResource("11_rkvlu")]
 position = Vector2(18078, 1015)
 
@@ -223,3 +219,9 @@ position = Vector2(16544, 1)
 
 [node name="Goal" parent="." instance=ExtResource("17_55pfv")]
 position = Vector2(19363, 821)
+target_scene = ExtResource("18_fhitu")
+
+[node name="Start" parent="." instance=ExtResource("18_wigks")]
+position = Vector2(259, 499)
+open_cutscene = "uid://b74t057ibg4l7"
+current_level_name = "lvl_1_1"

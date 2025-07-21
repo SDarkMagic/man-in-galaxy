@@ -21,8 +21,10 @@ var fall_gravity : float = GameManager.DEFAULT_GRAVITY
 
 func _ready() -> void:
 	EventController.connect("damage_player", on_event_player_damaged)
+	EventController.connect("level_start", _level_started_callback)
 	$Lard/PlayerAnimation.play("RESET")
 	$Helmet/HelmetAnimation.play("RESET")
+	$".".hide()
 
 func animate_player():
 	if context_action_active == true:
@@ -135,4 +137,9 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	if entity is Projectile:
 		entity.team = "player"
 		entity.velocity *= -1
+	return
+
+func _level_started_callback(start_position: Vector2) -> void:
+	global_position = start_position
+	$".".show()
 	return

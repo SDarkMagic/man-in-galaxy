@@ -20,6 +20,7 @@ config/icon="res://sprites/icon.svg"
 
 GameManager="*res://scripts/game_manager.gd"
 EventController="*res://scripts/event_controller.gd"
+SaveManager="*res://scripts/save_manager.gd"
 
 [editor]
 

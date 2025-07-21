@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://r04508sht065"]
+[gd_scene load_steps=9 format=3 uid="uid://r04508sht065"]
 
 [ext_resource type="Script" uid="uid://c115r54xqvnrv" path="res://scripts/env_start.gd" id="1_lqlak"]
 [ext_resource type="Texture2D" uid="uid://b61taorm338i4" path="res://sprites/goal_ship.png" id="2_lqlak"]
@@ -107,14 +107,59 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(0, -6000), Vector2(0, -145.75)]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"enable_gameplay"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_vbtad"]
+resource_name = "set_crashed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Fire:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t0u26"]
 _data = {
 &"RESET": SubResource("Animation_5nh7v"),
-&"crash": SubResource("Animation_lqlak")
+&"crash": SubResource("Animation_lqlak"),
+&"set_crashed": SubResource("Animation_vbtad")
 }
 
 [node name="Start" type="Node2D"]
+process_mode = 3
+z_index = -1
 script = ExtResource("1_lqlak")
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -141,3 +186,11 @@ scale = Vector2(1.21, 2.145)
 
 [node name="Sparks" parent="Node2D" instance=ExtResource("3_lvyxb")]
 position = Vector2(41, 19)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+expand = true

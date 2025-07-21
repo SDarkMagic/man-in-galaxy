@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://oapbs8hbk3yx"]
+[gd_scene load_steps=21 format=4 uid="uid://oapbs8hbk3yx"]
 
 [ext_resource type="Texture2D" uid="uid://dcovjya7kiwv6" path="res://sprites/raw/Backgrounds/World 1 background.png" id="1_4tkup"]
 [ext_resource type="PackedScene" uid="uid://ds000xgkjyli1" path="res://entities/player.tscn" id="1_ln2x5"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dhcc7ut7bysg5" path="res://entities/enemy_bugger.tscn" id="16_iyhq1"]
 [ext_resource type="PackedScene" uid="uid://c1acfrb8caivw" path="res://entities/env_goal.tscn" id="18_ud8sp"]
 [ext_resource type="PackedScene" uid="uid://f5woel4l7omi" path="res://scenes/lvl_1-1.tscn" id="19_ow684"]
+[ext_resource type="PackedScene" uid="uid://r04508sht065" path="res://entities/env_start.tscn" id="19_ud8sp"]
 [ext_resource type="PackedScene" uid="uid://h2j1kfsapun8" path="res://entities/enemy_bottle.tscn" id="22_qn78l"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8puai"]
@@ -103,3 +104,8 @@ position = Vector2(910, 242)
 
 [node name="Chez" parent="." instance=ExtResource("8_puves")]
 position = Vector2(2036, -12)
+
+[node name="Start" parent="." instance=ExtResource("19_ud8sp")]
+position = Vector2(363, 242)
+open_cutscene = "res://video/Intro_Cutscene.ogv"
+current_level_name = "debug"
