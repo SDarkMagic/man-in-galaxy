@@ -1,0 +1,192 @@
+[gd_scene load_steps=14 format=3 uid="uid://kamvarj7bikm"]
+
+[ext_resource type="Script" uid="uid://bm0577teo3pqt" path="res://scripts/helmet_health_ui.gd" id="1_rq7tf"]
+[ext_resource type="Texture2D" uid="uid://f6hpcton8fh2" path="res://sprites/Helmet.png" id="2_n5phb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n5phb"]
+font_size = 48
+
+[sub_resource type="Animation" id="Animation_x08pd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dp3pk"]
+resource_name = "broken"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_tjdhl"]
+resource_name = "damage_1"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_dchgp"]
+resource_name = "damage_2"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_kdgjc"]
+resource_name = "damage_3"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_q0i8f"]
+resource_name = "damage_4"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_0i614"]
+resource_name = "damage_5"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_oprnr"]
+resource_name = "damage_6"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_8rie4"]
+resource_name = "damage_7"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cgp7q"]
+_data = {
+&"RESET": SubResource("Animation_x08pd"),
+&"broken": SubResource("Animation_dp3pk"),
+&"damage_1": SubResource("Animation_tjdhl"),
+&"damage_2": SubResource("Animation_dchgp"),
+&"damage_3": SubResource("Animation_kdgjc"),
+&"damage_4": SubResource("Animation_q0i8f"),
+&"damage_5": SubResource("Animation_0i614"),
+&"damage_6": SubResource("Animation_oprnr"),
+&"damage_7": SubResource("Animation_8rie4")
+}
+
+[node name="helmet_health" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 150.0
+offset_bottom = 75.0
+script = ExtResource("1_rq7tf")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 75.0
+offset_right = 125.0
+offset_bottom = 67.0
+text = "0"
+label_settings = SubResource("LabelSettings_n5phb")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Helmet" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(37.5, 37.5)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("2_n5phb")
+hframes = 9
+
+[node name="HelmetAnimation" type="AnimationPlayer" parent="Helmet"]
+libraries = {
+&"": SubResource("AnimationLibrary_cgp7q")
+}

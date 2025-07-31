@@ -2,7 +2,6 @@ class_name Player extends CharacterBody2D
 
 @export var SPEED = 300.0
 @export var mass  = 90.7
-@export var max_helmet_health : int = 7
 @export var context_action_active : bool = false
 @export var jump_time_to_peak : float = 0.1
 @export var jump_time_to_descent : float = 0.1
@@ -55,8 +54,9 @@ func use_attack():
 	else:
 		$Lard/PlayerAnimation.play("attack_right")
 	attacks_used += 1
+	EventController.emit_signal("attack_used", attacks_used)
 	helmet_anim_name = "damage_" + str(attacks_used)
-	if attacks_used >= max_helmet_health:
+	if attacks_used >= GameManager.MAX_HELMET_HEALTH:
 		helmet_anim_name = "broken"
 		EventController.emit_signal("damage_player", 3)
 	$Helmet/HelmetAnimation.play(helmet_anim_name)
@@ -119,7 +119,7 @@ func on_event_player_damaged(damage: int):
 	EventController.emit_signal("player_health_updated", player_current_health)
 	if (player_current_health <= 0):
 		death_source = "enemy"
-		if attacks_used >= max_helmet_health:
+		if attacks_used >= GameManager.MAX_HELMET_HEALTH:
 			death_source = "helmet"
 		EventController.emit_signal("game_over", death_source)
 		var animation: String = "dead_helmet" if death_source == "helmet" else "dead"
@@ -127,7 +127,7 @@ func on_event_player_damaged(damage: int):
 		pass # Kill player, trigger game over
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	if body is Enemy:
+	if body is Enemy and body is not Gumbo:
 		body.kill()
 	
 	pass # Replace with function body.
@@ -137,6 +137,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	if entity is Projectile:
 		entity.team = "player"
 		entity.velocity *= -1
+		entity.rotation_degrees += 180
 	return
 
 func _level_started_callback(start_position: Vector2) -> void:

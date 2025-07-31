@@ -1,0 +1,151 @@
+[gd_scene load_steps=13 format=3 uid="uid://b3dvwtrll5omd"]
+
+[ext_resource type="Script" uid="uid://e8huocclxlud" path="res://scripts/projectile_fire.gd" id="1_qnf2j"]
+[ext_resource type="Texture2D" uid="uid://di1ftauufbmqp" path="res://sprites/projectile_fire.png" id="2_qnf2j"]
+
+[sub_resource type="Animation" id="Animation_6iy6e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../sparks_ambient:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qnf2j"]
+resource_name = "burn"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../sparks_ambient:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pyoi6"]
+_data = {
+&"RESET": SubResource("Animation_6iy6e"),
+&"burn": SubResource("Animation_qnf2j")
+}
+
+[sub_resource type="Curve" id="Curve_qnf2j"]
+_data = [Vector2(0.0129032, 0), 0.0, 0.0, 0, 0, Vector2(0.267742, 0.323797), 0.0, 0.0, 0, 0, Vector2(0.919355, 1), 0.0, -2.00375, 0, 0, Vector2(1, 0.0279584), -20.3576, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_lrgt4"]
+curve = SubResource("Curve_qnf2j")
+
+[sub_resource type="Curve" id="Curve_6iy6e"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.0364109), 0.0, 0.0, 0, 0, Vector2(0.835484, 0.644993), 0.0, 1.1331, 0, 0, Vector2(1, 1), 0.166368, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_12sgq"]
+curve = SubResource("Curve_6iy6e")
+
+[sub_resource type="Curve" id="Curve_pyoi6"]
+_data = [Vector2(0, 1), 0.0, -0.827459, 0, 0, Vector2(1, 0.184472), -0.0545893, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0j2xh"]
+curve = SubResource("Curve_pyoi6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i6p1f"]
+lifetime_randomness = 0.31
+particle_flag_disable_z = true
+direction = Vector3(-5, 0, 0)
+spread = 30.0
+initial_velocity_min = 86.84
+initial_velocity_max = 89.34
+angular_velocity_min = -484.14
+angular_velocity_max = 293.79
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 20.11
+radial_accel_max = 29.43
+tangential_accel_min = -1.5
+tangential_accel_max = 1.5
+scale_min = 10.0
+scale_max = 20.0
+scale_curve = SubResource("CurveTexture_0j2xh")
+color = Color(1, 0.15, 0.15, 1)
+alpha_curve = SubResource("CurveTexture_lrgt4")
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.18
+hue_variation_curve = SubResource("CurveTexture_12sgq")
+
+[node name="Projectile" type="Node2D"]
+script = ExtResource("1_qnf2j")
+metadata/_custom_type_script = "uid://df43kinei3dso"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.68434e-14, 1.90735e-06)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_qnf2j")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_pyoi6")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(2.38419e-07, 0)
+scale = Vector2(1.89852, 1.89852)
+polygon = PackedVector2Array(16.3285, -11.0613, 26.863, 0.526726, 24.7561, 5.26726, 20.5423, 9.48108, 5.79399, 13.6949, -3.16036, 12.6414, -12.1147, 8.95435, -26.3363, 2.63363, -18.9622, -6.84744, 4.21381, -13.6949)
+
+[node name="Lifetime" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="sparks_ambient" type="GPUParticles2D" parent="."]
+position = Vector2(7, 0)
+emitting = false
+amount = 10
+lifetime = 2.5
+randomness = 0.4
+process_material = SubResource("ParticleProcessMaterial_i6p1f")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

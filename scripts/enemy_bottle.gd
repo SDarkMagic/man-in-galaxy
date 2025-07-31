@@ -1,6 +1,5 @@
 class_name Bottle extends Enemy
 
-@export var projectile_speed = 150.0
 @export var fire_interval : float = 2.5
 @export var raycast_segments : int = 100
 @export var beam_lifetime : float = 1.5
@@ -74,24 +73,34 @@ func _calc_attack_path() -> void:
 	var current_pos_y : float = 0.0
 	var current_segment : int = 1
 	var visual_line : Line2D = _create_beam(start_pos)
+	var current_target_x : float
+	var current_target_y : float
+	var current_target : Vector2
+	var current_raycast : RayCast2D
+	var ray_distance_y : float
+	var ray_distance_x : float
+	var current_ray_distance : float
 	while current_segment <= raycast_segments:
-		var current_target_x : float = (distance_x / raycast_segments) * current_segment
-		var current_target_y : float = (2 / (abs(0.0) + abs(distance_x))) * (current_target_x - 0.0) * (current_target_x - distance_x)
-		var current_target : Vector2 = Vector2(current_target_x, current_target_y)
+		current_target_x = (distance_x / raycast_segments) * current_segment
+		current_target_y = (2 / (abs(0.0) + abs(distance_x))) * (current_target_x - 0.0) * (current_target_x - distance_x)
+		current_target = Vector2(current_target_x, current_target_y)
 		visual_line.add_point(current_target)
-		var current_raycast : RayCast2D = _create_raycast_for_beam(Vector2(current_pos_x, current_pos_y), current_target, visual_line)
+		current_raycast = _create_raycast_for_beam(Vector2(current_pos_x, current_pos_y), current_target, visual_line)
+		ray_distance_y = current_target_y - current_pos_y
+		ray_distance_x = current_target_x - current_pos_x
+		current_ray_distance = sqrt(abs((ray_distance_y * ray_distance_y) + (ray_distance_x * ray_distance_x)))
 		current_raycast.force_raycast_update()
 		if current_raycast.is_colliding():
 			EventController.emit_signal("damage_player", 1)
 		current_pos_x = current_target_x
 		current_pos_y = current_target_y
 		current_segment += 1
+		await GameManager.wait(0.0003 * current_ray_distance)
 	active_beams.append(visual_line)
 	await GameManager.wait(beam_lifetime)
 	active_beams.pop_at(active_beams.find(visual_line))
 	if visual_line != null:
 		visual_line.queue_free()
-		#await get_tree().process_frame
 
 func _create_raycast_for_beam(start_pos : Vector2, target_pos : Vector2, line : Line2D) -> RayCast2D:
 	var raycast : RayCast2D = RayCast2D.new()
@@ -104,6 +113,7 @@ func _create_raycast_for_beam(start_pos : Vector2, target_pos : Vector2, line : 
 func _create_beam(start_pos: Vector2) -> Line2D:
 	var line = beam_scene.instantiate()
 	line.global_position = start_pos
+	line.add_point(Vector2(0,0))
 	get_tree().root.add_child(line)
 	return line
 

@@ -1,15 +1,19 @@
 extends Node2D
 
+signal level_complete()
 @export var target_scene : PackedScene
+var is_gumbo_defeated : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	EventController.connect("gumbo_down", gumbo_defeated)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func gumbo_defeated() -> void:
+	is_gumbo_defeated = true
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is not Player:
@@ -18,6 +22,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	body.hide()
 	$Node2D/Sprite2D/AnimationPlayer.play("launch")
 	await GameManager.wait($Node2D/Sprite2D/AnimationPlayer.get_animation("launch").get_length() + 0.5)
-	GameManager.load_scene(target_scene)
-	GameManager.enable_input()
-	pass # Replace with function body.
+	self.emit_signal("level_complete")
+	if not is_gumbo_defeated:
+		GameManager.load_scene(target_scene)
+		GameManager.enable_input()

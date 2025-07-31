@@ -170,7 +170,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_puv64"]
-radius = 106.075
+radius = 172.073
 
 [node name="EnemyCyberclops" type="CharacterBody2D"]
 collision_layer = 2
@@ -201,6 +201,7 @@ scale = Vector2(2.75, 2.75)
 polygon = PackedVector2Array(-77, -79, -16, -119, 31, -119, 52, -113, 76, -101, 76, -90, 75, -76, 78, -60, 77, -53, 72, -46, 60, -41, 45, -38, 36, -35, 26, -34, 21, -14, 17, -7, 6, -3, -2, -5, -15, -15, -19, -19, -46, -23, -52, -18, -65, -20, -72, -28, -76, -30, -77, -52)
 
 [node name="Explosion" type="Area2D" parent="."]
+monitorable = false
 
 [node name="ExplosionCollider" type="CollisionShape2D" parent="Explosion"]
 position = Vector2(1, -26)

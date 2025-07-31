@@ -19,12 +19,13 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lonwg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4ebv"]
-size = Vector2(315.5, 857)
+size = Vector2(315.5, 303)
 
 [node name="World 3-1 Evil Area" type="Node2D"]
 script = ExtResource("1_1xhlg")
 
 [node name="Area2D" type="Area2D" parent="."]
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 rotation = 3.14159
@@ -114,19 +115,21 @@ left_travel_max = 200.0
 right_travel_max = 200.0
 
 [node name="area_voidout" parent="." instance=ExtResource("12_eleb8")]
-position = Vector2(6652, 1441)
+position = Vector2(-473, 1545)
 
 [node name="Start" parent="." instance=ExtResource("13_a685k")]
 position = Vector2(252, 497)
+open_cutscene = "res://video/World_2_to_World_3_Cutscene.ogv"
 current_level_name = "lvl_3_1"
 
 [node name="World 3-2 Evil Area Inside" parent="." instance=ExtResource("14_c8m5y")]
 position = Vector2(24667, -980)
 
 [node name="to_lvl_3-2" type="Area2D" parent="."]
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="to_lvl_3-2"]
-position = Vector2(8378.25, 1317.5)
+position = Vector2(8378.25, 1040.5)
 shape = SubResource("RectangleShape2D_u4ebv")
 
 [connection signal="body_entered" from="to_lvl_3-2" to="." method="_on_to_lvl_3_2_body_entered"]

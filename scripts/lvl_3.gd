@@ -12,6 +12,8 @@ func _process(delta: float) -> void:
 
 
 func _on_to_lvl_3_2_body_entered(body: Node2D) -> void:
-	var scene = preload("res://scenes/lvl_3-1.tscn")
+	if body is not Player:
+		return
+	var scene = preload("res://scenes/lvl_3-2.tscn")
 	GameManager.load_scene(scene)
 	pass # Replace with function body.
