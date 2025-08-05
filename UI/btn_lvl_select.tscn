@@ -1,0 +1,23 @@
+[gd_scene load_steps=7 format=3 uid="uid://duqk1rxhgm7hl"]
+
+[ext_resource type="Texture2D" uid="uid://dn8v45ywenn12" path="res://UI/icons/icon_lvl_1.png" id="1_i8btv"]
+[ext_resource type="Texture2D" uid="uid://c6nepj2oipvb6" path="res://UI/icons/icon_lvl_1_pressed.png" id="2_sjyo4"]
+[ext_resource type="Texture2D" uid="uid://c4xiwvop7exyq" path="res://UI/icons/icon_lvl_1_selected.png" id="3_bvw13"]
+[ext_resource type="Texture2D" uid="uid://dj6s3ia3dbi1v" path="res://UI/icons/icon_lvl_1_disabled.png" id="4_xgmax"]
+[ext_resource type="Texture2D" uid="uid://kda2d8nfknwe" path="res://UI/icons/icon_lvl_selected.png" id="5_ypxd0"]
+[ext_resource type="Script" uid="uid://d082gcuruu12x" path="res://UI/btn_lvl_select.gd" id="6_sjyo4"]
+
+[node name="btn_lvl_select" type="TextureButton"]
+offset_right = 250.0
+offset_bottom = 250.0
+focus_neighbor_right = NodePath("../btn_lvl_2")
+focus_neighbor_bottom = NodePath("../btn_lvl_2")
+focus_next = NodePath("../btn_lvl_2")
+action_mode = 0
+texture_normal = ExtResource("1_i8btv")
+texture_pressed = ExtResource("2_sjyo4")
+texture_hover = ExtResource("3_bvw13")
+texture_disabled = ExtResource("4_xgmax")
+texture_focused = ExtResource("5_ypxd0")
+stretch_mode = 0
+script = ExtResource("6_sjyo4")

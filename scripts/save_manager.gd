@@ -23,3 +23,7 @@ func load_save():
 		if not parse_res == OK:
 			print("JSON parse error", json.get_error_message(), " in ", current_line, " at ", json.get_error_line())
 		save_data.assign(json.data)
+
+func _init_save_data() -> void:
+	var json = JSON.new()
+	return

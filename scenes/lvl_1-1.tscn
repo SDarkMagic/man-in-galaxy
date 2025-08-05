@@ -222,8 +222,9 @@ position = Vector2(16544, 1)
 [node name="Goal" parent="." instance=ExtResource("17_55pfv")]
 position = Vector2(19363, 821)
 target_scene = ExtResource("18_fhitu")
+next_level_name = "2"
 
 [node name="Start" parent="." instance=ExtResource("18_wigks")]
 position = Vector2(259, 499)
-open_cutscene = "uid://b74t057ibg4l7"
+open_cutscene = "uid://pbywydd8fvql"
 current_level_name = "lvl_1_1"

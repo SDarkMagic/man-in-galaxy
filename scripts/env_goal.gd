@@ -2,6 +2,7 @@ extends Node2D
 
 signal level_complete()
 @export var target_scene : PackedScene
+@export var next_level_name : String
 var is_gumbo_defeated : bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -21,8 +22,17 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	GameManager.disable_input()
 	body.hide()
 	$Node2D/Sprite2D/AnimationPlayer.play("launch")
+	await self.save_progress()
 	await GameManager.wait($Node2D/Sprite2D/AnimationPlayer.get_animation("launch").get_length() + 0.5)
 	self.emit_signal("level_complete")
 	if not is_gumbo_defeated:
 		GameManager.load_scene(target_scene)
 		GameManager.enable_input()
+
+func save_progress() -> void:
+	if next_level_name == "":
+		return
+	var level_complete_flag : StringName = "unlocked_lvl_" + next_level_name
+	SaveManager.save_data[level_complete_flag] = true
+	SaveManager.save_game()
+	return

@@ -22,6 +22,10 @@ GameManager="*res://scripts/game_manager.gd"
 EventController="*res://scripts/event_controller.gd"
 SaveManager="*res://scripts/save_manager.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
@@ -67,6 +71,10 @@ crouch={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":1,"axis_value":1.0,"script":null)
 ]
 }
+
+[input_devices]
+
+pointing/android/enable_long_press_as_right_click=true
 
 [layer_names]
 

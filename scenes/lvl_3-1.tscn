@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=4 uid="uid://h8tifay0ufbr"]
 
 [ext_resource type="Script" uid="uid://bm6l4jd0cmdmm" path="res://scripts/lvl_3.gd" id="1_1xhlg"]
-[ext_resource type="Texture2D" uid="uid://b8ln2gwjntva5" path="res://sprites/raw/Backgrounds/World 3 Background.png" id="1_wsdof"]
+[ext_resource type="Texture2D" uid="uid://yjyvli7x6onm" path="res://sprites/bg_lvl_3.png" id="2_1xhlg"]
 [ext_resource type="PackedScene" uid="uid://ds000xgkjyli1" path="res://entities/player.tscn" id="2_eleb8"]
 [ext_resource type="TileSet" uid="uid://dgiblynq45t43" path="res://tiles/world.tres" id="3_0bhfr"]
 [ext_resource type="PackedScene" uid="uid://dr6wjnkmdu0nk" path="res://UI/coin_ui.tscn" id="4_6hk3y"]
@@ -39,7 +39,7 @@ transform = Transform2D(0.61, 0, 0, 0.61, 0, 0)
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_wsdof")
+texture = ExtResource("2_1xhlg")
 metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_eleb8")]

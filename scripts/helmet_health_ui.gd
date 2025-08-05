@@ -11,4 +11,7 @@ func _ready() -> void:
 
 func on_event_player_attacks(attacks_used: int) -> void:
 	label.text = str(GameManager.MAX_HELMET_HEALTH - attacks_used)
-	helmet.play(String("damage_" + str(attacks_used)))
+	var anim_name : String = String("damage_" + str(attacks_used))
+	if attacks_used == GameManager.MAX_HELMET_HEALTH:
+		anim_name = "broken"
+	helmet.play(anim_name)

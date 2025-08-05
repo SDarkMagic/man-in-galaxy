@@ -1,0 +1,88 @@
+[gd_scene load_steps=16 format=3 uid="uid://ccwmal60k0qjv"]
+
+[ext_resource type="Script" uid="uid://bbbaajef64qae" path="res://scripts/menu_lvl_select.gd" id="1_bm7mt"]
+[ext_resource type="Texture2D" uid="uid://8xs6atimta3o" path="res://sprites/bg_level_select.png" id="2_wexve"]
+[ext_resource type="PackedScene" uid="uid://duqk1rxhgm7hl" path="res://UI/btn_lvl_select.tscn" id="4_wgxkc"]
+[ext_resource type="PackedScene" uid="uid://f5woel4l7omi" path="res://scenes/lvl_1-1.tscn" id="5_wexve"]
+[ext_resource type="Texture2D" uid="uid://hccjxvlvm0l3" path="res://UI/icons/icon_lvl_2.png" id="6_fbum6"]
+[ext_resource type="Texture2D" uid="uid://dnf6uja7hwrvl" path="res://UI/icons/icon_lvl_2_pressed.png" id="7_w1fhp"]
+[ext_resource type="Texture2D" uid="uid://cno3rc2fiqgfp" path="res://UI/icons/icon_lvl_2_selected.png" id="8_jaab6"]
+[ext_resource type="Texture2D" uid="uid://bb38htqpkb2l" path="res://UI/icons/icon_lvl_2_disabled.png" id="9_tvo7t"]
+[ext_resource type="Texture2D" uid="uid://8bymbuxmnkn3" path="res://UI/icons/icon_lvl_3.png" id="10_wgxkc"]
+[ext_resource type="PackedScene" uid="uid://cnamfp2vdyon6" path="res://scenes/lvl_2-1.tscn" id="10_xi1m8"]
+[ext_resource type="Texture2D" uid="uid://cwrokfm1r00nq" path="res://UI/icons/icon_lvl_3_pressed.png" id="11_bm7mt"]
+[ext_resource type="Texture2D" uid="uid://c7de452og6ssd" path="res://UI/icons/icon_lvl_3_selected.png" id="12_wexve"]
+[ext_resource type="Texture2D" uid="uid://b6jjpppc4cqnm" path="res://UI/icons/icon_lvl_3_disabled.png" id="13_xi1m8"]
+[ext_resource type="PackedScene" uid="uid://h8tifay0ufbr" path="res://scenes/lvl_3-1.tscn" id="15_57p4x"]
+[ext_resource type="Script" uid="uid://beqpbja8uvc2p" path="res://scripts/dashed_connector.gd" id="16_xi1m8"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bm7mt")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_wexve")
+expand_mode = 1
+
+[node name="connector" type="Node2D" parent="Background"]
+z_index = 1
+script = ExtResource("16_xi1m8")
+connector_width = 4.0
+connector_dash_length = 35.0
+connector_dash_color = Color(0.901961, 0.866667, 0.223529, 1)
+
+[node name="btn_lvl_select_1" parent="." instance=ExtResource("4_wgxkc")]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 117.0
+offset_right = 300.0
+offset_bottom = 367.0
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+level = ExtResource("5_wexve")
+level_name = "1"
+
+[node name="btn_lvl_select_2" parent="." instance=ExtResource("4_wgxkc")]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 345.0
+offset_right = 658.0
+offset_bottom = 595.0
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+disabled = true
+texture_normal = ExtResource("6_fbum6")
+texture_pressed = ExtResource("7_w1fhp")
+texture_hover = ExtResource("8_jaab6")
+texture_disabled = ExtResource("9_tvo7t")
+level = ExtResource("10_xi1m8")
+level_name = "2"
+
+[node name="btn_lvl_select_3" parent="." instance=ExtResource("4_wgxkc")]
+layout_mode = 0
+offset_left = 815.0
+offset_top = 52.0
+offset_right = 1065.0
+offset_bottom = 302.0
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+disabled = true
+texture_normal = ExtResource("10_wgxkc")
+texture_pressed = ExtResource("11_bm7mt")
+texture_hover = ExtResource("12_wexve")
+texture_disabled = ExtResource("13_xi1m8")
+level = ExtResource("15_57p4x")
+level_name = "3"

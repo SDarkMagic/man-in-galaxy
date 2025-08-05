@@ -7,13 +7,18 @@
 [node name="overlay_main" type="CanvasLayer"]
 
 [node name="coin_ui" parent="." instance=ExtResource("1_54v1r")]
+offset_right = 98.0
 
 [node name="health_ui" parent="." instance=ExtResource("2_fo12r")]
 offset_left = 127.0
 offset_right = 167.0
 
 [node name="helmet_health" parent="." instance=ExtResource("3_fo12r")]
-offset_left = 1002.0
-offset_top = 14.0
-offset_right = 1138.0
-offset_bottom = 82.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -287.0
+offset_top = 30.0
+offset_right = -151.0
+offset_bottom = 98.0
+grow_horizontal = 0
