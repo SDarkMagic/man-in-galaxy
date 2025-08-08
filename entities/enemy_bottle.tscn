@@ -183,6 +183,7 @@ collision_layer = 2
 collision_mask = 35
 script = ExtResource("1_c1f68")
 beam_scene = ExtResource("2_sqge6")
+enemy_name = "bottle"
 metadata/_custom_type_script = "uid://cfo03mojq1dw6"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -215,4 +216,5 @@ one_shot = true
 [node name="FluidOutlet" type="Node2D" parent="."]
 position = Vector2(0, -88)
 
+[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="register_enemy_seen"]
 [connection signal="timeout" from="FireCooldown" to="." method="_on_fire_cooldown_timeout"]

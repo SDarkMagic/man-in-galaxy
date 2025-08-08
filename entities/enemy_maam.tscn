@@ -60,6 +60,7 @@ size = Vector2(198.5, 168)
 z_index = 3
 collision_layer = 2
 script = ExtResource("1_um4nh")
+enemy_name = "maam"
 metadata/_custom_type_script = "uid://cfo03mojq1dw6"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

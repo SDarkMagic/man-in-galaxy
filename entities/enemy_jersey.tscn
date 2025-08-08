@@ -94,6 +94,7 @@ jump_time_to_peak = 0.3
 jump_time_to_descent = 0.4
 jump_height = 400.0
 width = 150.0
+enemy_name = "jersey"
 metadata/_custom_type_script = "uid://cfo03mojq1dw6"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -113,3 +114,5 @@ shape = SubResource("CircleShape2D_umpbm")
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(3.05176e-05, -9.15527e-05)
 scale = Vector2(114.992, 114.992)
+
+[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="register_enemy_seen"]

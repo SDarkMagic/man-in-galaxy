@@ -2,6 +2,7 @@ class_name Enemy extends CharacterBody2D
 
 @export var mass : float = 50.0
 @export var width : float = 20.0
+@export var enemy_name : String
 var is_dead : bool = false
 
 func apply_gravity(vel: Vector2, delta: float) -> Vector2:
@@ -31,20 +32,23 @@ func _physics_process(delta: float) -> void:
 			
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_disable_process()
-
+	pass
+	
 func kill():
 	is_dead = true
 	self.queue_free()
-
-func _disable_process() -> void:
-	pass
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
+
+func register_enemy_seen() -> void:
+	if enemy_name == "":
+		return
+	var enemy_seen_flag : String = "seen_enemy_" + enemy_name
+	SaveManager.save_data[enemy_seen_flag] = true
+	return
+		

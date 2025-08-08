@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlu47fahckj4l"]
+
+[ext_resource type="Script" uid="uid://bjp20pckho73i" path="res://scripts/btn_enemy.gd" id="1_8ucfr"]
+[ext_resource type="Texture2D" uid="uid://v1w1ptot31g4" path="res://UI/icons/enemy_selected.png" id="2_vbhfy"]
+
+[node name="btn_enemy" type="Control"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 3
+anchor_right = 0.111
+anchor_bottom = 0.198
+offset_right = 0.127991
+offset_bottom = -0.304016
+script = ExtResource("1_8ucfr")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+border_color = Color(1, 0.36, 0.36, 1)
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture_focused = ExtResource("2_vbhfy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

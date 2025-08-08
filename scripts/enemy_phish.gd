@@ -12,6 +12,9 @@ var jump_gravity : float = GameManager.DEFAULT_GRAVITY
 var fall_gravity : float = GameManager.DEFAULT_GRAVITY
 var current_direction = Vector2.LEFT
 
+func _ready() -> void:
+	register_enemy_seen()
+
 func get_grav_y() -> float:
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
 

@@ -58,9 +58,11 @@ func _ready() -> void:
 	SaveManager.load_save()
 
 func disable_input() -> void:
+	EventController.emit_signal("hide_ui")
 	allow_input = false
 	
 func enable_input() -> void:
+	EventController.emit_signal("show_ui")
 	allow_input = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

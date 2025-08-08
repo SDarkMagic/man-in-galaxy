@@ -76,6 +76,10 @@ crouch={
 
 pointing/android/enable_long_press_as_right_click=true
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://txt/main.en.translation")
+
 [layer_names]
 
 2d_physics/layer_1="Player"

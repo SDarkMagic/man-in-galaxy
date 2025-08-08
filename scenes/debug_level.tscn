@@ -103,6 +103,7 @@ position = Vector2(3792, -6)
 [node name="Goal" parent="." instance=ExtResource("18_ud8sp")]
 position = Vector2(6950, 306)
 target_scene = ExtResource("19_ow684")
+next_level_name = "test"
 
 [node name="Bottle" parent="." instance=ExtResource("22_qn78l")]
 position = Vector2(910, 242)

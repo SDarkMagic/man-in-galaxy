@@ -1,9 +1,8 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://bqe07dd6uhwpd"]
 
 [ext_resource type="Texture2D" uid="uid://dkrgbxj0u70vj" path="res://UI/icons/btn_blank_selected.png" id="1_1h56g"]
+[ext_resource type="FontFile" uid="uid://dh7h6lmsxix8b" path="res://UI/font/Roboto-VariableFont_wdth,wght.ttf" id="1_ktj51"]
 [ext_resource type="Texture2D" uid="uid://bgxpqrjbpkxhd" path="res://UI/icons/btn_blank.png" id="2_ktj51"]
-
-[sub_resource type="SystemFont" id="SystemFont_o144t"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pes6x"]
 texture = ExtResource("1_1h56g")
@@ -14,12 +13,7 @@ texture = ExtResource("1_1h56g")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c48vo"]
 texture = ExtResource("2_ktj51")
 
-[sub_resource type="FontFile" id="FontFile_1h56g"]
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
+[sub_resource type="SystemFont" id="SystemFont_o144t"]
 
 [resource]
 default_font = SubResource("SystemFont_o144t")
@@ -41,9 +35,9 @@ Button/constants/h_separation = 0
 Button/constants/icon_max_width = 1280
 Button/constants/outline_size = 1
 Button/font_sizes/font_size = 28
-Button/fonts/font = SubResource("SystemFont_o144t")
+Button/fonts/font = ExtResource("1_ktj51")
 Button/styles/focus = SubResource("StyleBoxTexture_pes6x")
 Button/styles/hover = SubResource("StyleBoxTexture_idbpy")
 Button/styles/normal = SubResource("StyleBoxTexture_c48vo")
 Button/styles/pressed = null
-Label/fonts/font = SubResource("FontFile_1h56g")
+Label/fonts/font = ExtResource("1_ktj51")

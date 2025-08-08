@@ -178,6 +178,7 @@ collision_mask = 43
 script = ExtResource("1_puv64")
 mass = 3020.0
 width = 150.0
+enemy_name = "cyberclops"
 
 [node name="Fire" parent="." instance=ExtResource("2_p64vh")]
 visible = false
@@ -211,3 +212,4 @@ shape = SubResource("CircleShape2D_puv64")
 rect = Rect2(-225, -225, 450, 450)
 
 [connection signal="body_entered" from="Explosion" to="." method="_on_explosion_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="register_enemy_seen"]
