@@ -1,21 +1,84 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4hctngwv1g7t"]
+[gd_scene load_steps=10 format=3 uid="uid://c4hctngwv1g7t"]
 
+[ext_resource type="Texture2D" uid="uid://8xs6atimta3o" path="res://sprites/bg_level_select.png" id="1_0ouc6"]
 [ext_resource type="Theme" uid="uid://bqe07dd6uhwpd" path="res://UI/theme_main.tres" id="1_bp7uk"]
+[ext_resource type="Script" uid="uid://ck3fx5ftr8c3g" path="res://scripts/menu_main.gd" id="1_drywy"]
+[ext_resource type="Texture2D" uid="uid://kjqlsl2xqjdm" path="res://UI/logo_title.png" id="2_0ouc6"]
+[ext_resource type="PackedScene" uid="uid://bquk2ugrsvyad" path="res://UI/menu_enemy_codex.tscn" id="2_juv7s"]
+[ext_resource type="PackedScene" uid="uid://ccwmal60k0qjv" path="res://UI/menu_lvl_select.tscn" id="3_l4phq"]
+[ext_resource type="Texture2D" uid="uid://dycsahvxrkof1" path="res://UI/icons/btn_gear.png" id="7_7sfg8"]
+[ext_resource type="Texture2D" uid="uid://b6xa27u3vtb5h" path="res://UI/icons/btn_gear_hover.png" id="8_eej5t"]
+[ext_resource type="Texture2D" uid="uid://v1w1ptot31g4" path="res://UI/icons/enemy_selected.png" id="9_wevtc"]
 
-[node name="Control" type="Control"]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_drywy")
+enemy_codex_scene = ExtResource("2_juv7s")
+level_select_scene = ExtResource("3_l4phq")
 
-[node name="Button" type="Button" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 1.0
-offset_right = 809.0
-offset_bottom = 490.0
+offset_right = 1152.0
+offset_bottom = 651.0
+texture = ExtResource("1_0ouc6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.674
+anchor_bottom = 1.662
+offset_right = -1294.08
+offset_bottom = -714.96
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+texture = ExtResource("2_0ouc6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_right = NodePath("../../SettingsButton")
 theme = ExtResource("1_bp7uk")
+theme_override_font_sizes/font_size = 72
 action_mode = 0
 text = "Play"
 icon_alignment = 1
+
+[node name="CodexButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(640, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_right = NodePath("../../SettingsButton")
+theme = ExtResource("1_bp7uk")
+theme_override_font_sizes/font_size = 72
+action_mode = 0
+text = "Enemy Codex"
+icon_alignment = 1
+
+[node name="SettingsButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -256.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_neighbor_left = NodePath("../VBoxContainer/CodexButton")
+texture_normal = ExtResource("7_7sfg8")
+texture_hover = ExtResource("8_eej5t")
+texture_focused = ExtResource("9_wevtc")
+ignore_texture_size = true
+stretch_mode = 0

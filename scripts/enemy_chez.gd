@@ -36,9 +36,11 @@ func _physics_process(delta: float) -> void:
 func kill():
 	is_dead = true
 	$Sprite2D/AnimationPlayer.play("dead")
-	#self.queue_free()
+	await play_death_sound()
+	self.queue_free()
 
 func _ready() -> void:
+	_init_audio_player()
 	$ProjectileCooldown.wait_time = fire_interval
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

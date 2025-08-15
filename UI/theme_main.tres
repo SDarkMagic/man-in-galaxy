@@ -1,14 +1,15 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bqe07dd6uhwpd"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bqe07dd6uhwpd"]
 
-[ext_resource type="Texture2D" uid="uid://dkrgbxj0u70vj" path="res://UI/icons/btn_blank_selected.png" id="1_1h56g"]
+[ext_resource type="Texture2D" uid="uid://ddqg7thpuy254" path="res://UI/icons/btn_blank_selected.png" id="1_1h56g"]
 [ext_resource type="FontFile" uid="uid://dh7h6lmsxix8b" path="res://UI/font/Roboto-VariableFont_wdth,wght.ttf" id="1_ktj51"]
 [ext_resource type="Texture2D" uid="uid://bgxpqrjbpkxhd" path="res://UI/icons/btn_blank.png" id="2_ktj51"]
+[ext_resource type="Texture2D" uid="uid://dkrgbxj0u70vj" path="res://UI/icons/btn_blank_hover.png" id="2_o144t"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pes6x"]
 texture = ExtResource("1_1h56g")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_idbpy"]
-texture = ExtResource("1_1h56g")
+texture = ExtResource("2_o144t")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c48vo"]
 texture = ExtResource("2_ktj51")

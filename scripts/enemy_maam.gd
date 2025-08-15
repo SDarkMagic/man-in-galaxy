@@ -8,8 +8,13 @@ class_name Maam extends Enemy
 @onready var dir_x : Vector2 = Vector2.RIGHT
 @onready var dir_y : Vector2 = Vector2.DOWN
 
+func _ready() -> void:
+	_init_audio_player()
+	disable_idle_timer()
+
 func move(vel: Vector2, delta: float) -> Vector2:
 	var current_pos : Vector2 = $".".global_position
+	var initial_direction : Vector2 = vel.normalized()
 	
 	if current_pos.x <= start_pos.x:
 		dir_x = Vector2.RIGHT
@@ -22,6 +27,8 @@ func move(vel: Vector2, delta: float) -> Vector2:
 		dir_y = Vector2.UP
 		
 	vel = (move_speed * dir_x) + (move_speed * dir_y)
+	if vel.normalized() != initial_direction:
+		play_sound_for_action("idle")
 	return vel
 
 func _physics_process(delta: float) -> void:
@@ -40,7 +47,8 @@ func _physics_process(delta: float) -> void:
 func kill():
 	is_dead = true
 	$Sprite2D/AnimationPlayer.play("dead")
-	#self.queue_free()
+	await play_death_sound()
+	self.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -27,6 +27,17 @@ func kill():
 	# Explode
 	is_dead = true
 	$Sprite2D/AnimationPlayer2.play("dead")
+	play_sound_for_action("explode")
+	await GameManager.wait(audio_files["explode"].get_length())
+	queue_free()
+
+func _ready() -> void:
+	_init_audio_player()
+	add_audio_action("explode")
+	add_audio_action("drive")
+	$DriveSoundTimer.wait_time = audio_files["drive"].get_length()
+	play_sound_for_action("drive")
+	$DriveSoundTimer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -35,3 +46,9 @@ func _process(delta: float) -> void:
 func _on_explosion_body_entered(body: Node2D) -> void:
 	if body is Player:
 		EventController.emit_signal("damage_player", 2)
+
+
+func _on_drive_sound_timer_timeout() -> void:
+	if is_dead:
+		return
+	play_sound_for_action("drive")

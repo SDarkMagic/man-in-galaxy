@@ -10,6 +10,7 @@ func _ready() -> void:
 
 func on_event_coin_collected(value: int) -> void:
 	label.text = str(value)
+	$AudioStreamPlayer.play()
 
 func show_ui(pos: Vector2):
 	show()

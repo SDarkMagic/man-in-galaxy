@@ -6,6 +6,7 @@ class_name Player extends CharacterBody2D
 @export var jump_time_to_peak : float = 0.1
 @export var jump_time_to_descent : float = 0.1
 @export var _jump_height : float = 125.0
+@export var sound_names : Array[String]
 const PLAYER_TOTAL_HEALTH : int = 3
 var player_current_health : int = PLAYER_TOTAL_HEALTH
 @onready var attacks_used : int = 0
@@ -17,8 +18,18 @@ var jump_velocity : float = 0.1
 var jump_gravity : float = 0.1
 var fall_gravity : float = GameManager.DEFAULT_GRAVITY
 @onready var animator = $Lard/PlayerAnimation
+var sounds : Dictionary = {}
+var is_dead : bool = false
+
 
 func _ready() -> void:
+	is_dead = false
+	for action in sound_names:
+		var resource_path : String = "res://sound/{0}.wav".format([action])
+		if not ResourceLoader.exists(resource_path):
+			continue
+		sounds[action] = load(resource_path)
+		
 	EventController.connect("damage_player", on_event_player_damaged)
 	EventController.connect("level_start", _level_started_callback)
 	$Lard/PlayerAnimation.play("RESET")
@@ -58,6 +69,7 @@ func use_attack():
 	helmet_anim_name = "damage_" + str(attacks_used)
 	if attacks_used >= GameManager.MAX_HELMET_HEALTH:
 		helmet_anim_name = "broken"
+		play_sound_on_helmet("helmet_shatter")
 		EventController.emit_signal("damage_player", 3)
 	$Helmet/HelmetAnimation.play(helmet_anim_name)
 	
@@ -81,6 +93,7 @@ func handle_input(delta: float):
 		use_attack()
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		play_sound_on_player("player_jump")
 		jump()
 
 	# Get the input direction and handle the movement/deceleration.
@@ -117,30 +130,83 @@ func on_event_player_damaged(damage: int):
 	var death_source : String
 	player_current_health -= damage
 	EventController.emit_signal("player_health_updated", player_current_health)
-	if (player_current_health <= 0):
+	if (player_current_health <= 0) and is_dead == false:
+		is_dead = true
 		death_source = "enemy"
 		if attacks_used >= GameManager.MAX_HELMET_HEALTH:
 			death_source = "helmet"
 		EventController.emit_signal("game_over", death_source)
 		var animation: String = "dead_helmet" if death_source == "helmet" else "dead"
+		play_sound_on_player("player_" + animation)
 		animator.play(animation)
 		pass # Kill player, trigger game over
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body is Enemy and body is not Gumbo:
 		body.kill()
+		play_sound_on_helmet("helmet_hit")
 	
-	pass # Replace with function body.
-
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	var entity = area.get_parent()
 	if entity is Projectile:
 		entity.team = "player"
 		entity.velocity *= -1
 		entity.rotation_degrees += 180
+		play_sound_on_helmet("helmet_hit")
 	return
 
 func _level_started_callback(start_position: Vector2) -> void:
 	global_position = start_position
 	$".".show()
+	return
+
+
+func _on_step_taken() -> void:
+	var collider : CollisionShape2D
+	var tile_map : TileMapLayer = $"../TileMapLayer"
+	var tile_material : String
+	if not $".".is_on_floor():
+		return
+	var rid = get_rid()
+	var player_tile_pos : Vector2i = tile_map.local_to_map(position)
+	var ground_tile_pos : Vector2i = tile_map.get_neighbor_cell(player_tile_pos, TileSet.CellNeighbor.CELL_NEIGHBOR_BOTTOM_SIDE)
+	var ground_tile : TileData = tile_map.get_cell_tile_data(ground_tile_pos)
+	if ground_tile == null:
+		return
+	if ground_tile.get_custom_data("is_metal"):
+		tile_material = "metal"
+	else:
+		tile_material = "grass"
+	var step_sound : String = "player_step_" + tile_material
+	if step_sound not in sounds.keys():
+		return
+	play_sound_on_player(step_sound)
+	pass # Replace with function body.
+
+
+# Audio stuff
+func play_sound_on_player(action: String) -> void:
+	var audio_player : AudioStreamPlayer2D = $Lard/AudioStreamPlayer2D
+	if action not in sounds.keys():
+		push_error("Specified action was not found for the given identifier while trying to play audio: " + action)
+		return
+	if sounds[action] == null:
+		return
+	if audio_player.playing:
+		audio_player.stop()
+	audio_player.stream = sounds[action]
+	audio_player.play()
+	return
+	
+func play_sound_on_helmet(sound: String) -> void:
+	var audio_player : AudioStreamPlayer2D = $Helmet/AudioStreamPlayer2D
+	if sound not in sounds.keys():
+		push_error("Specified action was not found for the given identifier while trying to play audio: " + sound)
+		return
+	if sounds[sound] == null:
+		return
+	if audio_player.playing:
+		audio_player.stop()
+	audio_player.stream = sounds[sound]
+	audio_player.play()
 	return

@@ -17,7 +17,7 @@ func move(vel: Vector2, delta: float) -> Vector2:
 	if not $RayCast2D.is_colliding() and $RayCast2D2.is_colliding():
 		move_direction = Vector2.LEFT
 	elif not $RayCast2D2.is_colliding() and $RayCast2D.is_colliding():
-		move_direction - Vector2.RIGHT
+		move_direction = Vector2.RIGHT
 		
 	vel.x *= move_direction.x
 	return vel
@@ -43,11 +43,13 @@ func _physics_process(delta: float) -> void:
 			
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_init_audio_player()
 	$Sprite2D/AnimationPlayer.play("RESET")
 
 func kill():
 	is_dead = true
 	$Sprite2D/AnimationPlayer.play("dead")
+	await play_death_sound()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

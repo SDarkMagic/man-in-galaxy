@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://5soblhv8dkti" path="res://entities/env_fire.tscn" id="8_vwdpe"]
 [ext_resource type="PackedScene" uid="uid://bdk5aky287svx" path="res://entities/enemy_cyberclops.tscn" id="9_5ms3w"]
 [ext_resource type="PackedScene" uid="uid://crtofrupj3d8x" path="res://entities/enemy_budge.tscn" id="10_i0tid"]
-[ext_resource type="PackedScene" uid="uid://bcdp7635yyomn" path="res://entities/coin.tscn" id="11_6o85x"]
+[ext_resource type="PackedScene" uid="uid://bcdp7635yyomn" path="res://entities/item_coin.tscn" id="11_6o85x"]
 [ext_resource type="PackedScene" uid="uid://c1acfrb8caivw" path="res://entities/env_goal.tscn" id="13_jcakq"]
 [ext_resource type="PackedScene" uid="uid://dsqkdqqv7tfur" path="res://entities/area_voidout.tscn" id="14_3qvta"]
 [ext_resource type="PackedScene" uid="uid://hqwdkejrthll" path="res://entities/enemy_maam.tscn" id="15_o5fr2"]
@@ -36,8 +36,6 @@ shape = SubResource("WorldBoundaryShape2D_3y36b")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -2
-scale = Vector2(0.61, 0.61)
-transform = Transform2D(0.61, 0, 0, 0.61, 0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_right = 40.0

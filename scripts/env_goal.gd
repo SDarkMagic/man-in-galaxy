@@ -22,7 +22,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	GameManager.disable_input()
 	body.hide()
 	$Node2D/Sprite2D/AnimationPlayer.play("launch")
-	await self.save_progress()
+	self.save_progress()
 	await GameManager.wait($Node2D/Sprite2D/AnimationPlayer.get_animation("launch").get_length() + 0.5)
 	self.emit_signal("level_complete")
 	if not is_gumbo_defeated:

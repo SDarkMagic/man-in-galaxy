@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ds000xgkjyli1" path="res://entities/player.tscn" id="2_0whtb"]
 [ext_resource type="TileSet" uid="uid://dgiblynq45t43" path="res://tiles/world.tres" id="3_o07x5"]
 [ext_resource type="PackedScene" uid="uid://bbn6dra2pvtps" path="res://UI/overlay_main.tscn" id="4_mvnoc"]
-[ext_resource type="PackedScene" uid="uid://bcdp7635yyomn" path="res://entities/coin.tscn" id="6_in3nm"]
+[ext_resource type="PackedScene" uid="uid://bcdp7635yyomn" path="res://entities/item_coin.tscn" id="6_in3nm"]
 [ext_resource type="PackedScene" uid="uid://dsqkdqqv7tfur" path="res://entities/area_voidout.tscn" id="7_kjkni"]
 [ext_resource type="PackedScene" uid="uid://crtofrupj3d8x" path="res://entities/enemy_budge.tscn" id="8_didl4"]
 [ext_resource type="PackedScene" uid="uid://ca45cpse0xc3y" path="res://entities/enemy_gumber.tscn" id="9_72ilk"]
@@ -32,8 +32,6 @@ shape = SubResource("WorldBoundaryShape2D_55pfv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -2
-scale = Vector2(0.61, 0.61)
-transform = Transform2D(0.61, 0, 0, 0.61, 0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_right = 1920.0

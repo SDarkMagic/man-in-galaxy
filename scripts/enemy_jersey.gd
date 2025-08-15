@@ -50,6 +50,8 @@ func _physics_process(delta: float) -> void:
 func kill():
 	is_dead = true
 	$Sprite2D/AnimationPlayer.play("dead")
+	await play_death_sound()
+	self.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -1,9 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://ccwmal60k0qjv"]
+[gd_scene load_steps=19 format=3 uid="uid://ccwmal60k0qjv"]
 
 [ext_resource type="Script" uid="uid://bbbaajef64qae" path="res://scripts/menu_lvl_select.gd" id="1_bm7mt"]
 [ext_resource type="Texture2D" uid="uid://8xs6atimta3o" path="res://sprites/bg_level_select.png" id="2_wexve"]
+[ext_resource type="Texture2D" uid="uid://cp7qjgbd5oalp" path="res://UI/icons/btn_back_arrow.png" id="4_lhwpi"]
 [ext_resource type="PackedScene" uid="uid://duqk1rxhgm7hl" path="res://UI/btn_lvl_select.tscn" id="4_wgxkc"]
+[ext_resource type="Texture2D" uid="uid://cgf3ifu1nkadv" path="res://UI/icons/btn_back_arrow_hover.png" id="5_la3c3"]
 [ext_resource type="PackedScene" uid="uid://f5woel4l7omi" path="res://scenes/lvl_1-1.tscn" id="5_wexve"]
+[ext_resource type="Texture2D" uid="uid://cm4p4b3f0ugvf" path="res://UI/icons/btn_back_arrow_selected.png" id="6_1liyb"]
 [ext_resource type="Texture2D" uid="uid://hccjxvlvm0l3" path="res://UI/icons/icon_lvl_2.png" id="6_fbum6"]
 [ext_resource type="Texture2D" uid="uid://dnf6uja7hwrvl" path="res://UI/icons/icon_lvl_2_pressed.png" id="7_w1fhp"]
 [ext_resource type="Texture2D" uid="uid://cno3rc2fiqgfp" path="res://UI/icons/icon_lvl_2_selected.png" id="8_jaab6"]
@@ -32,7 +35,6 @@ layer = -2
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("2_wexve")
-expand_mode = 1
 
 [node name="connector" type="Node2D" parent="Background"]
 z_index = 1
@@ -41,12 +43,26 @@ connector_width = 4.0
 connector_dash_length = 35.0
 connector_dash_color = Color(0.901961, 0.866667, 0.223529, 1)
 
+[node name="BackButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(233, 131)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 16.0
+offset_right = 297.0
+offset_bottom = 147.0
+texture_normal = ExtResource("4_lhwpi")
+texture_hover = ExtResource("5_la3c3")
+texture_focused = ExtResource("6_1liyb")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="btn_lvl_select_1" parent="." instance=ExtResource("4_wgxkc")]
 layout_mode = 0
-offset_left = 50.0
-offset_top = 117.0
-offset_right = 300.0
-offset_bottom = 367.0
+offset_left = 131.0
+offset_top = 167.0
+offset_right = 598.0
+offset_bottom = 634.0
+focus_neighbor_top = NodePath("../BackButton")
 focus_neighbor_right = NodePath("")
 focus_neighbor_bottom = NodePath("")
 focus_next = NodePath("")
@@ -55,10 +71,10 @@ level_name = "1"
 
 [node name="btn_lvl_select_2" parent="." instance=ExtResource("4_wgxkc")]
 layout_mode = 0
-offset_left = 408.0
-offset_top = 345.0
-offset_right = 658.0
-offset_bottom = 595.0
+offset_left = 751.0
+offset_top = 504.0
+offset_right = 1252.0
+offset_bottom = 1005.0
 focus_neighbor_right = NodePath("")
 focus_neighbor_bottom = NodePath("")
 focus_next = NodePath("")
@@ -72,10 +88,10 @@ level_name = "2"
 
 [node name="btn_lvl_select_3" parent="." instance=ExtResource("4_wgxkc")]
 layout_mode = 0
-offset_left = 815.0
-offset_top = 52.0
-offset_right = 1065.0
-offset_bottom = 302.0
+offset_left = 1362.0
+offset_top = 103.0
+offset_right = 1803.0
+offset_bottom = 544.0
 focus_neighbor_right = NodePath("")
 focus_neighbor_bottom = NodePath("")
 focus_next = NodePath("")
@@ -86,3 +102,5 @@ texture_hover = ExtResource("12_wexve")
 texture_disabled = ExtResource("13_xi1m8")
 level = ExtResource("15_57p4x")
 level_name = "3"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

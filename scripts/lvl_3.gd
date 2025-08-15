@@ -16,4 +16,3 @@ func _on_to_lvl_3_2_body_entered(body: Node2D) -> void:
 		return
 	var scene = preload("res://scenes/lvl_3-2.tscn")
 	GameManager.load_scene(scene)
-	pass # Replace with function body.

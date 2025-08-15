@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bquk2ugrsvyad"]
+[gd_scene load_steps=8 format=3 uid="uid://bquk2ugrsvyad"]
 
 [ext_resource type="Script" uid="uid://cwsq8axrchkf1" path="res://scripts/menu_enemy_codex.gd" id="1_3iybu"]
 [ext_resource type="Theme" uid="uid://bqe07dd6uhwpd" path="res://UI/theme_main.tres" id="1_bjir5"]
+[ext_resource type="Texture2D" uid="uid://cp7qjgbd5oalp" path="res://UI/icons/btn_back_arrow.png" id="3_3iybu"]
+[ext_resource type="Texture2D" uid="uid://cgf3ifu1nkadv" path="res://UI/icons/btn_back_arrow_hover.png" id="4_xsbgr"]
+[ext_resource type="Texture2D" uid="uid://cm4p4b3f0ugvf" path="res://UI/icons/btn_back_arrow_selected.png" id="5_7ih0w"]
 [ext_resource type="PackedScene" uid="uid://dvh0ahdtwerqv" path="res://UI/window_enemy_codex.tscn" id="5_iws5n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xeoy7"]
@@ -35,8 +38,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -146.5
+offset_top = 16.0
 offset_right = 146.5
-offset_bottom = 103.0
+offset_bottom = 119.0
 grow_horizontal = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
@@ -49,8 +53,25 @@ horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../BackButton")
+focus_neighbor_top = NodePath("../../BackButton")
 columns = 6
+
+[node name="BackButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(233, 131)
+layout_mode = 1
+offset_left = 64.0
+offset_top = 16.0
+offset_right = 297.0
+offset_bottom = 147.0
+texture_normal = ExtResource("3_3iybu")
+texture_hover = ExtResource("4_xsbgr")
+texture_focused = ExtResource("5_7ih0w")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="window_enemy_codex" parent="." instance=ExtResource("5_iws5n")]
 visible = false
 layout_mode = 1
+
+[connection signal="pressed" from="BackButton" to="." method="_on_texture_button_pressed"]

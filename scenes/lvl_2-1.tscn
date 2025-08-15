@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dhcc7ut7bysg5" path="res://entities/enemy_bugger.tscn" id="11_6uugb"]
 [ext_resource type="PackedScene" uid="uid://n3180dfgrorw" path="res://entities/platform_floating.tscn" id="12_q2cgu"]
 [ext_resource type="PackedScene" uid="uid://byawg2rmhsql2" path="res://entities/enemy_phish.tscn" id="13_2xt2g"]
-[ext_resource type="PackedScene" uid="uid://bcdp7635yyomn" path="res://entities/coin.tscn" id="14_6wbj5"]
+[ext_resource type="PackedScene" uid="uid://bcdp7635yyomn" path="res://entities/item_coin.tscn" id="14_6wbj5"]
 [ext_resource type="PackedScene" uid="uid://c1acfrb8caivw" path="res://entities/env_goal.tscn" id="15_f0hxc"]
 [ext_resource type="PackedScene" uid="uid://h8tifay0ufbr" path="res://scenes/lvl_3-1.tscn" id="16_o6udc"]
 [ext_resource type="PackedScene" uid="uid://bdce382kyu02d" path="res://entities/enemy_budge_fire.tscn" id="17_3tuho"]
@@ -37,10 +37,9 @@ scale = Vector2(0.61, 0.61)
 transform = Transform2D(0.61, 0, 0, 0.61, 0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 3148.0
+offset_bottom = 1770.0
 texture = ExtResource("1_oay8c")
-metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_oay8c")]
 position = Vector2(320, 510)

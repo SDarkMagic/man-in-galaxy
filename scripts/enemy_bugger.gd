@@ -42,11 +42,14 @@ func _physics_process(delta: float) -> void:
 			
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_init_audio_player()
 	$Sprite2D/AnimationPlayer.play("RESET")
 
 func kill():
 	is_dead = true
 	$Sprite2D/AnimationPlayer.play("dead")
+	await play_death_sound()
+	queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

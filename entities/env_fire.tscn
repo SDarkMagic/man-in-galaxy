@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://5soblhv8dkti"]
+[gd_scene load_steps=14 format=3 uid="uid://5soblhv8dkti"]
 
 [ext_resource type="Texture2D" uid="uid://dthmdt8fmetsq" path="res://sprites/Fire.png" id="1_pp5dr"]
 [ext_resource type="Script" uid="uid://6s5l6g3dfunx" path="res://scripts/env_fire.gd" id="1_qipmm"]
+[ext_resource type="AudioStream" uid="uid://bv2xrkh1nivyy" path="res://sound/env_fire.wav" id="3_n5bun"]
 
 [sub_resource type="Animation" id="Animation_y2jyj"]
 length = 0.001
@@ -134,3 +135,8 @@ amount = 10
 lifetime = 2.5
 randomness = 0.4
 process_material = SubResource("ParticleProcessMaterial_jdu38")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_n5bun")
+autoplay = true
+bus = &"Environment"

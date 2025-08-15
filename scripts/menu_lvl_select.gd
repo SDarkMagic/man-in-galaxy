@@ -17,3 +17,7 @@ func _has_unlocked_level(level_name: String) -> bool:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_back_button_pressed() -> void:
+	GameManager.to_main_menu()

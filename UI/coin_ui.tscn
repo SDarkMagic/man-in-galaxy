@@ -1,29 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr6wjnkmdu0nk"]
+[gd_scene load_steps=4 format=3 uid="uid://dr6wjnkmdu0nk"]
 
 [ext_resource type="Script" uid="uid://b28ll6y3ja2d1" path="res://scripts/coin_ui.gd" id="1_rjbf3"]
 [ext_resource type="Texture2D" uid="uid://colsg588dy4s6" path="res://UI/icons/euro.png" id="2_rjbf3"]
+[ext_resource type="AudioStream" uid="uid://bhc04sqjenm7q" path="res://sound/item_coin_collect.wav" id="3_nhnys"]
 
 [node name="coin_ui" type="Control"]
+custom_minimum_size = Vector2(284, 96)
 layout_mode = 3
-anchors_preset = 0
-offset_left = 30.0
-offset_top = 30.0
-offset_right = 70.0
-offset_bottom = 70.0
+anchor_right = 0.148
+anchor_bottom = 0.089
+offset_right = -0.160004
+offset_bottom = -0.120003
 script = ExtResource("1_rjbf3")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 96.0
+offset_bottom = 96.0
 texture = ExtResource("2_rjbf3")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 45.0
-offset_right = 58.0
-offset_bottom = 31.0
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = -48.0
+offset_bottom = 48.0
+grow_horizontal = 0
+grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 26
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 64
 text = "0"
+vertical_alignment = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nhnys")

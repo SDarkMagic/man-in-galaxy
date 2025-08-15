@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dcovjya7kiwv6" path="res://sprites/raw/Backgrounds/World 1 background.png" id="1_4tkup"]
 [ext_resource type="PackedScene" uid="uid://ds000xgkjyli1" path="res://entities/player.tscn" id="1_ln2x5"]
-[ext_resource type="PackedScene" uid="uid://bcdp7635yyomn" path="res://entities/coin.tscn" id="2_6or15"]
+[ext_resource type="PackedScene" uid="uid://bcdp7635yyomn" path="res://entities/item_coin.tscn" id="2_6or15"]
 [ext_resource type="PackedScene" uid="uid://dr6wjnkmdu0nk" path="res://UI/coin_ui.tscn" id="3_8d50e"]
 [ext_resource type="PackedScene" uid="uid://bbn6dra2pvtps" path="res://UI/overlay_main.tscn" id="3_ow684"]
 [ext_resource type="PackedScene" uid="uid://c1vwgu8ac0vyo" path="res://UI/health_ui.tscn" id="4_iwus7"]
@@ -54,15 +54,10 @@ position = Vector2(-60, 1088)
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -2
-offset = Vector2(131.86, 23.595)
-scale = Vector2(0.6, 0.6)
-transform = Transform2D(0.6, 0, 0, 0.6, 131.86, 23.595)
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
-offset_left = -220.0
-offset_top = -39.0
-offset_right = 1700.0
-offset_bottom = 1041.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 texture = ExtResource("1_4tkup")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]

@@ -32,3 +32,7 @@ func open_codex_for_enemy(enemy_name: String) -> void:
 	window.portrait = enemy_image
 	window.update()
 	window.show()
+
+
+func _on_texture_button_pressed() -> void:
+	GameManager.to_main_menu()

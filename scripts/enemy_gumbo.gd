@@ -35,6 +35,7 @@ func _instantiate_projectile() -> Node2D:
 			
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_init_audio_player()
 	$Sprite2D/AnimationPlayer.play("RESET")
 	$ProjectileCooldown.wait_time = fire_interval
 

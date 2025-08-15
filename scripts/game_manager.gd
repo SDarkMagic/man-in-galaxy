@@ -65,6 +65,10 @@ func enable_input() -> void:
 	EventController.emit_signal("show_ui")
 	allow_input = true
 
+func to_main_menu() -> void:
+	var menu_scene = preload("res://UI/menu_main.tscn")
+	load_scene(menu_scene)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

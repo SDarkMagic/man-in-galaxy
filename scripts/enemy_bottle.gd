@@ -43,6 +43,9 @@ func _physics_process(delta: float) -> void:
 func kill():
 	is_dead = true
 	$Sprite2D/AnimationPlayer.play("dead")
+	await play_death_sound()
+	clear_beams()
+	queue_free()
 
 func clear_beams() -> void:
 	for beam in active_beams:
@@ -51,6 +54,7 @@ func clear_beams() -> void:
 			beam.queue_free()
 
 func _ready() -> void:
+	_init_audio_player()
 	$FireCooldown.wait_time = fire_interval
 	EventController.connect("clear_projectiles", clear_beams)
 
@@ -98,7 +102,9 @@ func _calc_attack_path() -> void:
 		await GameManager.wait(0.0003 * current_ray_distance)
 	active_beams.append(visual_line)
 	await GameManager.wait(beam_lifetime)
-	active_beams.pop_at(active_beams.find(visual_line))
+	var beam_index = active_beams.find(visual_line)
+	if beam_index != -1:
+		active_beams.pop_at(beam_index)
 	if visual_line != null:
 		visual_line.queue_free()
 
