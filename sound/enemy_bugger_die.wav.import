@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c78hgccgxxi1a"
-path="res://.godot/imported/Bugger Die.wav-32fb5d7bdd57694506b944935245a724.sample"
+path="res://.godot/imported/enemy_bugger_die.wav-128224031d2165436229efed965221d4.sample"
 
 [deps]
 
-source_file="res://sound/Bugger Die.wav"
-dest_files=["res://.godot/imported/Bugger Die.wav-32fb5d7bdd57694506b944935245a724.sample"]
+source_file="res://sound/enemy_bugger_die.wav"
+dest_files=["res://.godot/imported/enemy_bugger_die.wav-128224031d2165436229efed965221d4.sample"]
 
 [params]
 

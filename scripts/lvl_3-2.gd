@@ -5,7 +5,8 @@ var level_start : Vector2 = Vector2(750.0, -14570.0)
 
 # Called when the node enters the scene tree for the first time.a
 func _ready() -> void:
-	EventController.emit_signal("level_start", Vector2(18750.0, -5300.0))
+	EventController.emit_signal("level_start",level_start)
+	#EventController.emit_signal("level_start", Vector2(18750.0, -5300.0))
 	$Goal.connect("level_complete", play_cutscene)
 
 func play_cutscene() -> void:
