@@ -26,7 +26,6 @@ func connect_planets() -> void:
 			connector_dash_length,
 			true,
 			true)
-		print("line drawn", start_point, end_point)
 		current_planet += 1
 
 func calc_center(node: Control) -> Vector2:
@@ -38,7 +37,7 @@ func calc_center(node: Control) -> Vector2:
 
 func _find_planet_buttons() -> Array:
 	var buttons : Array = []
-	for node in $"../..".get_children():
+	for node in $"..".get_children():
 		if node.name.begins_with("btn_lvl"):
 			buttons.append(node)
 	return buttons

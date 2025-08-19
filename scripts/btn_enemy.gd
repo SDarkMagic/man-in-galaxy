@@ -13,7 +13,6 @@ func _ready() -> void:
 	$TextureButton.texture_normal = icon
 	$TextureButton.texture_disabled = disabled_icon
 	$TextureButton.texture_hover = hover_icon
-	print(seen_flag)
 	if not seen_flag in SaveManager.save_data.keys():
 		$TextureButton.disabled = true
 		return

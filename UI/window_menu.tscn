@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://ci0geeyqfynx5"]
+
+[ext_resource type="AudioStream" uid="uid://cwpwid2pvks0s" path="res://sound/music/menu_main.mp3" id="1_1vcdi"]
+[ext_resource type="Script" uid="uid://bapfg84dnd6kg" path="res://scripts/window_menu.gd" id="1_628uq"]
+[ext_resource type="PackedScene" uid="uid://c4hctngwv1g7t" path="res://UI/menu_main.tscn" id="2_w2m5m"]
+[ext_resource type="PackedScene" uid="uid://ccwmal60k0qjv" path="res://UI/menu_lvl_select.tscn" id="3_628uq"]
+[ext_resource type="Texture2D" uid="uid://8xs6atimta3o" path="res://sprites/bg_level_select.png" id="3_ac1nt"]
+[ext_resource type="PackedScene" uid="uid://bquk2ugrsvyad" path="res://UI/menu_enemy_codex.tscn" id="5_ac1nt"]
+
+[node name="MenuWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_628uq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_1vcdi")
+autoplay = true
+bus = &"Music"
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_ac1nt")
+
+[node name="MainMenu" parent="." instance=ExtResource("2_w2m5m")]
+layout_mode = 1
+
+[node name="LevelSelect" parent="." instance=ExtResource("3_628uq")]
+layout_mode = 1
+
+[node name="EnemyCodex" parent="." instance=ExtResource("5_ac1nt")]
+layout_mode = 1

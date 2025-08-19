@@ -1,21 +1,20 @@
-[gd_scene load_steps=7 format=4 uid="uid://bbd8wtvdyoe32"]
+[gd_scene load_steps=6 format=4 uid="uid://bbd8wtvdyoe32"]
 
+[ext_resource type="Script" uid="uid://rr33yjm01puj" path="res://scripts/level_manager.gd" id="1_iw5l3"]
 [ext_resource type="TileSet" uid="uid://dgiblynq45t43" path="res://tiles/world.tres" id="1_o6142"]
 [ext_resource type="PackedScene" uid="uid://bbn6dra2pvtps" path="res://UI/overlay_main.tscn" id="2_amll8"]
 [ext_resource type="PackedScene" uid="uid://ds000xgkjyli1" path="res://entities/player.tscn" id="3_770am"]
-[ext_resource type="PackedScene" uid="uid://c1acfrb8caivw" path="res://entities/env_goal.tscn" id="4_0ra3k"]
-[ext_resource type="PackedScene" uid="uid://r04508sht065" path="res://entities/env_start.tscn" id="5_cdatj"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mm7tu"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iw5l3"]
 
 [node name="LevelTemplate" type="Node2D"]
+script = ExtResource("1_iw5l3")
 
 [node name="GravityModifier" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityModifier"]
-position = Vector2(0, -2000)
 rotation = 3.14159
-shape = SubResource("WorldBoundaryShape2D_mm7tu")
+shape = SubResource("WorldBoundaryShape2D_iw5l3")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -2
@@ -34,12 +33,6 @@ tile_set = ExtResource("1_o6142")
 [node name="overlay_main" parent="." instance=ExtResource("2_amll8")]
 
 [node name="Player" parent="." instance=ExtResource("3_770am")]
-
-[node name="Goal" parent="." instance=ExtResource("4_0ra3k")]
-position = Vector2(2079, -204)
-
-[node name="Start" parent="." instance=ExtResource("5_cdatj")]
-position = Vector2(101, -24)
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"

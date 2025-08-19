@@ -18,6 +18,8 @@ func _has_unlocked_level(level_name: String) -> bool:
 func _process(delta: float) -> void:
 	pass
 
-
-func _on_back_button_pressed() -> void:
-	GameManager.to_main_menu()
+func slide_in() -> void:
+	$AnimationPlayer.play("slide_in")
+	
+func slide_out() -> void:
+	$AnimationPlayer.play_backwards("slide_in")

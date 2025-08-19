@@ -138,5 +138,4 @@ process_material = SubResource("ParticleProcessMaterial_jdu38")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_n5bun")
-autoplay = true
 bus = &"Environment"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://daceio2oktloc"
+path="res://.godot/imported/You Died Game Loop.mp3-f57c7922530aeff41a43dd2756eadcd2.mp3str"
+
+[deps]
+
+source_file="res://sound/music/You Died Game Loop.mp3"
+dest_files=["res://.godot/imported/You Died Game Loop.mp3-f57c7922530aeff41a43dd2756eadcd2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

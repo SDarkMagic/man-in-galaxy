@@ -17,7 +17,7 @@ func load_save():
 	var json = JSON.new()
 	var parse_res = json.parse(save_file.get_as_text())
 	if parse_res != OK:
-		print("JSON parse error", json.get_error_message(), " at ", json.get_error_line())
+		push_error("JSON parse error", json.get_error_message(), " at ", json.get_error_line())
 		return
 	save_data.assign(json.data)
 	return

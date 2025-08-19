@@ -5,9 +5,9 @@ extends Node2D
 @onready var cutscene_played_flag_name : String = "has_played_cutscene_" + current_level_name
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Node2D/Fire/AudioStreamPlayer2D.stop()
 	if open_cutscene == "":
 		$Node2D/Sprite2D/AnimationPlayer.play("set_crashed")
-		EventController.emit_signal("level_start", global_position)
 		return
 		
 	if not cutscene_played_flag_name in GameManager.runtime_gamedata_flags.keys():
@@ -19,7 +19,6 @@ func _ready() -> void:
 		play_cutscene()
 	else:
 		$Node2D/Sprite2D/AnimationPlayer.play("set_crashed")
-		EventController.emit_signal("level_start", global_position)
 		
 func play_cutscene() -> void:
 	var player : VideoStreamPlayer = $CanvasLayer/VideoStreamPlayer
@@ -37,6 +36,7 @@ func cutscene_playback_finished(player: VideoStreamPlayer) -> void:
 	return
 
 func enable_gameplay() -> void:
+	$Node2D/Fire/AudioStreamPlayer2D.play()
 	EventController.emit_signal("level_start", global_position)
 	GameManager.enable_input()
 	get_tree().paused = false

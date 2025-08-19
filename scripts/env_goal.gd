@@ -8,6 +8,7 @@ var is_gumbo_defeated : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	EventController.connect("gumbo_down", gumbo_defeated)
+	$Node2D/Fire/AudioStreamPlayer2D.stop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

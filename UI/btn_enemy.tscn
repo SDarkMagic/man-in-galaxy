@@ -4,24 +4,29 @@
 [ext_resource type="Texture2D" uid="uid://v1w1ptot31g4" path="res://UI/icons/enemy_selected.png" id="2_vbhfy"]
 
 [node name="btn_enemy" type="Control"]
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(256, 256)
 layout_mode = 3
 anchor_right = 0.111
 anchor_bottom = 0.198
-offset_right = 0.127991
-offset_bottom = -0.304016
+offset_right = 42.88
+offset_bottom = 42.16
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_8ucfr")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 layout_mode = 0
-offset_right = 128.0
-offset_bottom = 128.0
+offset_right = 256.0
+offset_bottom = 256.0
 border_color = Color(1, 0.36, 0.36, 1)
 
 [node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_right = 128.0
-offset_bottom = 128.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture_focused = ExtResource("2_vbhfy")
 ignore_texture_size = true
 stretch_mode = 0

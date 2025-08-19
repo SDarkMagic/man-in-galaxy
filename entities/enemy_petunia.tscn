@@ -91,3 +91,9 @@ polygon = PackedVector2Array(-10.8107, -12.8484, -6.71012, -15.0894, 0.931961, -
 
 [node name="Blood" parent="." instance=ExtResource("3_4ykju")]
 position = Vector2(-7, -53)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-3.00001, -106.5)
+scale = Vector2(10.5, 11.65)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="register_enemy_seen"]

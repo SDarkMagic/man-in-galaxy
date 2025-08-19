@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="man in galaxy"
-run/main_scene="uid://c4hctngwv1g7t"
+run/main_scene="uid://oapbs8hbk3yx"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://sprites/icon.svg"

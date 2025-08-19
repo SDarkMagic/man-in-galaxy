@@ -15,13 +15,8 @@ func _setup_buttons() -> void:
 		button.disabled_icon = load(icon_path + "_disabled.png")
 		button.hover_icon = load(icon_path + "_hover.png")
 		button.enemy_name_internal = enemy
-		$VBoxContainer/GridContainer.add_child(button)
+		$MarginContainer/VBoxContainer/GridContainer.add_child(button)
 		button.connect("pressed", open_codex_for_enemy)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func open_codex_for_enemy(enemy_name: String) -> void:
 	var msg_enemy_tag : String = "ENEMY_CODEX_" + enemy_name.to_upper()
@@ -33,6 +28,8 @@ func open_codex_for_enemy(enemy_name: String) -> void:
 	window.update()
 	window.show()
 
-
-func _on_texture_button_pressed() -> void:
-	GameManager.to_main_menu()
+func slide_in() -> void:
+	$AnimationPlayer.play("slide_in")
+	
+func slide_out() -> void:
+	$AnimationPlayer.play_backwards("slide_in")

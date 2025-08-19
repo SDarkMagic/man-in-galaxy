@@ -14,9 +14,9 @@ func _process(delta: float) -> void:
 	pass
 
 func update() -> void:
-	$Label.text = tr(tag_name)
-	$RichTextLabel.text = tr(tag_desc)
-	$TextureRect.texture = portrait
+	$MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/Label.text = tr(tag_name)
+	$MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/RichTextLabel.text = tr(tag_desc)
+	$MarginContainer/HBoxContainer/TextureRect.texture = portrait
 
 
 func _on_button_pressed() -> void:

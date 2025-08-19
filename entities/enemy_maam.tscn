@@ -63,3 +63,9 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(98.75, 84)
 shape = SubResource("RectangleShape2D_jb4d0")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(98, 83)
+scale = Vector2(10.8, 9.3)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="register_enemy_seen"]

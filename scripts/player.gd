@@ -169,8 +169,7 @@ func _on_step_taken() -> void:
 		return
 	var rid = get_rid()
 	var player_tile_pos : Vector2i = tile_map.local_to_map(position)
-	var ground_tile_pos : Vector2i = tile_map.get_neighbor_cell(player_tile_pos, TileSet.CellNeighbor.CELL_NEIGHBOR_BOTTOM_SIDE)
-	var ground_tile : TileData = tile_map.get_cell_tile_data(ground_tile_pos)
+	var ground_tile : TileData = tile_map.get_cell_tile_data(player_tile_pos)
 	if ground_tile == null:
 		return
 	if ground_tile.get_custom_data("is_metal"):
@@ -179,6 +178,7 @@ func _on_step_taken() -> void:
 		tile_material = "grass"
 	var step_sound : String = "player_step_" + tile_material
 	if step_sound not in sounds.keys():
+		print("step sound: {0} does not exist in keys".format([step_sound]))
 		return
 	play_sound_on_player(step_sound)
 	pass # Replace with function body.

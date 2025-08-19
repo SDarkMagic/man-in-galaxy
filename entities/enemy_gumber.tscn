@@ -161,3 +161,5 @@ collision_mask = 40
 position = Vector2(-35, 0)
 target_position = Vector2(0, 300)
 collision_mask = 40
+
+[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="register_enemy_seen"]
