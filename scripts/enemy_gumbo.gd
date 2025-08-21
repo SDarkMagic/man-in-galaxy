@@ -6,6 +6,7 @@ class_name Gumbo extends Enemy
 @export var fire_interval : float = 2.3
 var move_direction = Vector2.LEFT
 var can_shoot : bool = true
+var paused : bool = true
 
 func move(vel: Vector2, delta: float) -> Vector2:
 	vel.x = 0
@@ -35,7 +36,7 @@ func _instantiate_projectile() -> Node2D:
 			
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_init_audio_player()
+	_init_audio_player(false)
 	$Sprite2D/AnimationPlayer.play("RESET")
 	$ProjectileCooldown.wait_time = fire_interval
 
@@ -49,7 +50,7 @@ func kill():
 func _process(delta: float) -> void:
 	if is_dead:
 		return
-	if not can_shoot:
+	if not can_shoot or paused:
 		return
 	$ProjectileCooldown.start()
 	var projectile : Projectile = _instantiate_projectile()

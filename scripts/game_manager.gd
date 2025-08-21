@@ -28,6 +28,7 @@ func reload_scene():
 		EventController.emit_signal("clear_projectiles")
 		tree.reload_current_scene()
 		game_overed = false
+		allow_input = true
 	else:
 		print("Tree was null")
 	
@@ -36,6 +37,8 @@ func load_scene(scene: PackedScene) -> void:
 	if tree == null:
 		print("Tree was null")
 		return
+	allow_input = true
+	game_overed = false
 	tree.change_scene_to_packed(scene)
 
 func game_over(source: String="") -> void:
@@ -45,8 +48,7 @@ func game_over(source: String="") -> void:
 	game_overed = true
 	if source != "voidout":
 		await wait(2)
-	reload_scene()
-	allow_input = true
+	EventController.emit_signal("show_game_over_screen")
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
@@ -66,7 +68,7 @@ func enable_input() -> void:
 	allow_input = true
 
 func to_main_menu() -> void:
-	var menu_scene = preload("res://UI/menu_main.tscn")
+	var menu_scene = preload("res://UI/window_menu.tscn")
 	load_scene(menu_scene)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

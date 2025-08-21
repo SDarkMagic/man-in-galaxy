@@ -67,7 +67,7 @@ func register_enemy_seen() -> void:
 	return
 		
 # Audio functions
-func _init_audio_player() -> void:
+func _init_audio_player(idle=true) -> void:
 	audio_player.set_bus("Enemy")
 	var file_path : String
 	for action in audio_files.keys():
@@ -77,10 +77,13 @@ func _init_audio_player() -> void:
 		audio_files[action] = load(file_path)
 	add_child(audio_player)
 	add_child(idle_audio_delay)
-	_init_idle_audio()
+	_init_idle_audio(idle)
 	return
 
-func _init_idle_audio() -> void:
+func _init_idle_audio(idle=true) -> void:
+	if not idle:
+		disable_idle_timer()
+		return
 	if "idle" not in audio_files.keys():
 		return
 	if audio_files["idle"] == null:

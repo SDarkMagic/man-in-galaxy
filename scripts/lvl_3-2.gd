@@ -1,12 +1,15 @@
-extends Node2D
+extends "res://scripts/level_manager.gd"
 
-var level_start : Vector2 = Vector2(750.0, -14570.0)
+var level_start : Vector2 = Vector2(750.0, -4570.0)
+@export var gumbo_theme : AudioStream
 @export_file("*.ogv") var end_cutscene : String = ""
 
 # Called when the node enters the scene tree for the first time.a
 func _ready() -> void:
+	EventController.connect("level_start", start_music_playback)
+	EventController.connect("game_over", stop_music_playback)
 	EventController.emit_signal("level_start",level_start)
-	#EventController.emit_signal("level_start", Vector2(18750.0, -5300.0))
+	#EventController.emit_signal("level_start", Vector2(17000.0, -5500.0)) # Start at Great Gumbo fight
 	$Goal.connect("level_complete", play_cutscene)
 
 func play_cutscene() -> void:
@@ -26,10 +29,27 @@ func cutscene_playback_finished(player: VideoStreamPlayer) -> void:
 	player.hide()
 	return
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func _on_fire_death_box_body_entered(body: Node2D) -> void:
 	if body is Player:
 		EventController.emit_signal("game_over", "voidout")
+
+
+func _on_boss_area_body_entered(body: Node2D) -> void:
+	if body is Player:
+		# Send signal to start bss fight sequence
+		var pan_duration : float = 0.9
+		var target_pos : Vector2 = $BossArea.global_position
+		target_pos.x += 650
+		GameManager.disable_input()
+		$BackgroundMusic.stop()
+		$BackgroundMusic.stream = gumbo_theme
+		$BackgroundMusic.play()
+		body.pan_camera_to_pos(target_pos, pan_duration)
+		await GameManager.wait(pan_duration)
+		$Enemy_Gumbo.play_idle_sound()
+		await GameManager.wait($Enemy_Gumbo.audio_files["idle"].get_length())
+		body.reset_camera()
+		$BossArea.monitoring = false
+		$Enemy_Gumbo.paused = false
+		GameManager.enable_input()
+	pass # Replace with function body.

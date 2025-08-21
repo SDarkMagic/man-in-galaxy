@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://dk04ni7vxe63g"]
+
+[ext_resource type="Script" uid="uid://civ6srjv4n670" path="res://scripts/explosion_animation.gd" id="1_1mnrg"]
+[ext_resource type="Texture2D" uid="uid://17fhjwpbh7hd" path="res://sprites/explosion-spritesheet.png" id="1_e03pr"]
+[ext_resource type="AudioStream" uid="uid://mktrhyy347sd" path="res://sound/enemy_cyberclops_explode.wav" id="3_rq00o"]
+
+[sub_resource type="Animation" id="Animation_rq00o"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1mnrg"]
+resource_name = "explode"
+length = 1.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 31, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.5)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.25, 1.5),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4770y"]
+_data = {
+&"RESET": SubResource("Animation_rq00o"),
+&"explode": SubResource("Animation_1mnrg")
+}
+
+[node name="Explosion" type="Sprite2D"]
+texture = ExtResource("1_e03pr")
+hframes = 8
+vframes = 4
+script = ExtResource("1_1mnrg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4770y")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rq00o")
+bus = &"Sound Effects"

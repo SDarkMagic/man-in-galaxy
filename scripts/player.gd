@@ -7,19 +7,19 @@ class_name Player extends CharacterBody2D
 @export var jump_time_to_descent : float = 0.1
 @export var _jump_height : float = 125.0
 @export var sound_names : Array[String]
-const PLAYER_TOTAL_HEALTH : int = 3
-var player_current_health : int = PLAYER_TOTAL_HEALTH
 @onready var attacks_used : int = 0
 @onready var look_direction = Vector2.RIGHT
 @onready var need_uncrouch = false
 @onready var _jump_time_to_peak : float = jump_time_to_peak * GameManager.DEFAULT_GRAVITY
 @onready var _jump_time_to_descent : float = jump_time_to_descent * GameManager.DEFAULT_GRAVITY
+var player_current_health : int = GameManager.PLAYER_TOTAL_HEALTH
 var jump_velocity : float = 0.1
 var jump_gravity : float = 0.1
 var fall_gravity : float = GameManager.DEFAULT_GRAVITY
 @onready var animator = $Lard/PlayerAnimation
 var sounds : Dictionary = {}
-var is_dead : bool = false
+@onready var is_dead : bool = false
+@onready var is_invuln : bool = false
 
 
 func _ready() -> void:
@@ -112,6 +112,8 @@ func handle_input(delta: float):
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity, capping at a terminal velocity
+	if is_dead:
+		return
 	var gravity : float = get_grav_y()
 	if not is_on_floor():
 		velocity.y += (gravity) * delta
@@ -127,9 +129,13 @@ func _process(delta: float) -> void:
 	animate_player()
 	
 func on_event_player_damaged(damage: int):
+	if is_invuln:
+		return
 	var death_source : String
 	player_current_health -= damage
 	EventController.emit_signal("player_health_updated", player_current_health)
+	is_invuln = true
+	$InvulnTimer.start()
 	if (player_current_health <= 0) and is_dead == false:
 		is_dead = true
 		death_source = "enemy"
@@ -139,7 +145,7 @@ func on_event_player_damaged(damage: int):
 		var animation: String = "dead_helmet" if death_source == "helmet" else "dead"
 		play_sound_on_player("player_" + animation)
 		animator.play(animation)
-		pass # Kill player, trigger game over
+		# Kill player, trigger game over
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body is Enemy and body is not Gumbo:
@@ -210,3 +216,18 @@ func play_sound_on_helmet(sound: String) -> void:
 	audio_player.stream = sounds[sound]
 	audio_player.play()
 	return
+
+func pan_camera_to_pos(pos: Vector2, pan_duration: float) -> void:
+	var target_pos = $Camera2D.to_local(pos)
+	pan_camera(target_pos, pan_duration)
+
+func pan_camera(offset: Vector2, pan_duration: float) -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property($Camera2D, "position", offset, pan_duration)
+	
+func reset_camera() -> void:
+	$Camera2D.position = Vector2(0, 0)
+
+
+func _on_invuln_timer_timeout() -> void:
+	is_invuln = false

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://r04508sht065"]
+[gd_scene load_steps=10 format=3 uid="uid://r04508sht065"]
 
 [ext_resource type="Script" uid="uid://c115r54xqvnrv" path="res://scripts/env_start.gd" id="1_lqlak"]
 [ext_resource type="Texture2D" uid="uid://b61taorm338i4" path="res://sprites/goal_ship.png" id="2_lqlak"]
 [ext_resource type="PackedScene" uid="uid://caa0y02m270qw" path="res://ptcl/sparks.tscn" id="3_lvyxb"]
 [ext_resource type="PackedScene" uid="uid://5soblhv8dkti" path="res://entities/env_fire.tscn" id="3_vbtad"]
+[ext_resource type="PackedScene" uid="uid://dk04ni7vxe63g" path="res://ptcl/explosion_animation.tscn" id="5_vbtad"]
 
 [sub_resource type="Animation" id="Animation_5nh7v"]
 length = 0.001
@@ -121,6 +122,20 @@ tracks/4/keys = {
 "method": &"enable_gameplay"
 }]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Explosion")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"explode"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_vbtad"]
 resource_name = "set_crashed"
@@ -200,6 +215,10 @@ scale = Vector2(1.21, 2.145)
 
 [node name="Sparks" parent="Node2D" instance=ExtResource("3_lvyxb")]
 position = Vector2(41, 19)
+
+[node name="Explosion" parent="Node2D" instance=ExtResource("5_vbtad")]
+position = Vector2(31, -28.25)
+scale = Vector2(1.392, 1.328)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3

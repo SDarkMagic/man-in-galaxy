@@ -1,6 +1,6 @@
 keys,en
 ENEMY_CODEX_BUGGER_DESC,"These tiny little bugs don't do much. They just run around like bugs, so squish them if you see one."
-ENEMY_CODEX_BUGGER_NAME,"Little Fuck"
+ENEMY_CODEX_BUGGER_NAME,"Bugger"
 ENEMY_CODEX_BUDGE_NAME, "Budge"
 ENEMY_CODEX_BUDGE_DESC, "These little guys can be found everywhere in the galaxy since they keep overpopulating. All they know how to do is walk around all pissed off, so if you see one, be sure to kill it on sight."
 ENEMY_CODEX_GUMBER_NAME, "Gumber"
@@ -16,7 +16,7 @@ ENEMY_CODEX_CHEZ_DESC, "A not-so-tiny rat, or maybe a mouse that scurries around
 ENEMY_CODEX_JERSEY_NAME, "New Jersey"
 ENEMY_CODEX_JERSEY_DESC, "The state of New Jersey can be very dangerous. Don't let its comb-over fool you; it's incredibly athletic and will bounce towards you fiercely."
 ENEMY_CODEX_PHISH_NAME, "Phish"
-ENEMY_CODEX_PHISH_DESC, "They may look like birds, but these space creatures aren't interested in building a nest. Their main goal is to fly around and bite your forehead. If you manage to kill one, it will fall our of the sky, making jumping around much safer."
+ENEMY_CODEX_PHISH_DESC, "They may look like birds, but these space creatures aren't interested in building a nest. Their main goal is to fly around and bite your forehead. If you manage to kill one, it will fall out of the sky, making jumping around much safer."
 ENEMY_CODEX_PETUNIA_NAME, "Professor Petunia"
 ENEMY_CODEX_PETUNIA_DESC, "Nobody knows how this plant got so smart, but with an IQ of 150, this flower foe will do absolutely nothing but sit there and piss you off. He can't move, much like a normal flower, but he CAN tell you 135 interesting facts about biology."
 ENEMY_CODEX_MAAM_NAME, "Miss Ma'am"

@@ -41,6 +41,7 @@ func kill():
 
 func _ready() -> void:
 	_init_audio_player()
+	add_audio_action("spit")
 	$ProjectileCooldown.wait_time = fire_interval
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -51,6 +52,7 @@ func _process(delta: float) -> void:
 		return
 	$ProjectileCooldown.start()
 	var projectile : Projectile = _instantiate_projectile()
+	play_sound_for_action("spit")
 	projectile.fire(look_dir)
 	can_shoot = false
 

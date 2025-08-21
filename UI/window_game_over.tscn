@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://bidqq2fwbsvna"]
+
+[ext_resource type="Script" uid="uid://bkhka1ujnbndu" path="res://scripts/window_game_over.gd" id="1_7hj46"]
+[ext_resource type="Texture2D" uid="uid://dpm68hm3xa37r" path="res://sprites/bg_game_over.png" id="1_s6nsw"]
+[ext_resource type="Theme" uid="uid://bqe07dd6uhwpd" path="res://UI/theme_main.tres" id="2_ecrtl"]
+[ext_resource type="AudioStream" uid="uid://d2x54hufjs7xl" path="res://sound/music/game_over_loop.mp3" id="3_gxrme"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7hj46")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_s6nsw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 1150
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 380
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+
+[node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 2
+theme = ExtResource("2_ecrtl")
+theme_override_font_sizes/font_size = 96
+text = "Continue"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 2
+theme = ExtResource("2_ecrtl")
+theme_override_font_sizes/font_size = 96
+text = "Quit to Title"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gxrme")
+bus = &"Music"

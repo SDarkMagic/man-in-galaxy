@@ -27,7 +27,9 @@ func kill():
 	# Explode
 	is_dead = true
 	$Sprite2D/AnimationPlayer2.play("dead")
-	play_sound_for_action("explode")
+	$Sprite2D/Explosion.explode()
+	audio_player.stop()
+	#play_sound_for_action("explode") # Playback of explosion sound effect is now handled by `explosion_animation.tscn`
 	await GameManager.wait(audio_files["explode"].get_length())
 	queue_free()
 

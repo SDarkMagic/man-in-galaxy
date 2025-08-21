@@ -56,5 +56,3 @@ explosiveness = 0.1
 process_material = SubResource("ParticleProcessMaterial_iow00")
 
 [node name="Sparks" parent="." instance=ExtResource("1_5rjd3")]
-emitting = false
-one_shot = true

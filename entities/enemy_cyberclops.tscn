@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdk5aky287svx"]
+[gd_scene load_steps=11 format=3 uid="uid://bdk5aky287svx"]
 
 [ext_resource type="Texture2D" uid="uid://tqomv6iwcfg5" path="res://sprites/Cyberclops.png" id="1_2ng52"]
 [ext_resource type="Script" uid="uid://cwmhthx1i754m" path="res://scripts/enemy_cyberclops.gd" id="1_puv64"]
 [ext_resource type="PackedScene" uid="uid://5soblhv8dkti" path="res://entities/env_fire.tscn" id="2_p64vh"]
 [ext_resource type="PackedScene" uid="uid://caa0y02m270qw" path="res://ptcl/sparks.tscn" id="3_oqk3x"]
+[ext_resource type="PackedScene" uid="uid://dk04ni7vxe63g" path="res://ptcl/explosion_animation.tscn" id="4_7thap"]
 
 [sub_resource type="Animation" id="Animation_trdak"]
 length = 0.001
@@ -179,6 +180,11 @@ hframes = 2
 libraries = {
 &"": SubResource("AnimationLibrary_fsx8l")
 }
+
+[node name="Explosion" parent="Sprite2D" instance=ExtResource("4_7thap")]
+position = Vector2(-2.96739, 163.205)
+scale = Vector2(7.24036, 7.24036)
+explosion_duration = 0.75
 
 [node name="Sparks" parent="Sprite2D" instance=ExtResource("3_oqk3x")]
 position = Vector2(0, 110.33)

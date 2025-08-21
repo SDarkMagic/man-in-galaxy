@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://bbd8wtvdyoe32"]
+[gd_scene load_steps=7 format=4 uid="uid://bbd8wtvdyoe32"]
 
-[ext_resource type="Script" path="res://scripts/level_manager.gd" id="1_iw5l3"]
+[ext_resource type="Script" uid="uid://rr33yjm01puj" path="res://scripts/level_manager.gd" id="1_iw5l3"]
 [ext_resource type="TileSet" uid="uid://dgiblynq45t43" path="res://tiles/world.tres" id="1_o6142"]
 [ext_resource type="PackedScene" uid="uid://bbn6dra2pvtps" path="res://UI/overlay_main.tscn" id="2_amll8"]
 [ext_resource type="PackedScene" uid="uid://ds000xgkjyli1" path="res://entities/player.tscn" id="3_770am"]
+[ext_resource type="PackedScene" uid="uid://bidqq2fwbsvna" path="res://UI/window_game_over.tscn" id="5_amll8"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iw5l3"]
 
@@ -36,3 +37,8 @@ tile_set = ExtResource("1_o6142")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
+
+[node name="GameOverLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="GameOver" parent="GameOverLayer" instance=ExtResource("5_amll8")]

@@ -10,10 +10,6 @@ func _ready() -> void:
 	EventController.connect("gumbo_down", gumbo_defeated)
 	$Node2D/Fire/AudioStreamPlayer2D.stop()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func gumbo_defeated() -> void:
 	is_gumbo_defeated = true
 
@@ -31,9 +27,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		GameManager.enable_input()
 
 func save_progress() -> void:
-	if next_level_name == "":
-		return
+	if next_level_name != "":
+		update_level_complete_flag()
+	SaveManager.save_game() # Unconditionally save game here to update codex entries
+	return
+
+func update_level_complete_flag() -> void:
 	var level_complete_flag : StringName = "unlocked_lvl_" + next_level_name
 	SaveManager.save_data[level_complete_flag] = true
-	SaveManager.save_game()
-	return
