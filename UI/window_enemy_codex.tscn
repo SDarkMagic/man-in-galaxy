@@ -80,6 +80,7 @@ theme_override_constants/separation = 3
 layout_mode = 2
 text = "Enemy Name"
 label_settings = SubResource("LabelSettings_6bsb4")
+autowrap_mode = 2
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

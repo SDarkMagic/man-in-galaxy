@@ -88,6 +88,8 @@ position = Vector2(18818, -1076)
 
 [node name="platform_floating3" parent="." index="22" instance=ExtResource("8_sm5cp")]
 position = Vector2(19460, -744)
+move_speed = 70.0
+top_travel_max = 100.0
 
 [node name="Enemy_Phish" parent="." index="23" instance=ExtResource("9_skdbn")]
 position = Vector2(18951, -1587)
@@ -172,7 +174,7 @@ position = Vector2(17191, -990)
 position = Vector2(20446, -986)
 
 [node name="Goal" parent="." index="50" instance=ExtResource("11_1gsa1")]
-position = Vector2(21453, -1140)
+position = Vector2(21464, -1188)
 target_scene = ExtResource("12_kc7ts")
 next_level_name = "3"
 

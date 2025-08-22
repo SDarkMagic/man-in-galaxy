@@ -17,12 +17,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is not Player:
 		return
 	GameManager.disable_input()
+	body.is_invuln = true
 	body.hide()
 	$Node2D/Sprite2D/AnimationPlayer.play("launch")
 	self.save_progress()
 	await GameManager.wait($Node2D/Sprite2D/AnimationPlayer.get_animation("launch").get_length() + 0.5)
 	self.emit_signal("level_complete")
-	if not is_gumbo_defeated:
+	if target_scene:
 		GameManager.load_scene(target_scene)
 		GameManager.enable_input()
 

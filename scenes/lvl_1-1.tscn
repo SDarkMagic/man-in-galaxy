@@ -202,5 +202,5 @@ next_level_name = "2"
 
 [node name="Start" parent="." index="60" instance=ExtResource("14_rm1pc")]
 position = Vector2(259, 499)
-open_cutscene = "uid://pbywydd8fvql"
+open_cutscene = "uid://v2ced0eguqr3"
 current_level_name = "lvl_1_1"
