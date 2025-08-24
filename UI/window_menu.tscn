@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://46wfjjwkuin1"]
+[gd_scene load_steps=8 format=3 uid="uid://46wfjjwkuin1"]
 
 [ext_resource type="AudioStream" uid="uid://cwpwid2pvks0s" path="res://sound/music/menu_main.mp3" id="1_1vcdi"]
 [ext_resource type="Script" uid="uid://bapfg84dnd6kg" path="res://scripts/window_menu.gd" id="1_628uq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ccwmal60k0qjv" path="res://UI/menu_lvl_select.tscn" id="3_628uq"]
 [ext_resource type="Texture2D" uid="uid://8xs6atimta3o" path="res://sprites/bg_level_select.png" id="3_ac1nt"]
 [ext_resource type="PackedScene" uid="uid://bquk2ugrsvyad" path="res://UI/menu_enemy_codex.tscn" id="5_ac1nt"]
+[ext_resource type="PackedScene" uid="uid://bnsdt3s1adxic" path="res://UI/menu_settings.tscn" id="7_f3fmu"]
 
 [node name="MenuWindow" type="Control"]
 layout_mode = 3
@@ -34,4 +35,9 @@ layout_mode = 1
 layout_mode = 1
 
 [node name="EnemyCodex" parent="." instance=ExtResource("5_ac1nt")]
+layout_mode = 1
+offset_left = 1920.0
+offset_right = 1920.0
+
+[node name="WindowSettings" parent="." instance=ExtResource("7_f3fmu")]
 layout_mode = 1

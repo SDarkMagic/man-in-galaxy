@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvut34ful2bml"]
+
+[ext_resource type="PackedScene" uid="uid://dd5r36rgyo06c" path="res://UI/ui_audio_slider.tscn" id="1_jidnu"]
+[ext_resource type="Script" uid="uid://6cd5f4rd5vpe" path="res://scripts/ui_audio_controls.gd" id="1_u2o2g"]
+
+[node name="AudioControls" type="Control"]
+custom_minimum_size = Vector2(1000, 354)
+layout_mode = 3
+anchor_right = 0.521
+anchor_bottom = 0.328
+offset_right = -0.320068
+offset_bottom = 18.76
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u2o2g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Master" parent="VBoxContainer" instance=ExtResource("1_jidnu")]
+layout_mode = 2
+slider_label = "Master Volume"
+audio_bus = &"Master"
+
+[node name="Music" parent="VBoxContainer" instance=ExtResource("1_jidnu")]
+visible = false
+layout_mode = 2
+slider_label = "Music Volume"
+audio_bus = &"Music"
+
+[node name="Sound Effects" parent="VBoxContainer" instance=ExtResource("1_jidnu")]
+layout_mode = 2
+slider_label = "Sound Effect Volume"
+audio_bus = &"Sound_Effects"

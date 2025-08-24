@@ -1,11 +1,18 @@
 extends Node
 
+enum window_types {WINDOWED, FULLSCREEN, BORDERLESS}
+
 var coins_collected : int = 0
 const PLAYER_TOTAL_HEALTH : int = 3
 const MAX_HELMET_HEALTH : int = 7
 const DEFAULT_GRAVITY: float  = 980.0
 var player_current_health : int = PLAYER_TOTAL_HEALTH
 var runtime_gamedata_flags : Dictionary
+const controllable_audio_busses : Array[String] = [
+	"Music",
+	"Sound_Effects",
+	"Master"
+]
 var persistent_gamedata_flags : Dictionary:
 	get:
 		return SaveManager.save_data
@@ -58,6 +65,8 @@ func _ready() -> void:
 	EventController.connect("reload_scene", reload_scene)
 	EventController.connect("game_over", game_over)
 	SaveManager.load_save()
+	_update_volume_mix()
+	_set_window_mode_from_save()
 
 func disable_input() -> void:
 	EventController.emit_signal("hide_ui")
@@ -71,6 +80,38 @@ func to_main_menu() -> void:
 	var menu_scene = preload("res://UI/window_menu.tscn")
 	load_scene(menu_scene)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func change_volume_for_bus(bus_name: String, volume: float) -> void:
+	if bus_name not in controllable_audio_busses:
+		push_error("Invalid audio bus name")
+		return
+	persistent_gamedata_flags["Volume_" + bus_name] = volume
+	_update_volume_mix()
+
+func _update_volume_mix() -> void:
+	var current_bus_volume_flag : String
+	for bus in controllable_audio_busses:
+		current_bus_volume_flag = "Volume_" + bus
+		if current_bus_volume_flag not in persistent_gamedata_flags.keys():
+			continue
+		var bus_index : int = AudioServer.get_bus_index(bus)
+		if bus_index == -1:
+			push_error("Attempted to access invalid audio bus: {0}".format([bus]))
+			continue
+		AudioServer.set_bus_volume_linear(bus_index, persistent_gamedata_flags[current_bus_volume_flag])
+
+func _set_window_mode_from_save() -> void:
+	if "window_mode" not in persistent_gamedata_flags.keys():
+		return
+	change_window_type(persistent_gamedata_flags["window_mode"])
+
+func change_window_type(window_type: window_types) -> void:
+	persistent_gamedata_flags["window_mode"] = window_type
+	match window_type:
+		window_types.WINDOWED:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_flag(DisplayServer.WindowFlags.WINDOW_FLAG_BORDERLESS, false)
+		window_types.FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+		window_types.BORDERLESS:
+			DisplayServer.window_set_flag(DisplayServer.WindowFlags.WINDOW_FLAG_BORDERLESS, true)
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)

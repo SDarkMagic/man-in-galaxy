@@ -1,0 +1,150 @@
+[gd_scene load_steps=11 format=3 uid="uid://bnsdt3s1adxic"]
+
+[ext_resource type="Script" uid="uid://c5mal44xlqmf3" path="res://scripts/window_settings.gd" id="1_jcve1"]
+[ext_resource type="Texture2D" uid="uid://cp7qjgbd5oalp" path="res://UI/icons/btn_back_arrow.png" id="2_84l4u"]
+[ext_resource type="Texture2D" uid="uid://cgf3ifu1nkadv" path="res://UI/icons/btn_back_arrow_hover.png" id="3_25wlh"]
+[ext_resource type="Texture2D" uid="uid://cm4p4b3f0ugvf" path="res://UI/icons/btn_back_arrow_selected.png" id="4_78fv5"]
+[ext_resource type="Theme" uid="uid://bqe07dd6uhwpd" path="res://UI/theme_main.tres" id="5_wgyuh"]
+[ext_resource type="PackedScene" uid="uid://dvut34ful2bml" path="res://UI/ui_audio_controls.tscn" id="6_vm01u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyse6"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id="Animation_wqn67"]
+resource_name = "slide_in"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.5, 2),
+"update": 0,
+"values": [Vector2(1920, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x0m3l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.5),
+"update": 0,
+"values": [Vector2(1920, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_732rx"]
+_data = {
+&"RESET": SubResource("Animation_x0m3l"),
+&"slide_in": SubResource("Animation_wqn67")
+}
+
+[node name="Menuettings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1920.0
+offset_right = 1920.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jcve1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VolumeLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_wgyuh")
+theme_type_variation = &"HeaderLarge"
+text = "Volume Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxFlat_hyse6")
+
+[node name="AudioControls" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_vm01u")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxFlat_hyse6")
+
+[node name="WindowModeLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_wgyuh")
+theme_type_variation = &"HeaderLarge"
+text = "Window Mode"
+horizontal_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(640, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_wgyuh")
+text_overrun_behavior = 1
+item_count = 3
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+popup/item_2/text = "Borderless Windowed"
+popup/item_2/id = 2
+
+[node name="BackButton" type="TextureButton" parent="MarginContainer"]
+custom_minimum_size = Vector2(233, 131)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("2_84l4u")
+texture_hover = ExtResource("3_25wlh")
+texture_focused = ExtResource("4_78fv5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_732rx")
+}
+
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

@@ -22,6 +22,8 @@ func animate() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Do necessary AI calcs here for enemy
+	if is_dead:
+		return
 	velocity = self.apply_gravity(velocity, delta)
 	velocity = move(velocity, delta)
 	move_and_slide()
@@ -42,9 +44,13 @@ func _ready() -> void:
 
 func kill():
 	is_dead = true
+	GameManager.disable_input()
+	await play_death_sound()
 	$Sprite2D/AnimationPlayer.play("dead")
+	$Explosion.explode()
 	await GameManager.wait($Sprite2D/AnimationPlayer.get_animation("dead").length + 1)
 	EventController.emit_signal("gumbo_down")
+	GameManager.enable_input()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -69,3 +75,9 @@ func _on_projectile_cooldown_timeout() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("Body enterd gumbo hitbox")
+	if body is Player:
+		if body.context_action_active:
+			return
+		$Area2D.set_deferred("monitoring", false)
+		$Area2D.hide()
+		kill()

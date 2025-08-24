@@ -7,6 +7,8 @@ func _ready() -> void:
 	$LevelSelect/BackButton.pressed.connect(from_level_select_to_main)
 	$MainMenu/MarginContainer/VBoxContainer/CodexButton.pressed.connect(from_main_to_codex)
 	$EnemyCodex/MarginContainer/VBoxContainer/HBoxContainer/BackButton.pressed.connect(from_codex_to_main)
+	$WindowSettings/MarginContainer/BackButton.pressed.connect(from_settings_to_main)
+	$MainMenu/MarginContainer/SettingsButton.pressed.connect(from_main_to_settings)
 
 func from_main_to_level_select() -> void:
 	$MainMenu.slide_out()
@@ -22,4 +24,12 @@ func from_main_to_codex() -> void:
 
 func from_codex_to_main() -> void:
 	$EnemyCodex.slide_out()
+	$MainMenu.slide_in()
+
+func from_main_to_settings() -> void:
+	$MainMenu.slide_out()
+	$WindowSettings.slide_in()
+	
+func from_settings_to_main() -> void:
+	$WindowSettings.slide_out()
 	$MainMenu.slide_in()

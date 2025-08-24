@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4hctngwv1g7t"]
+[gd_scene load_steps=9 format=3 uid="uid://c4hctngwv1g7t"]
 
 [ext_resource type="Theme" uid="uid://bqe07dd6uhwpd" path="res://UI/theme_main.tres" id="1_bp7uk"]
 [ext_resource type="Script" uid="uid://ck3fx5ftr8c3g" path="res://scripts/menu_main.gd" id="1_drywy"]
 [ext_resource type="Texture2D" uid="uid://kjqlsl2xqjdm" path="res://UI/logo_title.png" id="2_0ouc6"]
+[ext_resource type="Texture2D" uid="uid://dycsahvxrkof1" path="res://UI/icons/btn_gear.png" id="4_q1h48"]
+[ext_resource type="Texture2D" uid="uid://b6xa27u3vtb5h" path="res://UI/icons/btn_gear_hover.png" id="5_juv7s"]
 
 [sub_resource type="Animation" id="Animation_eej5t"]
 length = 0.001
@@ -91,6 +93,18 @@ theme_override_font_sizes/font_size = 72
 action_mode = 0
 text = "Enemy Codex"
 icon_alignment = 1
+
+[node name="SettingsButton" type="TextureButton" parent="MarginContainer"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture_normal = ExtResource("4_q1h48")
+texture_pressed = ExtResource("4_q1h48")
+texture_hover = ExtResource("5_juv7s")
+texture_focused = ExtResource("5_juv7s")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

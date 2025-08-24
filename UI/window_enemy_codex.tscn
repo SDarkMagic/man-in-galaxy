@@ -78,6 +78,8 @@ theme_override_constants/separation = 3
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_b4n12")
+theme_type_variation = &"HeaderLarge"
 text = "Enemy Name"
 label_settings = SubResource("LabelSettings_6bsb4")
 autowrap_mode = 2
