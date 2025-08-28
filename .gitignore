@@ -4,3 +4,4 @@
 dist/*
 *.dll
 *.mp4
+/dist
