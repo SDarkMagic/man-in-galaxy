@@ -22,8 +22,7 @@ func _ready() -> void:
 		
 func play_cutscene() -> void:
 	var player : VideoStreamPlayer = $CanvasLayer/VideoStreamPlayer
-	var video : VideoStreamTheora = VideoStreamTheora.new()
-	video.file = open_cutscene
+	var video : VideoStreamTheora = load(open_cutscene)
 	player.stream = video
 	player.finished.connect(cutscene_playback_finished.bind(player))
 	player.play()

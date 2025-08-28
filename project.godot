@@ -10,10 +10,13 @@ config_version=5
 
 [application]
 
-config/name="man in galaxy"
-run/main_scene="uid://oapbs8hbk3yx"
+config/name="Lard's Adventure"
+config/version="24.08.25"
+run/main_scene="uid://46wfjjwkuin1"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://biohakdcmyl18"
 config/icon="res://sprites/icon.svg"
 
 [autoload]

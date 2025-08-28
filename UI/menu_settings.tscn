@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnsdt3s1adxic"]
+[gd_scene load_steps=12 format=3 uid="uid://bnsdt3s1adxic"]
 
 [ext_resource type="Script" uid="uid://c5mal44xlqmf3" path="res://scripts/window_settings.gd" id="1_jcve1"]
 [ext_resource type="Texture2D" uid="uid://cp7qjgbd5oalp" path="res://UI/icons/btn_back_arrow.png" id="2_84l4u"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cm4p4b3f0ugvf" path="res://UI/icons/btn_back_arrow_selected.png" id="4_78fv5"]
 [ext_resource type="Theme" uid="uid://bqe07dd6uhwpd" path="res://UI/theme_main.tres" id="5_wgyuh"]
 [ext_resource type="PackedScene" uid="uid://dvut34ful2bml" path="res://UI/ui_audio_controls.tscn" id="6_vm01u"]
+[ext_resource type="PackedScene" uid="uid://dlbm6us4oxxs4" path="res://UI/menu_controls.tscn" id="7_84l4u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyse6"]
 bg_color = Color(1, 1, 1, 1)
@@ -18,6 +19,21 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id="Animation_x0m3l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.5),
+"update": 0,
+"values": [Vector2(1920, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_wqn67"]
 resource_name = "slide_in"
@@ -33,21 +49,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(0.5, 2),
 "update": 0,
 "values": [Vector2(1920, 0), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_x0m3l"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(0.5),
-"update": 0,
-"values": [Vector2(1920, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_732rx"]
@@ -130,6 +131,23 @@ popup/item_1/id = 1
 popup/item_2/text = "Borderless Windowed"
 popup/item_2/id = 2
 
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxFlat_hyse6")
+
+[node name="ControlsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(640, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_wgyuh")
+theme_override_font_sizes/font_size = 72
+action_mode = 0
+text = "Controls"
+icon_alignment = 1
+
 [node name="BackButton" type="TextureButton" parent="MarginContainer"]
 custom_minimum_size = Vector2(233, 131)
 layout_mode = 2
@@ -141,10 +159,15 @@ texture_focused = ExtResource("4_78fv5")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="MenuControls" parent="." instance=ExtResource("7_84l4u")]
+visible = false
+layout_mode = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_732rx")
 }
 
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
 [connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

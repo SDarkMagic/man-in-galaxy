@@ -8,8 +8,8 @@ var level_start : Vector2 = Vector2(750.0, -4570.0)
 func _ready() -> void:
 	EventController.connect("level_start", start_music_playback)
 	EventController.connect("game_over", stop_music_playback)
-	#EventController.emit_signal("level_start",level_start)
-	EventController.emit_signal("level_start", Vector2(17000.0, -5500.0)) # Start at Great Gumbo fight
+	EventController.emit_signal("level_start",level_start)
+	#EventController.emit_signal("level_start", Vector2(17000.0, -5500.0)) # Start at Great Gumbo fight
 	$Goal.connect("level_complete", play_cutscene)
 
 func play_cutscene() -> void:

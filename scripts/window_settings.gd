@@ -19,3 +19,7 @@ func _on_option_button_item_selected(index: int) -> void:
 
 func _on_back_button_pressed() -> void:
 	SaveManager.save_game() # Save the game to update the settings stored in the save file
+
+
+func _on_controls_button_pressed() -> void:
+	$MenuControls.show()
