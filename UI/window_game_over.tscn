@@ -56,4 +56,5 @@ text = "Quit to Title"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_gxrme")
+volume_db = -8.432
 bus = &"Music"
