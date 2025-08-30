@@ -21,7 +21,7 @@ func _setup_buttons() -> void:
 func open_codex_for_enemy(enemy_name: String) -> void:
 	var msg_enemy_tag : String = "ENEMY_CODEX_" + enemy_name.to_upper()
 	var window = $window_enemy_codex
-	var enemy_image : Texture2D = load(String("res://ui/icons/enemy_" + enemy_name + ".png"))
+	var enemy_image : Texture2D = load(String("res://UI/icons/enemy_" + enemy_name + ".png"))
 	window.tag_name = msg_enemy_tag + "_NAME"
 	window.tag_desc = msg_enemy_tag + "_DESC"
 	window.portrait = enemy_image
