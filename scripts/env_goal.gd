@@ -5,12 +5,15 @@ signal level_complete()
 @export var next_level_name : String
 var is_gumbo_defeated : bool = false
 
+signal disable_goal()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	EventController.connect("gumbo_down", gumbo_defeated)
 	$Node2D/Fire/AudioStreamPlayer2D.stop()
 
 func gumbo_defeated() -> void:
+	$Node2D/Area2D.set_deferred("monitoring", true)
 	is_gumbo_defeated = true
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -36,3 +39,7 @@ func save_progress() -> void:
 func update_level_complete_flag() -> void:
 	var level_complete_flag : StringName = "unlocked_lvl_" + next_level_name
 	SaveManager.save_data[level_complete_flag] = true
+
+
+func _on_disable_goal() -> void:
+	$Node2D/Area2D.set_deferred("monitoring", false)

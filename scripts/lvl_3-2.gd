@@ -1,6 +1,7 @@
 extends "res://scripts/level_manager.gd"
 
 var level_start : Vector2 = Vector2(750.0, -4570.0)
+var seen_boss_intro : bool = false
 @export var gumbo_theme : AudioStream
 @export_file("*.ogv") var end_cutscene : String = ""
 
@@ -10,6 +11,7 @@ func _ready() -> void:
 	EventController.connect("game_over", stop_music_playback)
 	EventController.emit_signal("level_start",level_start)
 	#EventController.emit_signal("level_start", Vector2(17000.0, -5500.0)) # Start at Great Gumbo fight
+	$Goal.emit_signal("disable_goal")
 	$Goal.connect("level_complete", play_cutscene)
 
 func play_cutscene() -> void:
@@ -45,8 +47,9 @@ func _on_fire_death_box_body_entered(body: Node2D) -> void:
 
 
 func _on_boss_area_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if body is Player and not seen_boss_intro:
 		# Send signal to start bss fight sequence
+		seen_boss_intro = true # Prevent this from playing multiple times
 		var pan_duration : float = 0.9
 		var target_pos : Vector2 = $BossArea.global_position
 		target_pos.x += 650
@@ -62,4 +65,3 @@ func _on_boss_area_body_entered(body: Node2D) -> void:
 		$BossArea.monitoring = false
 		$Enemy_Gumbo.paused = false
 		GameManager.enable_input()
-	pass # Replace with function body.

@@ -164,4 +164,5 @@ scale = Vector2(1.14485, 2.14485)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
+[connection signal="disable_goal" from="." to="." method="_on_disable_goal"]
 [connection signal="body_entered" from="Node2D/Area2D" to="." method="_on_area_2d_body_entered"]
