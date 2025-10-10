@@ -72,11 +72,17 @@ func _process(delta: float) -> void:
 func _calc_attack_path() -> void:
 	var start_pos : Vector2 = $FluidOutlet.global_position
 	var target_pos : Vector2 = $"../Player".global_position
-	var distance_x : float = target_pos.x - start_pos.x
+	var segment_delta : Vector2 = target_pos - start_pos
+	var segment_slope : float = segment_delta.y / segment_delta.x
+	var vertex_scalar : float = 1.0 + segment_delta.normalized().dot(Vector2.UP)
+	var distance_x : float = segment_delta.x
+	
+	var visual_line : Line2D = _create_beam(start_pos)
+	
+	# Initialize loop variables
 	var current_pos_x : float = 0.0
 	var current_pos_y : float = 0.0
 	var current_segment : int = 1
-	var visual_line : Line2D = _create_beam(start_pos)
 	var current_target_x : float
 	var current_target_y : float
 	var current_target : Vector2
@@ -84,9 +90,10 @@ func _calc_attack_path() -> void:
 	var ray_distance_y : float
 	var ray_distance_x : float
 	var current_ray_distance : float
+	active_beams.append(visual_line)
 	while current_segment <= raycast_segments:
 		current_target_x = (distance_x / raycast_segments) * current_segment
-		current_target_y = (2 / (abs(0.0) + abs(distance_x))) * (current_target_x - 0.0) * (current_target_x - distance_x)
+		current_target_y = (2 * vertex_scalar / (abs(0.0) + abs(distance_x))) * (current_target_x - 0.0) * (current_target_x - distance_x) + (current_target_x * segment_slope)
 		current_target = Vector2(current_target_x, current_target_y)
 		visual_line.add_point(current_target)
 		current_raycast = _create_raycast_for_beam(Vector2(current_pos_x, current_pos_y), current_target, visual_line)
@@ -100,8 +107,8 @@ func _calc_attack_path() -> void:
 		current_pos_y = current_target_y
 		current_segment += 1
 		await GameManager.wait(0.0003 * current_ray_distance)
-	active_beams.append(visual_line)
 	await GameManager.wait(beam_lifetime)
+	# Ensure the beam wasn't deleted by something else during it's lifetime before deleting it
 	var beam_index = active_beams.find(visual_line)
 	if beam_index != -1:
 		active_beams.pop_at(beam_index)
